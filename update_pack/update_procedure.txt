@@ -1,0 +1,12 @@
+Update instructions from version 2.4 to 3.0 -
+PLEASE READ AND FOLLOW THE STEPS VERY CAREFULLY.
+Before starting, keep a backup of files and database of your running 2.4 version. So that there will be no fear of losing data.
+1. First, Go to your application > config > database.php file. Keep a backup of the database.php. It will be needed after couple of steps.
+2. Go to the folder update_pack and open the application folder. Copy all the files and folder inside application folder. 
+3. Replace the existing applications files and folder with the copied application files and folder. Which you have copied on step 2.
+4. Now put back the database.php file inside application > config. Which you have backed up on the first step.
+5. If you have done this so far, it's time to update the database. Go to the application's phpmyadmin and open the database.
+6. Import the update_3.0.sql file. It will update your database.
+That's it.
+
+If you face any issue during updating the application to version 3.0. Let us know through ticket.
