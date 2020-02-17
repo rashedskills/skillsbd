@@ -246,6 +246,16 @@ $(document).ready(function(){
         ]
     });
 
+    $('.student-say').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        swipe: false,
+        touchMove: false
+    });
+
 
     //tinymce editor
     tinymce.init({

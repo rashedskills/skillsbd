@@ -1,5 +1,3 @@
-
-
 html {
     color: #222;
     font-size: 1em;
@@ -40,8 +38,8 @@ input[type="button"]{
     -ms-webkit-transition: all 0.3s;
 }
 a{
-    /* color: #007791; */
-    color: #A64AC9;
+    /* color: #0042a9; */
+    color: #0042a9;
 }
 a:hover{
     text-decoration: none;
@@ -397,9 +395,9 @@ menu code was here
     line-height: 1.35135;
     border-radius: 2px;
     width: 100%;
-    color: #007791;
+    color: #0042a9;
     background-color: #fff;
-    border: 1px solid #007791;
+    border: 1px solid #0042a9;
 }
 .course-list-dropdown .item-list .item .item-details button:hover,
 .course-list-dropdown .item-list .item .item-details button:focus {
@@ -413,7 +411,7 @@ menu code was here
     width: 100%;
     border: 0;
     color: #fff;
-    background-color: #007791;
+    background-color: #0042a9;
     padding: 11px 12px;
     font-size: 15px;
     line-height: 1.43;
@@ -461,7 +459,7 @@ menu code was here
 }
 .notifications-list-dropdown .notifications-footer a,
 .notifications-list-dropdown .notifications-footer button {
-    color: #007791;
+    color: #0042a9;
     font-size: 13px;
     font-weight: 600;
     padding: 20px 15px;
@@ -555,11 +553,11 @@ menu code was here
     position: absolute;
     height: 10px;
     width: 10px;
-    border: 1px solid #007791;
+    border: 1px solid #0042a9;
     border-radius: 50%;
     top: 2px;
     right: -3px;
-    background: #007791;
+    background: #0042a9;
 }
 .notification-list .notification .mark-as-read.marked {
     border-color: rgba(41,48,59,.25);
@@ -591,7 +589,7 @@ menu code was here
     padding: 10px 22px;
 }
 .user-dropdown-menu li a:hover {
-    color: #007791;
+    color: #0042a9;
     background: #f2f3f5;
 }
 .user-dropdown-menu li a i {
@@ -804,11 +802,11 @@ menu code was here
 .sign-in-modal .custom-control-input:hover~.custom-control-label::before,
 .sign-in-modal .custom-control-input:focus~.custom-control-label::before {
     box-shadow: 0 0 0 0px #fff, 0 0 0 0 rgba(0,123,255,.25);
-    border-color: #007791;
+    border-color: #0042a9;
 }
 .sign-in-modal .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #007791;
-    border-color: #007791;
+    background-color: #0042a9;
+    border-color: #0042a9;
 }
 .sign-in-modal form button[type="submit"]{
     color: #fff;
@@ -1012,6 +1010,8 @@ homepage styles
     border-radius: 0 3px 3px 0;
     /* color: #ec5252; */
     color: #ffd723; 
+    border-radius: 2px;
+}
 }
 .home-banner-wrap .btn:hover{
     background: #ffd723;
@@ -1050,7 +1050,28 @@ homepage styles
 
 
 
-
+.student-say .slick-next:before {
+    content: url(../img/icons/next_arrow.png);
+    line-height: 0;
+    opacity: 1;
+}
+.student-say .slick-next {
+    right: -15px !important;
+}
+.student-say .slick-prev, .student-say .slick-next {
+    width: 47px !important;
+    height: 47px !important;
+    border-radius: 50% !important;
+    background-color: #fff !important;
+    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1) !important;
+    z-index: 1 !important;
+    top: calc( 50% - 25px) !important;
+}
+.student-say .slick-prev:before {
+    content: url(../img/icons/prev_arrow.png);
+    line-height: 0;
+    opacity: 1;
+}
 
 
 .course-carousel-area{
@@ -1277,7 +1298,7 @@ homepage styles
 }
 
 .course-box .course-details .completed-percent .progress-bar{
-    background: #007791;
+    background: #0042a9;
 }
 .course-box .course-details .completed-percent .progress {
     border-radius: 0;
@@ -1903,7 +1924,7 @@ course content
     background: linear-gradient(hsla(0,0%,100%,0),hsla(0,0%,100%,.95),#fff);
     display: block;
     padding: 30px 3px 3px 3px;
-    color: #A64AC9;
+    color: #0042a9;
     cursor: pointer;
     z-index: 5;
 }
@@ -1914,7 +1935,7 @@ course content
     width: 100%;
     display: block;
     padding: 3px 3px 3px 3px;
-    color: #A64AC9;
+    color: #0042a9;
     cursor: pointer;
 }
 .view-more-parent.expanded{
@@ -2298,7 +2319,7 @@ course content
 .student-feedback-box .individual-rating li > div:not(.progress) span:not(.rating) {
     text-align: center;
     padding-left: 10px;
-    color: #007791;
+    color: #0042a9;
 }
 .student-feedback-box .reviews .reviews-title {
     font-size: 18px;
@@ -2356,8 +2377,8 @@ course content
 
 .reviews .more-reviews-btn button {
     border-radius: 2px;
-    border: 2px solid #007791;
-    color: #007791;
+    border: 2px solid #0042a9;
+    color: #0042a9;
     background: #fff;
     padding: 11px 12px;
     font-size: 15px;
@@ -2423,7 +2444,7 @@ course content
     left: 22px;
     font-size: 10px;
     top: 16px;
-    color: #007791;
+    color: #0042a9;
 }
 
 .course-curriculum-accordion .lecture-group-title[aria-expanded="false"]:before {
@@ -2482,7 +2503,7 @@ course content
     top: 17px;
 }
 .course-curriculum-accordion .lecture-list .lecture.has-preview {
-    color: #007791;
+    color: #0042a9;
 }
 .course-curriculum-accordion .lecture-list .lecture.has-preview .lecture-title,
 .course-curriculum-accordion .lecture-list .lecture.has-preview .lecture-preview{
@@ -2558,8 +2579,8 @@ section.category-course-list-area {
 
 .filter-box .btn {
     border-radius: 2px;
-    border-color: #007791;
-    color: #007791;
+    border-color: #0042a9;
+    color: #0042a9;
     font-weight: 600;
     font-size: 15px;
     padding: 10px 12px;
@@ -2574,8 +2595,8 @@ section.category-course-list-area {
 .filter-box .btn:hover,
 .filter-box .btn:focus {
     background: #fff !important;
-    color: #007791 !important;
-    border-color: #007791 !important;
+    color: #0042a9 !important;
+    border-color: #0042a9 !important;
 }
 
 .filter-box .btn[aria-expanded="true"] {
@@ -2733,8 +2754,8 @@ section.category-course-list-area {
 Instructor page
 */
 section.instructor-header-area {
-    /* background-color: #007791; */
-    background-color: #A64AC9;
+    /* background-color: #0042a9; */
+    background-color: #0042a9;
     color: #fff;
     padding: 10px 0;
 }
@@ -2822,8 +2843,8 @@ ul.pagination .page-item.disabled .page-link {
 }
 ul.pagination .page-item.active a,
 ul.pagination .page-item.active .page-link {
-    /* background-color: #007791;
-    border-color: #007791;
+    /* background-color: #0042a9;
+    border-color: #0042a9;
     color: #fff; */
     background-color: #36373c;
     border-color: #2a2a2a;
@@ -2831,7 +2852,7 @@ ul.pagination .page-item.active .page-link {
 }
 ul.pagination .page-item a,
 ul.pagination .page-item .page-link {
-    /* color: #007791; */
+    /* color: #0042a9; */
     color: #36373c;
     padding: 10px 15px;
     font-size: 17px;
@@ -2860,7 +2881,7 @@ Notifications page
 
 section.page-header-area {
     padding: 10px 0 30px;
-    background: #A64AC9;
+    background: #0042a9;
     color: #fff;
 }
 
@@ -2879,7 +2900,7 @@ section.page-header-area .page-subtitle {
 .notifications-list-area .notifications-footer .mark-all-read {
     border: 0;
     background: none;
-    color: #007791;
+    color: #0042a9;
 }
 .notifications-list-area .notifications-footer .mark-all-read:hover {
     color: #003845;
@@ -2961,9 +2982,9 @@ section.my-courses-area {
 .my-courses-area .my-course-search-bar .input-group-append button:hover,
 .my-courses-area .my-course-search-bar .input-group-append button:focus,
 .my-courses-area .my-course-search-bar input:focus + .input-group-append button {
-    background: #007791;
+    background: #0042a9;
     color: #fff;
-    border-color: #007791;
+    border-color: #0042a9;
 }
 .my-courses-area .row.no-gutters{
     margin-top: 50px;
@@ -3066,13 +3087,13 @@ section.my-courses-area {
     border-color: #992337 !important;
 }
 .edit-rating-modal .modal-footer button.previous {
-    color: #007791;
+    color: #0042a9;
     background-color: #fff;
-    border-color: #007791;
+    border-color: #0042a9;
 }
 .edit-rating-modal .modal-footer button.previous:hover,.edit-rating-modal .modal-footer button.previous:focus {
     background-color: #e6f2f5 !important;
-    border-color: #007791 !important;
+    border-color: #0042a9 !important;
 }
 
 
@@ -3242,7 +3263,7 @@ section.cart-list-area {
     position: relative;
 }
 .cart-course-wrapper .move-remove div {
-    color: #007791;
+    color: #0042a9;
     cursor: pointer;
     font-size: 13px;
     margin-bottom: 3px;
@@ -3310,8 +3331,8 @@ section.cart-list-area {
 }
 .cart-sidebar .coupon-field button {
     border-radius: 2px;
-    background-color: #007791;
-    border-color: #007791;
+    background-color: #0042a9;
+    border-color: #0042a9;
     color: #fff;
     font-weight: 600;
     font-size: 15px;
@@ -3535,9 +3556,9 @@ my message page
     padding-top: 10px;
 }
 .message-sender-list-box .compose-btn {
-    color: #007791;
+    color: #0042a9;
     background-color: #fff;
-    border-color: #007791;
+    border-color: #0042a9;
     padding: 11px 12px;
     font-size: 15px;
     border-radius: 2px;
@@ -3728,7 +3749,7 @@ my message page
 .new-message-details .message-body .cancel-btn {
     border: none;
     background: no-repeat;
-    color: #007791;
+    color: #0042a9;
 }
 .new-message-details .message-body textarea {
     min-height: 100px;
@@ -3790,7 +3811,7 @@ span.select2-results ul li.select2-results__option--highlighted,
     box-shadow: 0 0 0;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #007791;
+    background-color: #0042a9;
     color: white;
 }
 
@@ -3839,9 +3860,9 @@ section.purchase-history-list-area {
     color: #003845;
 }
 .purchase-history-list .purchase-history-detail .btn-receipt {
-    color: #007791;
+    color: #0042a9;
     background-color: #fff;
-    border: 1px solid #007791;
+    border: 1px solid #0042a9;
     padding: 2px 8px;
     font-size: 13px;
     line-height: 1.35135;
@@ -3989,7 +4010,7 @@ footer style
     width: 100%;
     border: 0;
     color: #fff;
-    background-color: #007791;
+    background-color: #0042a9;
     padding: 11px 12px;
     font-size: 15px;
     line-height: 1.43;
@@ -4007,7 +4028,7 @@ footer style
     width: 100%;
     border: 0;
     color: #fff;
-    background-color: #007791;
+    background-color: #0042a9;
     padding: 11px 12px;
     font-size: 15px;
     line-height: 1.43;
@@ -4167,3 +4188,8 @@ background-color: #ffffff;
 border-color: #992337;
 color: #2a303b;
 }
+
+.why-choose-us{
+    background-color: #ffffff !important;
+}
+

@@ -276,8 +276,8 @@
 </div>
 </div>
 </section>
-
-<section class="mb-5">
+<div class="mb-5"></div>
+<section class="mb-5 py-5 why-choose-us">
 <div class="container-lg">
     <div class="row mb-4">
         <div class="col">
@@ -314,7 +314,7 @@
         <div class="col-md-10 col-sm-12">
             <div class="row home-fact-box">
                 <div class="col-md-6 col-lg-6 col-sm-12">
-                    <img src="assets/frontend/default/img/course_rating_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
+                    <img src="assets/frontend/default/img/course-rating-and -review.png" alt="course_video_player_skillsbd" class="img-fluid">
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
                     <h4 class="mb-3">Course progress followup, Review course</h4>                          
@@ -332,14 +332,73 @@
                     <p class="">In skillsbd.com, All instructor are specialist in their fields. Instructor's has huge experience and friendly to communicate with students.</p>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12">
-                    <img src="assets/frontend/default/img/messaing_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
+                    <img src="assets/frontend/default/img/instructors-community.png" alt="instructor_skillsbd" class="img-fluid">
                 </div>
             </div>
         </div>                          
     </div>
 </div>
 </section>
+<!-- testimonial -->
 
+<section class="mb-5 py-5 course-carousel-area">
+    <div class="container-lg">
+        <div class="col mb-5">
+            <h3 class="text-center">What our student's say?</h3> 
+        </div>               
+        <div class="row">
+            <div class="col">
+                <div class="student-say">
+                    <div class="course-box-wrap">                        
+                            <div class="card">
+                            <div class="card-body">                                
+                                <q class="card-text"> Skillbd is a life saver. I don't have the time or money for a college education. My goal is to become a freelance web developer, and thanks to Skiilsbd, I'm really close.. </q>
+                                <div class="row pt-3">
+                                <img class="rounded-circle pull-left ml-2" height="50" weight="50" src="assets/frontend/default/img/student-avatar.png" alt="classroom learning in bangladesh">
+                                <strong class="card-title pull-left p-3"> Jenifar Yesmin</strong>
+                            </div>
+                            </div>
+                            </div>                    
+                    </div>
+                    <div class="course-box-wrap">                    
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            </div>                        
+                    </div>
+                    <div class="course-box-wrap">                        
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            </div>                    
+                    </div>
+                    <div class="course-box-wrap">                    
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            </div>                    
+                    </div> 
+                    <div class="course-box-wrap">                    
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                            </div>                    
+                    </div> 
+                </div>
+                <!-- end student say ceraosul -->
+            </div>
+        </div>
+    </div>
+</section>
 <section style="background-color: #36373c; color: #ffffff">
     <div class="container-lg p-5">
             <div class="row mb-5 mt-2">
@@ -351,9 +410,9 @@
             <div class="row mb-5">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <img class="img-responsive" src="https://files.slack.com/files-pri/TMM1LEAPM-FSG2A346S/business-businessmen-classroom-communication-267507__4_.jpg" alt="">
+                        <img class="img-responsive" src="assets/frontend/default/img/classroom-course.jpg" alt="classroom learning in bangladesh">
                             <div class="overlay">
-                                <h2>Classroom Course</h2>
+                                <h2>Classroom Learning</h2>
                                 <p>
                                     <a href="<?php echo base_url(); ?>home/courses?category=all&&price=all&&course_type=classroom&&level=all&&language=all&&rating=all">Veiw all courses</a>
                                 </p>
@@ -362,9 +421,9 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <img class="img-responsive" src="https://files.slack.com/files-pri/TMM1LEAPM-FSG4F78TG/writing-notes-idea-class-7103.jpg" alt="">
+                        <img class="img-responsive" src="assets/frontend/default/img/online-course.jpg" alt="online course in bangaldesh">
                             <div class="overlay">
-                                <h2>Online Course</h2>
+                                <h2>Online Learning</h2>
                                 <p>
                                     <a href="<?php echo base_url(); ?>home/courses?category=all&&price=all&&course_type=online&&level=all&&language=all&&rating=all">Veiw all courses</a>
                                 </p>
@@ -373,9 +432,9 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <img class="img-responsive rounded" src="https://files.slack.com/files-pri/TMM1LEAPM-FS2E9FUJF/woman-desk-macbook-pro-pen-68761.jpg" alt="">
+                        <img class="img-responsive rounded" src="assets/frontend/default/img/free-course.jpg" alt="free learning in bangladesh">
                             <div class="overlay">
-                                <h2>Free Course</h2>
+                                <h2>Free Learning</h2>
                                 <p>
                                     <a href="<?php echo base_url(); ?>home/courses?category=all&&price=free&&course_type=all&&level=all&&language=all&&rating=all">Veiw all courses</a>
                                 </p>
@@ -384,7 +443,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <img class="img-responsive rounded" src="https://files.slack.com/files-pri/TMM1LEAPM-FSDEL6NAG/silver-ipad-545057.jpg" alt="">
+                        <img class="img-responsive rounded" src="assets/frontend/default/img/career-guide.jpg" alt="career guide for fresher in bangladesh">
                             <div class="overlay">
                                 <h2>Career Guide</h2>
                                 <p>
@@ -394,7 +453,6 @@
                     </div>
                 </div>
             </div>
-            
     </div>                            
 </section>
 
