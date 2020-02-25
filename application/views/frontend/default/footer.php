@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <p class="copyright-text">
-                            <a href=""><img src="<?php echo base_url().'uploads/system/logo-dark.png'; ?>" alt="" class="d-inline-block" width="110"></a>
+                            <a href=""><img src="<?php echo base_url().'uploads/system/logo-skillsbd.svg'; ?>" alt="" class="d-inline-block" width="110"></a>
                             <a href="<?php echo get_settings('footer_link'); ?>" target="_blank"><?php echo get_settings('footer_text'); ?></a>
                         </p>
                     </div>

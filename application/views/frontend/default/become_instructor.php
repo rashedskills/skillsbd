@@ -18,7 +18,7 @@
     -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   position: relative;
-    border-radius: 0;
+    border-radius: 2px;
     color: #36373c;
 }
 .home-banner-wrap .btn:hover{

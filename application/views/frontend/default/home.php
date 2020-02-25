@@ -47,7 +47,7 @@
 
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fa fa-clock float-left"></i>
+                    <i class="fas fa-certificate float-left"></i>
                     <div class="text-box">
                         <h4><?php echo get_phrase('certification'); ?></h4>
                         <p><?php echo get_phrase('complete_course_and_get_certificate'); ?></p>

@@ -869,5 +869,9 @@
     "student_phone": "Student phone",
     "enrol_date": "Enrol date",
     "course_resource_person": "Course resource person",
-    "select_resource_person": "Select resource person"
+    "select_resource_person": "Select resource person",
+    "logddin": "Logddin",
+    "invssoice": "Invssoice",
+    "invossice": "Invossice",
+    "invosice": "Invosice"
 }

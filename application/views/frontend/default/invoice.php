@@ -15,6 +15,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                   <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li>
                   <li><a href="<?php echo site_url('home/my_messages'); ?>"><?php echo get_phrase('my_messages'); ?></a></li>
                   <li class="active"><a href="<?php echo site_url('home/purchase_history'); ?>"><?php echo get_phrase('purchase_history'); ?></a></li>
+                  <li><a href="<?php echo site_url('home/order_history'); ?>"><?php echo get_phrase('my_order'); ?></a></li>
                   <li><a href="<?php echo site_url('home/profile/user_profile'); ?>"><?php echo get_phrase('user_profile'); ?></a></li>
                 </ul>
             </div>
@@ -28,11 +29,8 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                 <div style="margin-left:auto;margin-right:auto;">
                     <link href="<?php echo base_url('assets/frontend/elegant/css/print.css'); ?>" rel="stylesheet">
                     <div style="background: #eceff4;padding: 1.5rem;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <img src="<?php echo base_url('uploads/system/logo-dark.png');?>" height="40" style="display:inline-block;">
-                                </td>
+                        <table class="mb-3">
+                            <tr>                                
                                 <td style="font-size: 22px;" class="text-right strong"><?php echo strtoupper(get_phrase('invoice')); ?></td>
                             </tr>
                         </table>
@@ -66,7 +64,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                         </table>
                     </div>
                     <div style="">
-                        <table class="padding text-left small border-bottom">
+                        <table class="table text-left small border-bottom">
                             <thead>
                                 <tr class="gry-color" style="background: #eceff4;">
                                     <th width="50%"><?php echo get_phrase('course_name'); ?></th>
@@ -86,26 +84,37 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                         </table>
                     </div>
 
-                    <div style="">
-                        <table style="width: 40%;margin-left:auto;" class="text-right sm-padding small strong">
-                            <tbody>
-                                <tr>
-                                    <th class="gry-color text-left"><?php echo get_phrase('sub_total'); ?>:</td>
-                                        <td><?php echo currency($payment_info['amount']); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-left strong"><?php echo get_phrase('grand_total'); ?>:</td>
-                                            <td><?php echo currency($payment_info['amount']); ?></td>
+                    <div class="mb-3">
+                            <table style="width: 15%;margin-left:auto;" class="text-right sm-padding small strong">
+                                    <tbody>
+                                        <tr>
+                                            <th class="gry-color text-left"><?php echo get_phrase('sub_total'); ?>:</td>
+                                                <td><?php echo currency($payment_info['amount']); ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-left strong"><?php echo get_phrase('grand_total'); ?>:</td>
+                                                <td><?php echo currency($payment_info['amount']); ?>
+                                            </td>
                                         </tr>
-                                    </tbody>
+                                    </tbody>                                    
                                 </table>
                             </div>
-
                         </div>
+                       <div class="mb-3">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="<?php echo base_url().'uploads/system/logo-skillsbd.svg'; ?>" width="100" style="display:inline-block;">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                       </div>
                     </div>
                 </div>
-                <div class="d-print-none mb-2">
-                    <a href="javascript:window.print()" class="btn btn-receipt"><?php echo get_phrase('print'); ?></a>
+                <div class="d-print-none mb-2 pull-right">
+                    <a href="javascript:window.print()" class="btn btn-receipt"><?php echo '<i class="fa fa-print"></i>'.' '.get_phrase('print'); ?></a>
                 </div>
             </div>
         </section>
