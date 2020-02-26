@@ -248,13 +248,13 @@ function handleCartItems(elem) {
             <div class="form-group">
                 <strong>Please follow these steps to complete your bKash payment first-</strong>
                 <ul style="list-style: none">
-                    <li><small>1. Go to your bKash Mobile Menu by dialing *247#</small></li>
-                    <li><small>2. Choose “Send Money”</small></li>
-                    <li><small>3. Enter the bKash Account Number (01752992444) you need to send money to</small></li>
-                    <li><small>4. Enter the amount you need to send</small></li>
+                    <li><small>1. Go to your bKash Mobile Menu by dialing *247# or open <strong>bKash App</strong></small></li>
+                    <li><small>2. Choose “Send Money” option</small></li>
+                    <li><small>3. Enter the bKash Account Number <strong>01752 992 444</strong></small></li>
+                    <li><small>4. Enter the Total <?php echo '<strong>'.currency($total_price).'</strong>';  ?> amount you need to send</small></li>
                     <li><small>5. Enter your name as a reference</small></li>
                     <li><small>6. Now enter your bKash Mobile Menu PIN to confirm the transaction</small></li>
-                    <li><small>7. You will get a confirmation SMS. Note the Transaction ID</small></li>
+                    <li><small>7. You will get a confirmation SMS. <strong>Note the Transaction ID</strong></small></li>
                     
                 </ul>
                 <p>Now fill up the following fields.<br>bKash Personal Number : 01752992444</p>
@@ -274,7 +274,7 @@ function handleCartItems(elem) {
         </form>
       </div>
       <div class="modal-footer text-center">
-        <p>For Support: 01752992444 <i class="fa fa-phone"></i> </p>
+        <p><i class="fa fa-phone"></i> For Support: 01839 133665</p>
       </div>
     </div>
   </div>

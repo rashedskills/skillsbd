@@ -48,11 +48,14 @@
 					<span><?php echo get_phrase('courses'); ?></span>
 				</a>
 			</li>
-
+				<?php					
+					//print_r($totalOrder);exit();
+					$totalOrder = $this->db->where(['status'=>0])->from("order_new")->count_all_results();
+				?>
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('admin/orders'); ?>" class="side-nav-link <?php if ($page_name == 'order_list')echo 'active';?>">
 					<i class="dripicons-cart"></i>
-					<span><?php echo get_phrase('orders'); ?></span>
+					<span><?php echo get_phrase('orders').' '.'<span class="badge badge-pill badge-danger">'.$totalOrder.'</span>'; ?></span>
 				</a>
 			</li>
 
@@ -75,7 +78,7 @@
 					</li>
 
 					<li class = "<?php if($page_name == 'enrol_student') echo 'active'; ?>">
-						<a href="<?php echo site_url('admin/enrol_student'); ?>"><?php echo get_phrase('enrol_a_student'); ?></a>
+						<a href="<?php echo site_url('admin/enrol_student'); ?>" target="_blank"><?php echo get_phrase('enrol_a_student'); ?></a>
 					</li>
 				</ul>
 			</li>

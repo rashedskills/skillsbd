@@ -1,0 +1,6 @@
+---
+deployment:
+ tasks:
+ - export DEPLOYPATH=/home/rashgsen/public_html/skillsBD
+ - /bin/cp * $DEPLOYPATH
+ - /bin/cp style.css $DEPLOYPATH

@@ -9,6 +9,7 @@ class Home extends CI_Controller {
         // Your own constructor code
         $this->load->database();
         $this->load->library('session');
+        $this->load->helper('url');
         // $this->load->library('stripe');
         /*cache control*/
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -309,16 +310,37 @@ class Home extends CI_Controller {
     }
 
     public function order_now() {
-        $data['course_id']  = $this->input->post('course_id');
-        $data['user_id']    = $this->input->post('user_id');
-        $data['bkashNo']    = $this->input->post('bkashNo');
-        $data['bkashTID']   = $this->input->post('bkashTID');
+        if ($this->session->userdata('user_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        $data['course_id']  = html_escape($this->input->post('course_id'));
+        $data['user_id']    = html_escape($this->input->post('user_id'));
+        $data['bkashNo']    = html_escape($this->input->post('bkashNo'));
+        $data['bkashTID']   = html_escape($this->input->post('bkashTID'));
         $data['date_added'] = strtotime(date('D, d-M-Y'));
 
         //print_r($data);exit();
         $this->db->insert('order_new', $data);
         $this->session->set_flashdata('flash_message', get_phrase('order_submitted!'));
         redirect(site_url('home/order_history'), 'refresh');
+    }
+
+    // report abuse
+    public function reportSubmit() {
+        if ($this->session->userdata('user_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        $data['course_id']      = html_escape($this->input->post('course_id'));
+        $data['user_id']        = html_escape($this->input->post('user_id'));
+        $data['issue_type']     = html_escape($this->input->post('issue_type'));
+        $data['issue_details']  = html_escape($this->input->post('issue_details'));
+        $data['status']         = html_escape($this->input->post('status'));
+        $data['date_added']     = strtotime(date('D, d-M-Y'));
+        //print_r($data);exit();
+        $this->db->insert('report_issue', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('Your report has been submitted. We will review and solve this asap.'));
+        //redirect(site_url('home/order_history'), 'refresh');
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function paypal_checkout() {
@@ -800,4 +822,6 @@ class Home extends CI_Controller {
         $data['page_name'] = 'quiz';
         $this->load->view('mobile/index', $data);
     }
+
+    
 }

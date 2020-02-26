@@ -873,5 +873,8 @@
     "logddin": "Logddin",
     "invssoice": "Invssoice",
     "invossice": "Invossice",
-    "invosice": "Invosice"
+    "invosice": "Invosice",
+    "1course_title": "1course title",
+    "order_success": "Order success",
+    "your_report_has_been_submitted._we_will_review_and_solve_this_asap.": "Your report has been submitted. we will review and solve this asap."
 }

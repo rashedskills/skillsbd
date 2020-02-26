@@ -230,7 +230,7 @@ menu code was here
 }
 .search-box button:hover,
 .search-box button:focus{
-    /* background-color: #ec5252 !important; */
+    /* background-color: #36373c !important; */
     background-color: #ffd723 !important;
     border-color: #ffd723;
     color: #36373c;
@@ -267,7 +267,7 @@ menu code was here
     position: absolute;
     top: 14px;
     right: 2px;
-    /* background-color: #ec5252; */
+    /* background-color: #36373c; */
     background-color: #ffd723;
     border-radius: 15px;
     color: #36373c;
@@ -366,7 +366,7 @@ menu code was here
     font-size: 13px;
 }
 .course-list-dropdown .item-list .item .item-details .current-price {
-    color: #ec5252;
+    color: #36373c;
     font-size: 18px;
     font-weight: 600;
     margin-right: 5px;
@@ -380,7 +380,7 @@ menu code was here
     font-size: 13px;
 }
 .course-list-dropdown .item-list .item .item-details .current-price {
-    color: #ec5252;
+    color: #36373c;
     font-size: 18px;
     font-weight: 600;
     margin-right: 5px;
@@ -431,7 +431,7 @@ menu code was here
     margin-top: 8px;
 }
 .course-list-dropdown .dropdown-footer .cart-total-price .current-price {
-    color: #ec5252;
+    color: #36373c;
     font-size: 18px;
     font-weight: 600;
     margin-right: 5px;
@@ -661,8 +661,8 @@ menu code was here
 }
 .sign-in-box .btn-sign-up{
     color: #fff;
-    /* background-color: #ec5252;
-    border: 1px solid #ec5252; */
+    /* background-color: #36373c;
+    border: 1px solid #36373c; */
     background: #ffd723;  /* fallback for old browsers */
      /*  background: -webkit-linear-gradient(to left, #ffb606, #ffd723); Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to left, #ffb606, #ffd723);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -810,8 +810,8 @@ menu code was here
 }
 .sign-in-modal form button[type="submit"]{
     color: #fff;
-    background-color: #ec5252;
-    border-color: #ec5252;
+    background-color: #36373c;
+    border-color: #36373c;
     font-size: 16px;
     font-weight: 700;
     height: 50px;
@@ -1008,7 +1008,7 @@ homepage styles
     background: #fff;
     border: 0;
     border-radius: 0 3px 3px 0;
-    /* color: #ec5252; */
+    /* color: #36373c; */
     color: #ffd723; 
     border-radius: 2px;
 }
@@ -1018,12 +1018,12 @@ homepage styles
     color: #36373c;
 }
 .home-fact-area{
-    /* background-color: #ec5252;
-    background: -webkit-linear-gradient(-45deg,#ec5252,#6e1a52);
-    background: -moz-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
-    background: -ms-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
-    background: -o-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
-    background: linear-gradient(-45deg,#ec5252,#6e1a52); */
+    /* background-color: #36373c;
+    background: -webkit-linear-gradient(-45deg,#36373c,#6e1a52);
+    background: -moz-linear-gradient(-45deg,#36373c 0,#6e1a52 100%);
+    background: -ms-linear-gradient(-45deg,#36373c 0,#6e1a52 100%);
+    background: -o-linear-gradient(-45deg,#36373c 0,#6e1a52 100%);
+    background: linear-gradient(-45deg,#36373c,#6e1a52); */
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
     color: #36373c;
@@ -1329,7 +1329,7 @@ homepage styles
     margin-top: 2px;
 }
 .course-box .course-details .your-rating-box:hover .your-rating-text {
-    color: #ec5252;
+    color: #36373c;
 }
 .course-box .course-details .your-rating-box .your-rating-text .edit {
     display: none;
@@ -1385,7 +1385,7 @@ homepage styles
     background: #f4c150
 }
 .course-badge.hot-new{
-    background: #ec5252;
+    background: #36373c;
     color: #fff;
 }
 .course-badge.position{
@@ -1433,7 +1433,7 @@ homepage styles
 .course-box .wishlist-add.wishlisted button i,
 .course-box .favorite-add button:hover i,
 .course-box .favorite-add.added button i{
-    color:#ec5252;
+    color:#36373c;
 }
 .course-box .wishlist-add button i,
 .course-box .favorite-add button i{
@@ -1627,14 +1627,14 @@ homepage styles
 }
 
 .addedToCart {
-    color: #ec5252;
+    color: #36373c;
     background-color: #ffffff;
-    border-color: #ec5252;
+    border-color: #36373c;
 }
 .addedToCart:hover {
-    color: #ec5252;
+    color: #36373c;
     background-color: #ffffff;
-    border-color: #ec5252;
+    border-color: #36373c;
 }
 
 .course-popover-content .popover-btns .wishlist-btn {
@@ -1647,13 +1647,13 @@ homepage styles
 }
 .course-popover-content .popover-btns .wishlist-btn i {
     color: transparent;
-    text-stroke: 1px #ec5252;
-    -webkit-text-stroke: 1px #ec5252;
+    text-stroke: 1px #36373c;
+    -webkit-text-stroke: 1px #36373c;
 }
 
 .course-popover-content .popover-btns .wishlist-btn.active i,
 .course-popover-content .popover-btns .wishlist-btn:hover i{
-    color: #ec5252;
+    color: #36373c;
 }
 .webui-popover.left>.webui-arrow,
 .webui-popover.left-top>.webui-arrow,
@@ -2139,7 +2139,7 @@ course content
     border: 0;
     background: 0;
     font-size: 17px;
-    color: #ec5252;
+    color: #36373c;
     cursor: pointer;
 }
 
@@ -3078,8 +3078,8 @@ section.my-courses-area {
     font-size: 15px;
     line-height: 1.35135;
     border-radius: 2px;
-    background-color: #ec5252;
-    border-color: #ec5252;
+    background-color: #36373c;
+    border-color: #36373c;
     font-weight: 600;
 }
 .edit-rating-modal .modal-footer button:hover,.edit-rating-modal .modal-footer button:focus {
@@ -3272,7 +3272,7 @@ section.cart-list-area {
     color: #003845;
 }
 .cart-course-wrapper .price .current-price {
-    color: #ec5252;
+    color: #36373c;
     font-weight: 900;
 }
 .cart-course-wrapper .price .original-price {
@@ -3283,7 +3283,7 @@ section.cart-list-area {
     position: absolute;
     top: 2px;
     right: 0;
-    color: #ec5252;
+    color: #36373c;
     font-size: 14px;
 }
 
@@ -3296,7 +3296,7 @@ section.cart-list-area {
 .cart-sidebar .total-price {
     font-size: 36px;
     line-height: 49px;
-    color: #ec5252;
+    color: #36373c;
     font-weight: 600;
 }
 .cart-sidebar .total-original-price {
@@ -3312,8 +3312,8 @@ section.cart-list-area {
     line-height: 1.35135;
     border-radius: 2px;
     color: #fff;
-    background-color: #ec5252;
-    border-color: #ec5252;
+    background-color: #36373c;
+    border-color: #36373c;
     font-weight: 600;
     padding: 16px 12px;
 }
@@ -3353,7 +3353,7 @@ section.cart-list-area {
     color: #686f7a;
 }
 .cart-sidebar .coupon-list ul li:hover {
-    color: #ec5252;
+    color: #36373c;
 }
 .cart-sidebar .coupon-list ul li i {
     font-size: 11px;
@@ -3472,8 +3472,8 @@ section.user-dashboard-area {
 
 .user-dashboard-content .content-update-box button {
     color: #36373c;
-    /* background-color: #ec5252;
-    border-color: #ec5252; */ 
+    /* background-color: #36373c;
+    border-color: #36373c; */ 
    /* f background: #FF416C;  allback for old browsers */
  /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);   Chrome 10-25, Safari 5.1-6 */
  /* background: linear-gradient(to right, #FF4B2B, #FF416C); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -3688,8 +3688,8 @@ my message page
 }
 .message-details-box .message-details .message-footer .send-btn {
     color: #fff;
-    background-color: #ec5252;
-    border-color: #ec5252;
+    background-color: #36373c;
+    border-color: #36373c;
     padding: 11px 12px;
     font-size: 15px;
     border-radius: 2px;
@@ -3960,7 +3960,7 @@ footer style
 .footer-area{
     background-color: #fff;
     padding: 30px 0;
-    /* border-bottom: 6px solid #ec5252; */
+    /* border-bottom: 6px solid #36373c; */
     border-bottom: 6px solid #ffd723;
     border-top: 1px solid #e8e9eb;
 }

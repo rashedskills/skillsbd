@@ -91,7 +91,7 @@ $order_history = $this->db->get('order_new',$per_page, $this->uri->segment(3));
 <div class="container">
     <div class="row mb-5">
             <div class="col-md-12">
-            <strong>If you have any queries please contact us: 01752992444 </strong>
+            <strong>If you have any inquiry please contact us: 01839 133665 </strong>
             </div>  
     
     </div>

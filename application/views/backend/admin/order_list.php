@@ -18,6 +18,7 @@
                       <th><?php echo get_phrase('actions'); ?></th>
                     </tr>
                   </thead>
+                  
                   <tbody>
                       <?php
                        foreach ($new_order->result_array() as $orderlist): 
