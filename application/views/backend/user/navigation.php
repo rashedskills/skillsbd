@@ -24,13 +24,14 @@
 					<span><?php echo get_phrase('courses'); ?></span>
 				</a>
 			</li>
+			
+			<?php if($user_details['is_institute'] == 1): ?>
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('user/my_students'); ?>" class="side-nav-link <?php if ($page_name == 'my_students')echo 'active';?>">
 					<i class="dripicons-user-group"></i>
 					<span><?php echo get_phrase('students'); ?></span>
 				</a>
 			</li>
-			<?php if($user_details['is_institute'] == 1): ?>
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('user/my_instructor'); ?>" class="side-nav-link <?php if ($page_name == 'my_instructor' || $page_name == 'instructor_add' || $page_name == 'instructor_edit')echo 'active';?>">
 					<i class="dripicons-user"></i>

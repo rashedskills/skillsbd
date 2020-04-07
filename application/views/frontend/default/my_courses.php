@@ -2,6 +2,7 @@
 
 $my_courses = $this->user_model->my_courses()->result_array();
 
+
 $categories = array();
 foreach ($my_courses as $my_course) {
     $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
@@ -116,7 +117,7 @@ foreach ($my_courses as $my_course) {
                                           <?php
                                           $totalProgress = ceil(course_progress($my_course['course_id']));
                                           if($totalProgress != 100): ?>                                          
-                                            <a href=""><span class="badge badge-info pull-left mt-4 p-1">Get Certificate</span></a>
+                                            <a href="<?php echo (site_url('home/certificate_order'))?>/<?php echo $my_course['course_id'] ?>"><span class="badge badge-info pull-left mt-4 p-1">Get Certificate</span></a>
                                           <?php endif; ?>
                                           <p class="your-rating-text">
                                             <a href="javascript::" id = "edit_rating_btn_<?php echo $course_details['id']; ?>" onclick="toggleRatingView('<?php echo $course_details['id']; ?>')" style="color: #2a303b; font-weight: bold"><?php echo get_phrase('edit_rating'); ?></a>

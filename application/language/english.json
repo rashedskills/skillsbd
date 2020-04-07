@@ -876,5 +876,11 @@
     "invosice": "Invosice",
     "1course_title": "1course title",
     "order_success": "Order success",
-    "your_report_has_been_submitted._we_will_review_and_solve_this_asap.": "Your report has been submitted. we will review and solve this asap."
+    "your_report_has_been_submitted._we_will_review_and_solve_this_asap.": "Your report has been submitted. we will review and solve this asap.",
+    "order_certificate": "Order certificate",
+    "certificate_order": "Certificate order",
+    "get_certificate": "Get certificate",
+    "certificate": "Certificate",
+    "your_certificate_order_successfully_done.": "Your certificate order successfully done.",
+    "image_format_or_file_size_does_not_correct!": "Image format or file size does not correct!"
 }

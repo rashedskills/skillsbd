@@ -10,6 +10,7 @@ class Home extends CI_Controller {
         $this->load->database();
         $this->load->library('session');
         $this->load->helper('url');
+        $this->load->helper('string');
         // $this->load->library('stripe');
         /*cache control*/
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -20,7 +21,8 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        $this->home();
+        //$this->home();
+        $this->load->view('frontend/default/comming_soon');
     }
 
     public function home() {
@@ -341,6 +343,41 @@ class Home extends CI_Controller {
         $this->session->set_flashdata('flash_message', get_phrase('Your report has been submitted. We will review and solve this asap.'));
         //redirect(site_url('home/order_history'), 'refresh');
         redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    //certificate order
+    public function certificate_order(){
+        if ($this->session->userdata('user_login') != true) {
+            redirect(site_url('home'), 'refresh');
+        }
+        $page_data['page_name']  = "certificate";
+        $page_data['page_title'] = get_phrase('order_certificate');
+        $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
+    }
+    
+
+    // report abuse
+    public function get_certificate() {
+        if ($this->session->userdata('user_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        $data['course_id']      = html_escape($this->input->post('course_id'));
+        $data['user_id']        = html_escape($this->input->post('user_id'));
+        $data['std_name']        = html_escape($this->input->post('std_name'));
+        $data['crs_title']     = html_escape($this->input->post('crs_title'));
+        $data['certificate_code']  = html_escape($this->input->post('certificate_code'));
+        $data['status']         = 0;
+        $data['date_added']     = strtotime(date('D, d-M-Y'));
+        //print_r($data);exit();
+        $this->db->insert('certificate', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('Your certificate order successfully done.'));
+        redirect(site_url('home/my_courses'), 'refresh');        
+    }
+
+    public function certificate(){
+        $page_data['page_name']  = "certificate_link";
+        $page_data['page_title'] = get_phrase('certificate');
+        $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
 
     public function paypal_checkout() {
