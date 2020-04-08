@@ -71,8 +71,14 @@
                         <a href="<?php echo site_url('home/course/'.slugify($top_course['title']).'/'.$top_course['id']); ?>" class="has-popover">
                             <div class="course-box">
                                 <!-- <div class="course-badge position best-seller">Best seller</div> -->
-                                <div class="course-image">
-                                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($top_course['id']); ?>" alt="" class="img-fluid">
+                                <div class="course-image">                                    
+                                    <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$top_course['id'].'.jpg')): ?>
+                                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($top_course['id']); ?>" 
+                                    alt="<?php echo $top_course['title'] ?>" class="img-fluid">
+                                    <?php else: ?> 
+                                    <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$top_course['id'].'.jpg' ?>"
+                                    alt="<?php echo $top_course['title'] ?>" class="img-fluid">
+                                   <?php endif; ?>
                                 </div>
                                 <div class="course-details">
                                     <h5 class="title"><?php echo $top_course['title']; ?></h5>
@@ -228,8 +234,14 @@
                     <div class="course-box-wrap">
                         <a href="<?php echo site_url('home/course/'.slugify($latest_course['title']).'/'.$latest_course['id']); ?>">
                             <div class="course-box">
-                                <div class="course-image">
-                                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($latest_course['id']); ?>" alt="" class="img-fluid">
+                                <div class="course-image">                                    
+                                    <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$latest_course['id'].'.jpg')): ?>
+                                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($latest_course['id']); ?>"
+                                    alt="<?php echo $latest_course['title'] ?>" class="img-fluid">
+                                    <?php else: ?> 
+                                    <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$latest_course['id'].'.jpg' ?>"
+                                    alt="<?php echo $latest_course['title'] ?>" class="img-fluid">
+                                   <?php endif; ?>
                                 </div>
                                 <div class="course-details">
                                     <h5 class="title"><?php echo $latest_course['title']; ?></h5>

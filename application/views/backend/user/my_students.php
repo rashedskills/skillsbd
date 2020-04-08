@@ -35,7 +35,11 @@
                           <tr>
                               <td style="width: 5px"><?php echo $key+1 ?></td>
                               <td>
-                                  <img src="<?php echo $this->user_model->get_user_image_url($student_data['id']);?>" alt="" height="40" width="40" class="img-fluid rounded-circle">
+                                  <?php if(file_exists('uploads/user_image/'.$student_data['id'].'.jpg')): ?>
+                                      <img src="<?php echo $this->user_model->get_user_image_url($student_data['id']); ?>" alt="user-image" height="40" class="rounded-circle">
+                                      <?php else: ?> 
+                                      <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$student_data['id'].'.jpg';?>" height="40"  alt="user-image" class="rounded-circle">
+                                  <?php endif; ?>
                               </td>
                               <td><?php echo $student_data['first_name'].' '.$student_data['last_name']; ?></td>
                               <td><?php echo $student_data['email']; ?></td>

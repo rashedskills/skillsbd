@@ -1367,6 +1367,7 @@ homepage styles
     text-align: center;
     text-transform: uppercase;
     display: inline-block;
+    margin-right: 10px;
 }
 .course-badge:after{
     border-radius: 3px;
@@ -2645,10 +2646,14 @@ section.category-course-list-area {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    border: 1px solid #dedfe0;
-    border-radius: 2px 2px 0 0;
-    min-height: 148px;
+    border-top: 1px solid #dedfe0;
+    min-height: 120px;
+    padding: 20px 1px;
+}
+
+.category-course-list ul li:hover{
     background-color: #fff;
+    cursor: pointer;
 }
 
 .course-box-2 .course-image {
@@ -2657,7 +2662,7 @@ section.category-course-list-area {
 
 .course-box-2 .course-details {
     width: 50%;
-    padding: 10px 30px;
+    padding: 5px 15px;
 }
 
 .course-box-2 .course-price-rating {
@@ -2666,10 +2671,11 @@ section.category-course-list-area {
     -ms-flex-item-align: end;
     align-self: flex-end;
     padding: 10px 25px 15px;
+
 }
 
 .category-course-list ul li {
-    margin-bottom: 30px;
+    
 }
 
 .course-box-2 .course-price-rating .current-price {
@@ -2724,7 +2730,7 @@ section.category-course-list-area {
     margin-bottom: 20px;
 }
 
-.course-box-2 .course-details .course-meta span {
+.course-box-2 .course-details span.course-meta {
     font-size: 13px;
     margin-right: 10px;
     color: #686f7a;

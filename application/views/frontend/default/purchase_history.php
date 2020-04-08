@@ -46,7 +46,12 @@ $purchase_history = $this->db->get('payment',$per_page, $this->uri->segment(3));
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="purchase-history-course-img">
-                                            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($each_purchase['course_id']);?>" class="img-fluid">
+                                            
+                                            <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$each_purchase['course_id'].'.jpg')): ?>
+                                            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($each_purchase['course_id']); ?>" alt="<?php echo $course_details['title'] ?>" class="img-fluid">
+                                            <?php else: ?> 
+                                            <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$each_purchase['course_id'].'.jpg' ?>" alt="<?php echo $course_details['title'] ?>" class="img-fluid">
+                                           <?php endif; ?>
                                         </div>
                                         <a class="purchase-history-course-title" href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$course_details['id']); ?>" >
                                             <?php

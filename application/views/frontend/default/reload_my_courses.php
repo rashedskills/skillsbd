@@ -7,7 +7,13 @@
                 <div class="course-box">
                     <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['id']); ?>">
                         <div class="course-image">
-                            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['id']); ?>" alt="" class="img-fluid">
+                           
+                            <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$my_course['id'].'.jpg')): ?>
+                              <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['id']); ?>" alt="<?php echo $course_details['title'] ?>" class="img-fluid">
+                              <?php else: ?> 
+                              <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$my_course['id'].'.jpg' ?>" alt="<?php echo $course_details['title'] ?>" class="img-fluid">
+                             <?php endif; ?>
+
                             <span class="play-btn"></span>
                         </div>
                     </a>

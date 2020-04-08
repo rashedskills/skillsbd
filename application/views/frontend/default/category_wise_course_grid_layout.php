@@ -5,8 +5,12 @@
      <div class="course-box-wrap">
          <a href="<?php echo site_url('home/course/'.slugify($course['title']).'/'.$course['id']); ?>">
              <div class="course-box">
-                 <div class="course-image">
-                     <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course['id']); ?>" alt="" class="img-fluid">
+                 <div class="course-image">                     
+                     <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course['id'].'.jpg')): ?>
+                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course['id']); ?>" alt="<?php echo $course['title'] ?>" class="img-fluid">
+                    <?php else: ?> 
+                    <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course['id'].'.jpg' ?>" alt="<?php echo $course['title'] ?>" class="img-fluid">
+                   <?php endif; ?>
                  </div>
                  <div class="course-details">
                      <h5 class="title"><?php echo $course['title']; ?></h5>

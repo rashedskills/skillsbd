@@ -17,8 +17,12 @@
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" id="topbar-userdrop"
                 href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="account-user-avatar">
-                    <img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" class="rounded-circle">
+                <span class="account-user-avatar">                   
+                    <?php if(file_exists('uploads/user_image/'.$this->session->userdata('user_id').'.jpg')): ?>
+                        <img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" class="rounded-circle">
+                        <?php else: ?> 
+                        <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$this->session->userdata('user_id').'.jpg';?>" alt="user-image" class="rounded-circle">
+                   <?php endif; ?>
                 </span>
                 <span  style="color: #fff;">
                     <?php

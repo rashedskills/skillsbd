@@ -50,7 +50,13 @@
                                         <div class="message-sender-head clearfix">
                                             <div class="message-sender-info d-inline-block">
                                                 <div class="sender-image d-inline-block">
+                                                   
+                                                    <?php if(file_exists('uploads/user_image/'.$user_to_show_id.'.jpg')): ?>
                                                     <img src="<?php echo $this->user_model->get_user_image_url($user_to_show_id);?>" alt="" class="img-fluid">
+                                                    <?php else: ?> 
+                                                    <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$user_to_show_id.'.jpg';?>" alt="" class="img-fluid">
+                                                   <?php endif; ?>
+
                                                 </div>
                                                 <div class="sender-name d-inline-block">
                                                     <?php

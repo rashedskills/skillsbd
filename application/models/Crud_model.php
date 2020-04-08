@@ -586,7 +586,7 @@ class Crud_model extends CI_Model {
     if (file_exists('uploads/thumbnails/course_thumbnails/'.$type.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg')){
       return base_url().'uploads/thumbnails/course_thumbnails/'.$type.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg';
     }else{
-      return base_url().$course_media_placeholders[$type.'_placeholder'];
+      return 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.$type.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg';
     }
   }
   public function get_lesson_thumbnail_url($lesson_id) {

@@ -59,10 +59,10 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                                 <?php
                                 if (file_exists('uploads/user_image/'.$user_details['id'].'.jpg')): ?>
                                 <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
-                            <?php else: ?>
+                                <?php else: ?>
                                 <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
-                            <?php endif; ?>
-                        </a>
+                                <?php endif; ?>
+                            </a>
                     </div>
                     <div class="dropdown user-dropdown corner-triangle top-right">
                         <ul class="user-dropdown-menu">
@@ -71,10 +71,11 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                                 <a href="">
                                     <div class="clearfix">
                                         <div class="user-image float-left">
-                                            <?php if (file_exists('uploads/user_image/'.$user_details['id'].'.jpg')): ?>
-                                                <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
+                                            <?php
+                                            if (file_exists('uploads/user_image/'.$user_details['id'].'.jpg')): ?>
+                                            <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
                                             <?php else: ?>
-                                                <img src="<?php echo base_url().'uploads/user_image/placeholder.png';?>" alt="" class="img-fluid">
+                                            <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
                                             <?php endif; ?>
                                         </div>
                                         <div class="user-details">

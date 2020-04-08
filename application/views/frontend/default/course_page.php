@@ -448,7 +448,11 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
     <?php if ($course_details['video_url'] != ""): ?>
       <div class="preview-video-box">
         <a data-toggle="modal" data-target="#CoursePreviewModal">
-          <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course_details['id']); ?>" alt="" class="img-fluid">
+           <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg')): ?>
+            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course_details['id']); ?>" alt="" class="img-fluid">
+            <?php else: ?> 
+            <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg' ?>" alt="" class="img-fluid">
+           <?php endif; ?>
           <span class="preview-text"><?php echo get_phrase('preview_this_course'); ?></span>
           <span class="play-btn"></span>
         </a>

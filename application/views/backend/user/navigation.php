@@ -4,8 +4,12 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="left-side-menu left-side-menu-detached">
 	<div class="leftbar-user">
-		<a href="javascript: void(0);">
-			<img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
+		<a href="javascript: void(0);">			
+			<?php if(file_exists('uploads/user_image/'.$this->session->userdata('user_id').'.jpg')): ?>
+                        <img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" height="42" class="rounded-circle">
+                        <?php else: ?> 
+                        <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$this->session->userdata('user_id').'.jpg';?>" height="42" alt="user-image" class="rounded-circle shadow-sm">
+                    <?php endif; ?>
 			<?php
 			$user_details = $this->user_model->get_all_user($this->session->userdata('user_id'))->row_array();
 			?>

@@ -21,8 +21,8 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        //$this->home();
-        $this->load->view('frontend/default/comming_soon');
+        $this->home();
+        //$this->load->view('frontend/default/comming_soon');
     }
 
     public function home() {

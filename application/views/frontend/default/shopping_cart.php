@@ -34,8 +34,13 @@
                                 <li>
                                     <div class="cart-course-wrapper">
                                         <div class="image">
-                                            <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$course_details['id']); ?>">
-                                                <img src="<?php echo $this->crud_model->get_course_thumbnail_url($cart_item);?>" alt="" class="img-fluid">
+                                            <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$course_details['id']); ?>">                                                
+                                                <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$cart_item.'.jpg')): ?>
+                                                <img src="<?php echo $this->crud_model->get_course_thumbnail_url($cart_item); ?>" alt="<?php echo $course['title'] ?>" class="img-fluid">
+                                                <?php else: ?> 
+                                                <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$cart_item.'.jpg' ?>" alt="<?php echo $course['title'] ?>" class="img-fluid">
+                                               <?php endif; ?>
+
                                             </a>
                                         </div>
                                         <div class="details">

@@ -50,7 +50,14 @@
                         ?>
                           <tr>
                               <td><?php echo $key+1; ?></td>
-                              <td><img src="<?php echo site_url(); ?><?php echo $instructors['instructor_photo']; ?>" class="rounded-circle" width="50" alt="<?php echo $instructors['instructor_full_name']; ?>"></td>
+                              <td>                                
+                                <?php                                
+                                 if(file_exists($instructors['instructor_photo'])): ?>
+                                    <img src="<?php echo site_url(); ?><?php echo $instructors['instructor_photo']; ?>" alt="image-not-found" height="40" class="rounded-circle">
+                                    <?php else: ?> 
+                                    <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/'.$instructors['instructor_photo'];?>" height="40"  alt="image-not-found" class="rounded-circle">
+                                <?php endif; ?>
+                              </td>
                               <td><?php echo $instructors['instructor_full_name']; ?></td>
                               <td><?php echo $instructors['specialist_in']; ?></td>
                               <td>

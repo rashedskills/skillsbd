@@ -25,8 +25,13 @@
                                 <label for="linkedinLink" class="text-dark"><?php echo get_phrase('linkedin_profile_link'); ?></label>
                                 <input type="text" name="linkedin_link" class="form-control" id="linkedinLink" value="<?php echo $instructor_info['linkedin_link']; ?>">
                             </div>
-                            <div class="form-group">
-                                <label for="instructorPhoto" class="text-dark"><?php echo get_phrase('instructor_photo'); ?></label>
+                            <?php                                
+                                 if(file_exists($instructor_info['instructor_photo'])): ?>
+                                    <img src="<?php echo site_url(); ?><?php echo $instructor_info['instructor_photo']; ?>" alt="image-not-found" height="40" class="rounded-circle">
+                                    <?php else: ?> 
+                                    <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/'.$instructor_info['instructor_photo'];?>" height="40"  alt="image-not-found" class="rounded-circle">
+                                <?php endif; ?>
+                            <div class="form-group mt-2">                                
                                 <input type="file" name="instructor_photo" class="form-control-file" id="instructorPhoto" value="<?php echo $instructor_info['instructor_photo']; ?>">
                                 <small id="photoHelp" class="form-text text-danger">Photo must be JPG, PNG, JPEG format and maximize filesize 256kb.</small>
                             </div>
