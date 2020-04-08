@@ -60,7 +60,7 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                                 if (file_exists('uploads/user_image/'.$user_details['id'].'.jpg')): ?>
                                 <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
                             <?php else: ?>
-                                <img src="<?php echo base_url().'uploads/user_image/placeholder.png';?>" alt="" class="img-fluid">
+                                <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
                             <?php endif; ?>
                         </a>
                     </div>
