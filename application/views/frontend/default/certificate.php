@@ -120,7 +120,7 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                     <input type="text" class="form-control" value="<?php echo base_url() ?>home/certificate/<?php echo $my_certificate['certificate_code'] ?>" id="myInput">
-                                    <small class="float-right mt-2"><a class="text-primary" href="#" onclick="myFunction()"><strong>Copy Link</strong></a></small>
+                                    <button class="float-right mt-2 badge badge-dark" onclick="copyLink()">Copy Link</buttong>
                             </li>
                         </ul>
                     </div>
@@ -181,7 +181,7 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
         });
 </script>
 <script>
-function myFunction() {
+function copyLink() {
   var copyText = document.getElementById("myInput");
   copyText.select();
   copyText.setSelectionRange(0, 99999)
