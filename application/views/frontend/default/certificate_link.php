@@ -1,4 +1,6 @@
 <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <?php 
 $certificate_data = $this->db->get_where('certificate', array('certificate_code' => $this->uri->segment(3)))->row_array();
 $course_data = $this->db->get_where('course', array('id' => $certificate_data['course_id']))->row_array();
@@ -12,16 +14,25 @@ $instructor_data = $this->db->get_where('users', array('id' => $course_data['use
     }
     .centered {
         position: absolute;
+        width: 70%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 1vw;
-        font-weight: 600;
+        font-size: 1.5vw;
+        font-family: 'PT Serif', serif;
     }
-    .bottom-right {
-        position: absolute;
-        bottom: 8px;
-        right: 16px;
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+      font-size: .8vw;
+    }
+    .signature {
+      position: absolute;
+      top: 83%;
+      left: 25%;
+      font-size: 1.4vw;
+      font-family: 'Great Vibes', cursive;
     }
 </style>
 <section class="mt-5 mb-5">
@@ -29,11 +40,18 @@ $instructor_data = $this->db->get_where('users', array('id' => $course_data['use
         <div class="row">
             <div class="col-md-9 col-lg-9 col-sm-12">
                 <div class="img-container" id="html-content-holder">
-                    <img src="<?php echo base_url().'uploads/system/certificate.png'; ?>" alt="skillsbd-certificate" class="img-responsive custom-img" style="width:100%;">
-                    <div class="centered">This is to certify that <?php echo $certificate_data['std_name']; ?> successfully completed the course <?php echo $certificate_data['crs_title']; ?> on <?php echo date('d-M-Y', $certificate_data['date_added']) ?></div>
+                    <img src="<?php echo base_url().'uploads/system/skillsbd-certificate.svg'; ?>" alt="skillsbd-certificate" class="img-responsive custom-img" style="width:100%;">
+                    <div class="centered">This is to certify that <?php echo $certificate_data['std_name']; ?> successfully completed the course <?php echo $certificate_data['crs_title']; ?> on <?php echo date('d F, Y', $certificate_data['date_added']) ?>                        
+                    </div>
+                    <div class="signature">
+                        <?php echo '<strong>'.$instructor_data['first_name'].' '.$instructor_data['last_name'].'</strong>' ?>
+                    </div>
+                    <div class="bottom-left">
+                        <small>Certificate no. <?php echo '<strong>'.$this->uri->segment(3).'</strong>' ?></small>
+                    </div>
                 </div> 
                 <p class="mt-4 mb-4">
-                This certificate above verifies that <?php echo '<strong>'.$certificate_data['std_name'].'</strong>'; ?> successfully completed the course <?php echo '<strong>'.$certificate_data['crs_title'].'</strong>'; ?>. on <?php echo '<strong>'.date('d-M-Y', $certificate_data['date_added']).'</strong>' ?> as taught by <?php echo '<strong>'.$instructor_data['first_name'].' '.$instructor_data['last_name'].'</strong>' ?> on Skillsbd. The certificate indicates the entire course was completed as validated by the student.
+                This certificate above verifies that <?php echo '<strong>'.$certificate_data['std_name'].'</strong>'; ?> successfully completed the course <?php echo '<strong>'.$certificate_data['crs_title'].'</strong>'; ?>. on <?php echo '<strong>'.date('d F, Y', $certificate_data['date_added']).'</strong>' ?> as taught by <?php echo '<strong>'.$instructor_data['first_name'].' '.$instructor_data['last_name'].'</strong>' ?> on Skillsbd. The certificate indicates the entire course was completed as validated by the student.
                 </p>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-12">
@@ -44,8 +62,13 @@ $instructor_data = $this->db->get_where('users', array('id' => $course_data['use
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <p><?php echo $certificate_data['crs_title']; ?></p>
-                            <a href="<?php echo base_url() ?>home/course/<?php echo $certificate_data['crs_title']; ?>/<?php echo $certificate_data['course_id']; ?>"><small><strong>View Course</strong></small></a>
+                            <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$certificate_data['course_id'].'.jpg')): ?>
+                            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($certificate_data['course_id']); ?>" alt="<?php echo $certificate_data['crs_title'] ?>" class="img-fluid">
+                            <?php else: ?> 
+                            <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$certificate_data['course_id'].'.jpg' ?>" alt="<?php echo $certificate_data['crs_title']; ?>" class="img-fluid">
+                           <?php endif; ?>
+                            <p class="mt-2"><?php echo $certificate_data['crs_title']; ?></p>
+                            <a class="text-primary" href="<?php echo base_url() ?>home/course/<?php echo slugify($certificate_data['crs_title']); ?>/<?php echo $certificate_data['course_id']; ?>"><strong><i class="fas fa-link"></i> View Course</strong></a>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +82,7 @@ $instructor_data = $this->db->get_where('users', array('id' => $course_data['use
                         <ul class="list-group list-group-flush">
                             
                             <li class="list-group-item">
-                                    <a id="btn-Convert-Html2Image" href="#"><strong>.jpg</strong></a>
+                                    <a id="btn-Convert-Html2Image" href="#" class="text-primary"><strong>.jpg</strong></a>
                             </li>
                         </ul>
                     </div>

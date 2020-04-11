@@ -1,4 +1,6 @@
 <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <?php
 
 $my_courses = $this->user_model->my_courses()->result_array();
@@ -34,16 +36,26 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
     }
     .centered {
         position: absolute;
+        width: 70%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 1vw;
-        font-weight: 600;
+        font-size: 1.5vw;
+        font-family: 'PT Serif', serif;
     }
-    .bottom-right {
-        position: absolute;
-        bottom: 8px;
-        right: 16px;
+    
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+      font-size: .8vw;
+    }
+    .signature {
+      position: absolute;
+      top: 83%;
+      left: 25%;
+      font-size: 1.4vw;
+      font-family: 'Great Vibes', cursive;
     }
 </style>
 <!-- certificate order section -->
@@ -54,11 +66,18 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-12">
                 <div class="img-container" id="html-content-holder">
-                    <img src="<?php echo base_url().'uploads/system/certificate.png'; ?>" alt="skillsbd-certificate" class="img-responsive custom-img" style="width:100%;">
-                    <div class="centered">This is to certify that <?php echo $my_certificate['std_name']; ?> successfully completed the course <?php echo $my_certificate['crs_title']; ?> on 21 July, 2019</div>
+                    <img src="<?php echo base_url().'uploads/system/skillsbd-certificate.svg'; ?>" alt="skillsbd-certificate" class="img-responsive custom-img" style="width:100%;">
+                    <div class="centered">This is to certify that <?php echo $my_certificate['std_name']; ?> successfully completed the course <?php echo $my_certificate['crs_title']; ?> on <?php echo date('j F, Y', $my_certificate['date_added']) ?>
+                    </div>
+                    <div class="signature">
+                        <?php echo '<strong>'.$instructor_data['first_name'].' '.$instructor_data['last_name'].'</strong>' ?>
+                    </div>
+                    <div class="bottom-left">
+                        <small>Certificate no. <?php echo '<strong>'.$my_certificate['certificate_code'].'</strong>'; ?></small>
+                    </div>
                 </div>  
                 <p class="mt-4 mb-4">
-                This certificate above verifies that <?php echo '<strong>'.$my_certificate['std_name'].'</strong>'; ?> successfully completed the course <?php echo '<strong>'.$my_certificate['crs_title'].'</strong>'; ?>. on <?php echo '<strong>'.date('d-M-Y', $my_certificate['date_added']).'</strong>' ?> as taught by <?php echo '<strong>'.$instructor_data['first_name'].' '.$instructor_data['last_name'].'</strong>' ?> on Skillsbd. The certificate indicates the entire course was completed as validated by the student.
+                This certificate above verifies that <?php echo '<strong>'.$my_certificate['std_name'].'</strong>'; ?> successfully completed the course <?php echo '<strong>'.$my_certificate['crs_title'].'</strong>'; ?>. on <?php echo '<strong>'.date('j F, Y', $my_certificate['date_added']).'</strong>' ?> as taught by <?php echo '<strong>'.$instructor_data['first_name'].' '.$instructor_data['last_name'].'</strong>' ?> on Skillsbd. The certificate indicates the entire course was completed as validated by the student.
                 </p> 
             </div>
             <div class="col-lg-2 col-md-2 col-sm-12">
@@ -73,7 +92,7 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
                                <small><strong>Certificate no:</strong></small><br> <?php echo $my_certificate['certificate_code']; ?>
                             </li>
                             <li class="list-group-item">
-                                    <a id="btn-Convert-Html2Image" href="#"><strong>.jpg</strong></a>
+                                    <a id="btn-Convert-Html2Image" class="text-primary" href="#"><strong>.jpg</strong></a>
                             </li>
                         </ul>
                     </div>
@@ -83,7 +102,7 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
                 <div class="row mb-3" style="display: none">
                     <div class="card" style="width: 18rem;">
                         <div class="card-header">
-                            <strong><i class="fas fa-share-alt"></i> Share Link</strong>
+                            <strong ><i class="fas fa-share-alt"></i> Share Link</strong>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -100,8 +119,8 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                    <input type="text" class="form-control" value="<?php echo base_url() ?>home/certificate/<?php echo $my_certificate['certificate_code'] ?>">
-                                    <em></em>
+                                    <input type="text" class="form-control" value="<?php echo base_url() ?>home/certificate/<?php echo $my_certificate['certificate_code'] ?>" id="myInput">
+                                    <small class="float-right mt-2"><a class="text-primary" href="#" onclick="myFunction()"><strong>Copy Link</strong></a></small>
                             </li>
                         </ul>
                     </div>
@@ -157,7 +176,16 @@ $my_certificate = $this->db->get_where('certificate', array('course_id' => $this
                 var imgageData = getCanvas.toDataURL("image/png");
                 // Now browser starts downloading it instead of just showing it
                 var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-                $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+                $("#btn-Convert-Html2Image").attr("download", "certificate-skillsbd.png").attr("href", newData);
             });
         });
+</script>
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  //alert("Copied the text: " + copyText.value);
+}
 </script>
