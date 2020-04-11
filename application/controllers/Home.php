@@ -327,23 +327,7 @@ class Home extends CI_Controller {
         redirect(site_url('home/order_history'), 'refresh');
     }
 
-    // report abuse
-    public function reportSubmit() {
-        if ($this->session->userdata('user_login') != true) {
-            redirect(site_url('login'), 'refresh');
-        }
-        $data['course_id']      = html_escape($this->input->post('course_id'));
-        $data['user_id']        = html_escape($this->input->post('user_id'));
-        $data['issue_type']     = html_escape($this->input->post('issue_type'));
-        $data['issue_details']  = html_escape($this->input->post('issue_details'));
-        $data['status']         = html_escape($this->input->post('status'));
-        $data['date_added']     = strtotime(date('D, d-M-Y'));
-        //print_r($data);exit();
-        $this->db->insert('report_issue', $data);
-        $this->session->set_flashdata('flash_message', get_phrase('Your report has been submitted. We will review and solve this asap.'));
-        //redirect(site_url('home/order_history'), 'refresh');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
+    
 
     //certificate order
     public function certificate_order(){
@@ -859,6 +843,8 @@ class Home extends CI_Controller {
         $data['page_name'] = 'quiz';
         $this->load->view('mobile/index', $data);
     }
+
+    
 
     
 }

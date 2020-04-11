@@ -63,10 +63,20 @@
           </div>
         <?php else: ?>
           <div class="mt-5">
+            <?php
+              $nus = 'jon';
+              if(file_exists('uploads/lesson_files/'.$lesson_details['attachment'])){ ?>
+                <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up"   download style="color: #fff;">
+                  <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
+                </a>
+              <?php }
+              else  { ?>
+                <a href="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up" target="_blank"   download style="color: #fff;">
+                  <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
+                </a>
+             <?php  }
+            ?>
             
-            <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up" download style="color: #fff;">
-              <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
-            </a>
           </div>
         <?php endif; ?>
       </div>

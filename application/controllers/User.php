@@ -621,15 +621,33 @@ class User extends CI_Controller {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
-        $data['user_id'] = html_escape($this->input->post('user_id'));
-        $data['course_id'] = html_escape($this->input->post('course_id'));
-        $data['refund_cause'] = html_escape($this->input->post('refund_cause'));
-        $data['others_cause'] = html_escape($this->input->post('others_cause'));
+        $data['user_id']        = html_escape($this->input->post('user_id'));
+        $data['course_id']      = html_escape($this->input->post('course_id'));
+        $data['refund_cause']   = html_escape($this->input->post('refund_cause'));
+        $data['others_cause']   = html_escape($this->input->post('others_cause'));
         $data['refund_message'] = html_escape($this->input->post('refund_message'));
-        $data['date_added'] = strtotime(date("Y-m-d H:i:s"));
-        $data['status'] = 1;
+        $data['date_added']     = strtotime(date("Y-m-d H:i:s"));
+        $data['status']         = 1;
         $this->db->insert('my_refund', $data);
         $this->session->set_flashdata('flash_message', get_phrase('Your refund request has been sent. We will check the cause and get back to you soon. Thanks!'));
         redirect(site_url('home/my_refund'), 'refresh');
+    }
+
+    // report abuse
+    public function reportSubmit() {
+        if ($this->session->userdata('user_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        $data['course_id']      = html_escape($this->input->post('course_id'));
+        $data['user_id']        = html_escape($this->input->post('user_id'));
+        $data['issue_type']     = html_escape($this->input->post('issue_type'));
+        $data['issue_details']  = html_escape($this->input->post('issue_details'));
+        $data['status']         = 1;
+        $data['date_added']     = strtotime(date('D, d-M-Y'));
+        //print_r($data);exit();
+        $this->db->insert('report_issue', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('Your report has been submitted. We will review and solve this asap.'));
+        //redirect(site_url('home/order_history'), 'refresh');
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

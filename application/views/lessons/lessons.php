@@ -31,20 +31,19 @@ $course_details_url = site_url("home/course/".slugify($course_details['title']).
         <?php include 'course_content_sidebar.php'; ?>
         <!-- Course sections and lesson selector sidebar ends-->
     </div>
-</div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Report abuse</strong></h5>
+        <h5 class="modal-title" id=""><strong>Report abuse</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?php echo site_url('home/reportSubmit') ?>" method="post">   
+      <form id="reportAbouse" action="<?php echo site_url('user/reportSubmit'); ?>" method="post">
       <div class="modal-body">        
             <p>Flagged content is reviewed by Skillsbd staff to determine whether it violates Terms of Service or Community Guidelines. If you have a question or technical issue, please contact our <a href="mailto:support@skillsbd.com">Support@skillsbd.com</a></p>
-             <input type="hidden" name="user_id" value=<?php echo $this->session->userdata('user_id'); ?>>
+            <input type="hidden" name="user_id" value=<?php echo $this->session->userdata('user_id'); ?>>
             <input type="hidden" name="course_id" value=<?php echo $course_id; ?>>
             <div class="form-group">
                 <strong for="issueType">Issue Type</strong>
@@ -64,9 +63,10 @@ $course_details_url = site_url("home/course/".slugify($course_details['title']).
             </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Send</button>
       </div>
       </form>
     </div>
   </div>
+</div>
 </div>
