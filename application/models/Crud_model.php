@@ -646,7 +646,8 @@ class Crud_model extends CI_Model {
   }
 
   public function get_top_courses() {
-    return $this->db->get_where('course', array('is_top_course' => 1, 'course_type' => 'Online', 'status' => 'active'));
+    //return $this->db->get_where('course', array('is_top_course' => 1, 'course_type' => 'Online', 'status' => 'active'));
+    return $this->db->get_where('course', array('is_top_course' => 1, 'status' => 'active'));
   }
 
   public function get_classroom_courses() {

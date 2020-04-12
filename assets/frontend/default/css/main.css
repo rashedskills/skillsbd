@@ -4199,3 +4199,10 @@ color: #2a303b;
     background-color: #ffffff !important;
 }
 
+.details-page-wishlist-btn{
+    background-color: transparent;
+    border: transparent;
+    color: #eaeaea;
+    font-size: 14px;
+}
+

@@ -55,7 +55,10 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
                   echo $course_details['course_type'].' course'; 
                 }
               ?>
-          </span>              
+          </span> 
+          <span>
+            <button type="button" class="details-page-wishlist-btn <?php if($this->crud_model->is_added_to_wishlist($course_details['id'])) echo 'active'; ?>" title="Add to wishlist" id = "<?php echo $course_details['id']; ?>" onclick="handleWishList(this)"><i class="far fa-heart"></i></button>
+          </span>             
         </div>
       </div>
     </div>
@@ -69,6 +72,9 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
 
 <section class="course-content-area">
   <div class="container">
+    <div class="row">
+      
+    </div>
     <div class="row">
       <div class="col-lg-8">
             
@@ -444,6 +450,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
 </div>
 </div>
 <div class="col-lg-4">
+   
   <div class="course-sidebar natural">
     <?php if ($course_details['video_url'] != ""): ?>
       <div class="preview-video-box">
@@ -670,7 +677,34 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
       padding-top : 0px;
     }
     </style>
+
+    <script type="text/javascript">      
+      function handleWishList(elem) {
+
+    $.ajax({
+        url: '<?php echo site_url('home/handleWishList');?>',
+        type : 'POST',
+        data : {course_id : elem.id},
+        success: function(response)
+        {
+            if (!response) {
+                window.location.replace("<?php echo site_url('login'); ?>");
+            }else {
+                if ($(elem).hasClass('active')) {
+                    $(elem).removeClass('active')
+                }else {
+                    $(elem).addClass('active')
+                }
+                $('#wishlist_items').html(response);
+            }
+        }
+    });
+}
+    </script>
+
     <script type="text/javascript">
+    
+
     function handleCartItems(elem) {
       url1 = '<?php echo site_url('home/handleCartItems');?>';
       url2 = '<?php echo site_url('home/refreshWishList');?>';
@@ -745,7 +779,6 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         }
       });
     }
-
     function pausePreview() {
       player.pause();
     }

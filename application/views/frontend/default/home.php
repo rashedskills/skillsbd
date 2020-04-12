@@ -196,6 +196,7 @@
                                     <a href="<?php echo $url; ?>" class="btn add-to-cart-btn big-cart-button" onclick="handleEnrolledButton()"><?php echo get_phrase('get_enrolled'); ?></a>
                                     <?php elseif ($top_course['course_type'] == 'Classroom' || $top_course['course_type'] == 'Workshop'): ?>
                                     <a href = "<?php echo site_url('home/get_enrolled_to_classroom_course/'.$top_course['id']); ?>" class="btn btn-buy-now"><?php echo get_phrase('register'); ?></a>
+                                     <button type="button" class="wishlist-btn <?php if($this->crud_model->is_added_to_wishlist($top_course['id'])) echo 'active'; ?>" title="Add to wishlist" onclick="handleWishList(this)" id = "<?php echo $top_course['id']; ?>"><i class="fas fa-heart"></i></button>
                                 <!-- paid course -->
                                 <?php else: ?>
                                     <button type="button" class="btn add-to-cart-btn <?php if(in_array($top_course['id'], $cart_items)) echo 'addedToCart'; ?> big-cart-button-<?php echo $top_course['id'];?>" id = "<?php echo $top_course['id']; ?>" onclick="handleCartItems(this)">

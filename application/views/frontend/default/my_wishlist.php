@@ -39,7 +39,14 @@
                     <div class="course-box-wrap">
                         <div class="course-box">
                             <div class="course-image">
-                                <a href="<?php echo site_url('home/course/'.slugify($my_course['title']).'/'.$my_course['id']); ?>"><img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['id']); ?>" alt="" class="img-fluid"></a>
+                                <!-- <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['id']); ?>" alt="" class="img-fluid"> -->
+                                <a href="<?php echo site_url('home/course/'.slugify($my_course['title']).'/'.$my_course['id']); ?>">
+                                    <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$my_course['id'].'.jpg')): ?>
+                                        <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['id']); ?>" alt="<?php echo $my_course['title'] ?>" class="img-fluid">
+                                        <?php else: ?> 
+                                        <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$my_course['id'].'.jpg' ?>" alt="<?php echo $my_course['title'] ?>" class="img-fluid">
+                                    <?php endif; ?>
+                                </a>
                                 <div class="instructor-img-hover">
                                     <a href="<?php echo site_url('home/instructor_page/'.$instructor_details['id']); ?>"><img src="<?php echo $this->user_model->get_user_image_url($instructor_details['id']);?>" alt=""></a>
                                     <span>
