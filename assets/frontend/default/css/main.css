@@ -1079,9 +1079,9 @@ homepage styles
     overflow-x: hidden;
 }
 .course-carousel-area .course-carousel-title{
-    font-size: 20px;
+    font-size: 22px;
     color: #505763;
-    margin: 0 0 10px;
+    margin: 0 0 20px;
 }
 .course-carousel-area .slick-slider{
     width: calc( 100% + 16px );
@@ -4204,5 +4204,22 @@ color: #2a303b;
     border: transparent;
     color: #eaeaea;
     font-size: 14px;
+}
+
+.advantage img {
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.hm-title h3{
+    color: #505763;
 }
 

@@ -1,6 +1,6 @@
 <style>
 .intructor-banner-area {
-    background-image: url('https://skillsbd.com/skills/assets/backend/images/aboutus.jpg');
+    background-image: url('https://skillsbd.s3.ap-south-1.amazonaws.com/system/aboutus.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

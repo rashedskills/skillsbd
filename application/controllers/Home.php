@@ -561,6 +561,12 @@ class Home extends CI_Controller {
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
 
+    public function instructor_terms() {
+        $page_data['page_name'] = 'instructor_terms';
+        $page_data['page_title'] = get_phrase('instructor_terms_of_use');
+        $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
+    }
+
 
     // Version 1.1
     public function dashboard($param1 = "") {

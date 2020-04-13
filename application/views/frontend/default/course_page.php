@@ -409,8 +409,14 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
           <div class="row">
             <div class="col-lg-4">
               <div class="reviewer-details clearfix">
-                <div class="reviewer-img float-left">
-                  <img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt="">
+                <div class="reviewer-img float-left"><!-- 
+                  <img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt=""> -->
+                  <?php
+                      if (file_exists('uploads/user_image/'.$rating['user_id'].'.jpg')): ?>
+                      <img src="<?php echo base_url().'uploads/user_image/'.$rating['user_id'].'.jpg';?>" alt="" class="img-fluid">
+                      <?php else: ?>
+                      <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$rating['user_id'].'.jpg';?>" alt="" class="img-fluid">
+                  <?php endif; ?>
                 </div>
                 <div class="review-time">
                   <div class="time">

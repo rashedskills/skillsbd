@@ -35,7 +35,7 @@
   overflow: hidden;
   top: 0;
   left: 0;
-  padding: 100px 20px;
+  padding: 100px 30px;
 }
 
 .hovereffect img {
@@ -59,7 +59,6 @@
 }
 
 .hovereffect h2 {
-  text-transform: uppercase;
   color: #fff;
   text-align: center;
   position: relative;

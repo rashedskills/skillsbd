@@ -141,7 +141,7 @@
             </div>
             <div class="col-md-6">
                 <h6><strong>How do I get started?</strong></h6>
-                <p>You can start form anywhere and anytime. Before started you must register our on skillsbd as an instructor. Get start <a href="<?php echo site_url('home/sign_up'); ?>">sign up</a> now</p>
+                <p>You can start form anywhere and anytime. Before started you must register our on skillsbd as an instructor and read the <a href="<?php echo site_url('home/instructor_terms') ?>" target="_blank"><strong>Instructor terms of use</strong></a>. Get start <a href="<?php echo site_url('home/sign_up'); ?>" class="text-primary">sign up</a> now</p>
             </div>
         </div>
     </div>

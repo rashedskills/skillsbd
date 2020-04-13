@@ -62,7 +62,10 @@
     <div class="container-lg">
         <div class="row">
             <div class="col">
-                <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2>
+                <!-- <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2> -->
+                <h2 class="course-carousel-title">
+                    Top Courses
+                </h2>
                 <div class="course-carousel">
                     <?php $top_courses = $this->crud_model->get_top_courses()->result_array();
                     $cart_items = $this->session->userdata('cart_items');
@@ -293,14 +296,14 @@
 <section class="mb-5 py-5 why-choose-us">
 <div class="container-lg">
     <div class="row mb-4">
-        <div class="col">
+        <div class="col hm-title">
             <h3 class="text-center">Why Choose Skillsbd.com courses?</h3>
         </div>               
     </div>
     <div class="d-flex justify-content-center">
         <div class="col-md-10 col-sm-12">
             <div class="row home-fact-box">
-                <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
                     <img src="assets/frontend/default/img/messaing_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
@@ -313,11 +316,11 @@
     <div class="d-flex justify-content-center">
         <div class="col-md-10 col-sm-12">
             <div class="row home-fact-box">                
-                <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
+                <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box ">
                     <h4 class="mb-3">Quiz for students</h4>                          
                     <p class="">Students can take quizzes to justify thier learning status. They can take over those quizzes any number of times.</p>
                 </div>
-                <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
                     <img src="assets/frontend/default/img/quiz_and_assignment_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
                 </div>
             </div>
@@ -326,7 +329,7 @@
     <div class="d-flex justify-content-center">
         <div class="col-md-10 col-sm-12">
             <div class="row home-fact-box">
-                <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
                     <img src="assets/frontend/default/img/course-rating-and -review.png" alt="course_video_player_skillsbd" class="img-fluid">
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
@@ -344,7 +347,7 @@
                     <h4 class="mb-3">Expert & Dedicated Instructor's</h4>                          
                     <p class="">In skillsbd.com, All instructor are specialist in their fields. Instructor's has huge experience and friendly to communicate with students.</p>
                 </div>
-                <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
                     <img src="assets/frontend/default/img/instructors-community.png" alt="instructor_skillsbd" class="img-fluid">
                 </div>
             </div>
@@ -356,56 +359,53 @@
 
 <section class="mb-5 py-5 course-carousel-area">
     <div class="container-lg">
-        <div class="col mb-5">
+        <div class="col mb-5 hm-title">
             <h3 class="text-center">What our student's say?</h3> 
         </div>               
         <div class="row">
             <div class="col">
                 <div class="student-say">
+                    <?php
+                      $ratings = $this->db->get_where('rating', array('rating' => 5))->result_array();
+                      //print_r($ratings);exit();
+                      foreach($ratings as $rating):
+                    ?>
                     <div class="course-box-wrap">                        
                             <div class="card">
-                            <div class="card-body">                                
-                                <q class="card-text"> Skillbd is a life saver. I don't have the time or money for a college education. My goal is to become a freelance web developer, and thanks to Skiilsbd, I'm really close.. </q>
+                            <div class="card-body">
+                                <div class="rating mb-2">
+                                  <?php
+                                  for($i = 1; $i < 6; $i++):?>
+                                  <?php if ($i <= $rating['rating']): ?>
+                                    <i class="fas fa-star filled" style="color: #f5c85b;"></i>
+                                      <?php else: ?>
+                                        <i class="fas fa-star" style="color: #abb0bb;"></i>
+                                      <?php endif; ?>
+                                    <?php endfor; ?>
+                                </div>                                                                    
+                                <p class="card-text text-secondary">
+                                    <?php echo $rating['review']; ?>
+                                </p>
+                                
                                 <div class="row pt-3">
-                                <img class="rounded-circle pull-left ml-2" height="50" weight="50" src="assets/frontend/default/img/student-avatar.png" alt="classroom learning in bangladesh">
-                                <strong class="card-title pull-left p-3"> Jenifar Yesmin</strong>
+                                <?php
+                                      if (file_exists('uploads/user_image/'.$rating['user_id'].'.jpg')): ?>
+                                      <img src="<?php echo base_url().'uploads/user_image/'.$rating['user_id'].'.jpg';?>" width="50" height="50" alt="" class="rounded-circle pull-left ml-2">
+                                      <?php else: ?>
+                                      <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$rating['user_id'].'.jpg';?>" alt="" width="50" height="50" class="rounded-circle pull-left ml-2">
+                                <?php endif; ?>
+                                <strong class="card-title pull-left p-3 text-gray-dark">
+                                    <?php
+                                        $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
+                                        echo $user_details['first_name'].' '.$user_details['last_name'];
+                                    ?>
+                                </strong>
+
                             </div>
                             </div>
                             </div>                    
                     </div>
-                    <div class="course-box-wrap">                    
-                            <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                            </div>                        
-                    </div>
-                    <div class="course-box-wrap">                        
-                            <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                            </div>                    
-                    </div>
-                    <div class="course-box-wrap">                    
-                            <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                            </div>                    
-                    </div> 
-                    <div class="course-box-wrap">                    
-                            <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                            </div>                    
-                    </div> 
+                    <?php endforeach; ?>
                 </div>
                 <!-- end student say ceraosul -->
             </div>
@@ -423,11 +423,11 @@
             <div class="row mb-5">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <img class="img-responsive" src="assets/frontend/default/img/classroom-course.jpg" alt="classroom learning in bangladesh">
+                        <img class="img-responsive rounded" src="assets/frontend/default/img/career-guide.jpg" alt="career guide for fresher in bangladesh">
                             <div class="overlay">
-                                <h2>Classroom Learning</h2>
+                                <h2>Workshop</h2>
                                 <p>
-                                    <a href="<?php echo base_url(); ?>home/courses?category=all&&price=all&&course_type=classroom&&level=all&&language=all&&rating=all">Veiw all courses</a>
+                                    <a href="<?php echo base_url(); ?>home/courses?category=all&&price=all&&course_type=workshop&&level=all&&language=all&&rating=all">Veiw all courses</a>
                                 </p>
                             </div>
                     </div>
@@ -445,6 +445,17 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="hovereffect">
+                        <img class="img-responsive" src="assets/frontend/default/img/classroom-course.jpg" alt="classroom learning in bangladesh">
+                            <div class="overlay">
+                                <h2>Classroom Learning</h2>
+                                <p>
+                                    <a href="<?php echo base_url(); ?>home/courses?category=all&&price=all&&course_type=classroom&&level=all&&language=all&&rating=all">Veiw all courses</a>
+                                </p>
+                            </div>
+                    </div>
+                </div>                
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hovereffect">
                         <img class="img-responsive rounded" src="assets/frontend/default/img/free-course.jpg" alt="free learning in bangladesh">
                             <div class="overlay">
                                 <h2>Free Learning</h2>
@@ -453,18 +464,7 @@
                                 </p>
                             </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="hovereffect">
-                        <img class="img-responsive rounded" src="assets/frontend/default/img/career-guide.jpg" alt="career guide for fresher in bangladesh">
-                            <div class="overlay">
-                                <h2>Career Guide</h2>
-                                <p>
-                                    <a href="">Veiw more</a>
-                                </p>
-                            </div>
-                    </div>
-                </div>
+                </div>                
             </div>
     </div>                            
 </section>
