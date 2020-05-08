@@ -112,7 +112,7 @@ class Login extends CI_Controller {
         }else {
             $this->session->set_flashdata('error_message', get_phrase('email_duplication'));
         }
-        redirect('https://www.skillsbd.com/home/login', 'refresh');
+        redirect(site_url('home/login'), 'refresh');
     }
 
     public function logout($from = "") {
