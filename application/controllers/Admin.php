@@ -654,6 +654,7 @@ class Admin extends CI_Controller {
       redirect(site_url('admin/course_form/course_edit/'.$course_id), 'refresh');
 
     }
+
     elseif ($param1 == "edit") {
       $this->crud_model->update_course($param2);
       redirect(site_url('admin/courses'), 'refresh');

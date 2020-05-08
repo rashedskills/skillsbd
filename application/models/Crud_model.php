@@ -442,7 +442,7 @@ class Crud_model extends CI_Model {
         $data['status'] = 'pending';
       }
     }
-    ///print_r($data);exit();
+    print_r($data);exit();
     $this->db->insert('course', $data);
 
     $course_id = $this->db->insert_id();

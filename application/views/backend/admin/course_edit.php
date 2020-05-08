@@ -129,7 +129,12 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div id="classType" style="display: block">
+                                            <style>
+                                            .hideClassroomInfo{
+                                                display: none;
+                                            }
+                                            </style>
+                                            <div class="<?php echo $course_details['course_type'] == "Online" ? 'hideClassroomInfo' : ''; ?>" id="classType">
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="start_date"><?php echo get_phrase('start_date'); ?> </label>
                                                     <div class="col-md-10">

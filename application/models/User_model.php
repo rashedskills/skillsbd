@@ -205,6 +205,14 @@ class User_model extends CI_Model {
         return $this->db->get_where('enrol', array('user_id' => $user_id));
     }
 
+    public function getWishLists($user_id = "") {
+    if ($user_id == "") {
+      $user_id = $this->session->userdata('user_id');
+    }
+    $user_details = $this->user_model->get_user($user_id)->row_array();
+    return json_decode($user_details['wishlist']);
+  }
+
     public function my_refund_request($user_id = "") {
         if ($user_id == "") {
             $user_id = $this->session->userdata('user_id');
