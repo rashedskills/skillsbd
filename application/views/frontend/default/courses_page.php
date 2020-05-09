@@ -65,7 +65,7 @@ if (isset($sub_category_id)) {
                             </h6>
                         </div>
                     </a>
-                    <div id="collapseFilter" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="collapseFilter" class="collapse show course-filter-mobile" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body pt-0">
                             <div class="filter_type">
                                 <h6><?php echo get_phrase('categories'); ?></h6>
@@ -320,4 +320,11 @@ function showToggle(elem, selector) {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+// remove filter on mobile
+$(document).ready(function(){
+  $(".fa-sliders-h").click(function(){
+    $("#collapseFilter").removeClass("course-filter-mobile");
+  });
+});
 </script>

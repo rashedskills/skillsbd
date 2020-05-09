@@ -201,26 +201,30 @@ menu code was here
   .instructor-mob-link{
     display: none !important; 
   }
+  
 }
 
 /*hide mobile*/
 @media only screen and (max-width: 576px) {
-  .disable-on-mobile{
-    display: none !important;
-  }
-  .display-none-mobile{
-    display: none !important; 
-  }
-  .sign-in-box{
-    padding: 10px 0px !important;
-  }
-  .navbar-brand > img
-{
-  margin-right: 95px;
+    .disable-on-mobile{
+        display: none !important;
     }
-.menu-icon-box {
-    position: absolute !important;
-    right: 0 !important;
+    .display-none-mobile{
+        display: none !important; 
+    }
+    .sign-in-box{
+        padding: 10px 0px !important;
+    }
+    .navbar-brand > img
+    {
+        margin-right: 95px;
+    }
+    .menu-icon-box {
+        position: absolute !important;
+        right: 0 !important;
+    }
+    .course-filter-mobile{
+        display: none  !important; 
     }
 }
 
