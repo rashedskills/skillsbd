@@ -57,11 +57,11 @@ if (isset($sub_category_id)) {
         <div class="row">
             <div class="col-lg-3 filter-area">
                 <div class="card">
-                    <a href="javascript::"  style="color: unset;">
-                        <div class="card-header filter-card-header" id="headingOne" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                    <a data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                        <div class="card-header filter-card-header" id="headingOne" >
                             <h6 class="mb-0">
                                 <?php echo get_phrase('filter'); ?>
-                                <i class="fas fa-sliders-h" style="float: right;"></i>
+                                <i class="fas fa-sliders-h filter-list-icon float-right"></i>
                             </h6>
                         </div>
                     </a>
@@ -321,7 +321,12 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-// remove filter on mobile
 
-
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+  $(".filter-list-icon").click(function(){
+    $("#collapseFilter").removeClass("course-filter-mobile");
+  });
+});
 </script>
