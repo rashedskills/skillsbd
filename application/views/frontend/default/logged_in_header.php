@@ -29,14 +29,14 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                     </form>
 
                     <?php if (get_settings('allow_instructor') == 1): ?>
-                        <div class="instructor-box menu-icon-box">
+                        <div class="instructor-box menu-icon-box display-none-mobile">
                             <div class="icon">
                                 <a href="<?php echo site_url('user'); ?>" style="border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0;"><?php echo get_phrase('instructor'); ?></a>
                             </div>
                         </div>
                     <?php endif; ?>
 
-                    <div class="instructor-box menu-icon-box">
+                    <div class="instructor-box menu-icon-box" style="display: none;">
                         <div class="icon">
                             <a href="<?php echo site_url('home/my_courses'); ?>" style="border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0; min-width: 100px;"><?php echo get_phrase('my_courses'); ?></a>
                         </div>

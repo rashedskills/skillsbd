@@ -2,6 +2,7 @@
   <div class="mobile-overlay"></div>
 
   <ul class="mobile-main-nav">
+
     <div class="mobile-menu-helper-top"></div>
 
     <li class="has-children">
@@ -46,7 +47,21 @@
   </li>
 </ul>
 </li>
+<div class="instructor-mob-link">
+<?php if($this->session->userdata('user_login')){ ?>
+<li class="">
+  <?php if (get_settings('allow_instructor') == 1): ?>          
+        <a href="<?php echo site_url('user'); ?>"><?php echo get_phrase('Switch to Instructor'); ?></a>             
+    <?php endif; ?>
+</li><hr>
+<?php } else { ?>
 
+<li class="sign-in-box btn-group disable-on-desktop">
+  <a href="<?php echo site_url('home/become_instructor') ?>" class="btn btn-sign-in">Become an Instructor</a>
+</li>
+ <?php } ?>
+</div>
 <div class="mobile-menu-helper-bottom"></div>
+
 </ul>
 </div>

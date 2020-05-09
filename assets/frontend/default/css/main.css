@@ -193,10 +193,36 @@ menu code was here
 
 */
 
+/*hide desktop*/
+@media only screen and (min-width: 768px) {
+  .disable-on-desktop{
+    display: none !important;
+  }
+  .instructor-mob-link{
+    display: none !important; 
+  }
+}
 
-
-
-
+/*hide mobile*/
+@media only screen and (max-width: 576px) {
+  .disable-on-mobile{
+    display: none !important;
+  }
+  .display-none-mobile{
+    display: none !important; 
+  }
+  .sign-in-box{
+    padding: 10px 0px !important;
+  }
+  .navbar-brand > img
+{
+  margin-right: 95px;
+    }
+.menu-icon-box {
+    position: absolute !important;
+    right: 0 !important;
+    }
+}
 
 .search-box{
     margin-right: 50px;
