@@ -322,9 +322,10 @@ $(function () {
 })
 
 // remove filter on mobile
-$(document).ready(function(){
+$(function(){
   $(".fa-sliders-h").click(function(){
     $("#collapseFilter").removeClass("course-filter-mobile");
   });
-});
+})
+
 </script>

@@ -34,8 +34,6 @@ function moveElements(){
     }
 }
 
-
-
 function checkWindowWidth(MqL) {
 //check window width (scrollbar included)
     var e = window,
