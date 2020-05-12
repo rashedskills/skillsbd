@@ -57,7 +57,7 @@
 
             <div class="form-group">
                 <label><?php echo get_phrase('duration'); ?>( <?php echo get_phrase('for_web_application'); ?> )</label>
-                <input type="text" name = "duration" id = "duration" class="form-control" value="<?php echo $lesson_details['duration']; ?>">
+                <input type="text" name = "duration" id = "yduration" class="form-control" value="<?php echo $lesson_details['duration']; ?>">
             </div>
         </div>
 
@@ -152,7 +152,7 @@ function ajax_get_video_details(video_url) {
             data : {video_url : video_url},
             success: function(response)
             {
-                jQuery('#duration').val(response);
+                $('#yduration').val(response);
                 $('#perloader').hide();
                 $('#invalid_url').hide();
             }
@@ -160,7 +160,7 @@ function ajax_get_video_details(video_url) {
     }else {
         $('#invalid_url').show();
         $('#perloader').hide();
-        jQuery('#duration').val('');
+        $('#duration').val('');
     }
 }
 

@@ -57,7 +57,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
 
             <div class="form-group">
                 <label><?php echo get_phrase('duration'); ?>( <?php echo get_phrase('for_web_application'); ?> )</label>
-                <input type="text" name = "duration" id = "duration" class="form-control">
+                <input type="text" name = "duration" id = "yduration" class="form-control">
             </div>
         </div>
 
@@ -136,7 +136,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
                 data : {video_url : video_url},
                 success: function(response)
                 {
-                    jQuery('#duration').val(response);
+                    $('#yduration').val(response);
                     $('#perloader').hide();
                     $('#invalid_url').hide();
                 }
@@ -144,7 +144,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
         }else {
             $('#invalid_url').show();
             $('#perloader').hide();
-            jQuery('#duration').val('');
+            $('#yduration').val('');
 
         }
     }
