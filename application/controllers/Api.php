@@ -76,7 +76,7 @@ class Api extends REST_Controller {
   }
   //Protected APIs. This APIs will require Authorization.
   // My Courses API
-  public function my_courses_get() {
+  public function my_courses_get() { 
     $response = array();
     $auth_token = $_GET['auth_token'];
     $logged_in_user_details = json_decode($this->token_data_get($auth_token), true);
