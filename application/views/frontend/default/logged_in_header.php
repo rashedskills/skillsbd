@@ -21,7 +21,7 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
 
                     <form class="inline-form" action="<?php echo site_url('home/search'); ?>" method="get" style="width: 100%;">
                         <div class="input-group search-box mobile-search">
-                            <input type="text" name = 'query' class="form-control" placeholder="<?php echo get_phrase('search_for_courses'); ?>">
+                            <input type="text" name = 'query' class="form-control" placeholder="<?php echo get_phrase('enter_course,_category_or_keyword'); ?>">
                             <div class="input-group-append">
                                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                             </div>
@@ -56,12 +56,19 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                     <div class="user-box menu-icon-box">
                         <div class="icon">
                             <a href="javascript::">
-                                <?php
+                                <div id="logedInUserPik">
+                                    <?php 
+                                    $uname = $user_details['first_name'];                                       
+                                    echo '<p>'.$uname[0].'</p>';
+                                ?>
+                                </div>
+                                
+                                <!-- <?php
                                 if (file_exists('uploads/user_image/'.$user_details['id'].'.jpg')): ?>
                                 <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
                                 <?php else: ?>
                                 <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
-                                <?php endif; ?>
+                                <?php endif; ?> -->
                             </a>
                     </div>
                     <div class="dropdown user-dropdown corner-triangle top-right">

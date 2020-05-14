@@ -3,16 +3,17 @@
         <div class="row">
             <div class="col">
                 <div class="home-banner-wrap">
-                    <h2><?php echo get_frontend_settings('banner_title'); ?></h2>
-                    <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    <h2 class="mb-5"><?php echo get_frontend_settings('banner_title'); ?></h2>
+                    <!-- <p><?php echo get_frontend_settings('banner_sub_title'); ?></p> -->
                     <form class="" action="<?php echo site_url('home/search'); ?>" method="get">
                         <div class="input-group">
-                            <input type="text" class="form-control" name = "query" placeholder="<?php echo get_phrase('what_do_you_want_to_learn'); ?>?">
+                            <input type="text" class="form-control" name = "query" placeholder="<?php echo get_phrase('enter_course,_category_or_keyword'); ?>">
                             <div class="input-group-append">
                                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
                     </form>
+                    <p  class="mt-4">Download student learning app <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/playstore_img.png" alt="playstore-img" width="130"></p>
                 </div>
             </div>
         </div>
@@ -22,50 +23,55 @@
     <div class="container-lg">
         <div class="row">
             <?php $courses = $this->crud_model->get_courses(); ?>
-            <div class="col-md-4 d-flex">
+            <div class="col-md-3 col-sm-12">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fas fa-bullseye float-left"></i>
-                    <div class="text-box">
+                    <!-- <div class="text-box">
                         <h4><?php
                         $status_wise_courses = $this->crud_model->get_status_wise_courses();
                         $number_of_courses = $status_wise_courses['active']->num_rows();
                         echo $number_of_courses.' '.get_phrase('courses'); ?></h4>
                         <p><?php echo get_phrase('explore_a_variety_of_fresh_topics'); ?></p>
+                    </div> -->
+                    <div class="text-box text-center">
+                        <h4 class="mb-2"><?php echo get_phrase('get_real_skills'); ?></h4>
+                        <p><?php echo get_phrase('Learn_the_high-impact_skills_that_top_companies_want'); ?></p>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <div class="text-box text-center">
+                        <h4 class="mb-2"><?php echo get_phrase('top_educators'); ?></h4>
+                        <p><?php echo get_phrase('Learn_from_industries_top_expert_by_their_case_study_&_projects'); ?></p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 d-flex">
+            <div class="col-md-3 col-sm-12">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fa fa-check float-left"></i>
-                    <div class="text-box">
-                        <h4><?php echo get_phrase('expert_instruction'); ?></h4>
-                        <p><?php echo get_phrase('find_the_right_course_for_you'); ?></p>
+                    <div class="text-box text-center">
+                        <h4 class="mb-2"><?php echo get_phrase('get_certificate'); ?></h4>
+                        <P>Eran a certificate from leading companies in IT, Business, Marketing & more</P>                        
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 d-flex">
+            <div class="col-md-3 col-sm-12">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fas fa-certificate float-left"></i>
-                    <div class="text-box">
-                        <h4><?php echo get_phrase('certification'); ?></h4>
-                        <p><?php echo get_phrase('complete_course_and_get_certificate'); ?></p>
+                    <div class="text-box text-center">
+                        <h4 class="mb-2"><?php echo get_phrase('Placement_support'); ?></h4>
+                        <p><?php echo get_phrase('helping_interview_&_Job_placement_assistance_with_top_orgamizations'); ?></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <section class="course-carousel-area">
     <div class="container-lg">
         <div class="row">
             <div class="col">
-                <!-- <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2> -->
-                <h2 class="course-carousel-title">
-                    Top Courses
-                </h2>
+                <h2 class="course-carousel-title"><?php echo get_phrase('trending_courses'); ?></h2>                
                 <div class="course-carousel">
                     <?php $top_courses = $this->crud_model->get_top_courses()->result_array();
                     $cart_items = $this->session->userdata('cart_items');
@@ -230,7 +236,7 @@
     <div class="container-lg">
         <div class="row">
             <div class="col">
-                <h2 class="course-carousel-title"><?php echo get_phrase('top').' 10 '.get_phrase('latest_courses'); ?></h2>
+                <h2 class="course-carousel-title"><?php echo get_phrase('latest_courses'); ?></h2>
                 <div class="course-carousel">
                     <?php
                     $latest_courses = $this->crud_model->get_latest_10_course();
@@ -295,73 +301,101 @@
 <div class="mb-5"></div>
 <section class="mb-5 py-5 why-choose-us">
 <div class="container-lg">
-    <div class="row mb-4">
-        <div class="col hm-title">
-            <h3 class="text-center">Why Choose Skillsbd.com courses?</h3>
-        </div>               
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="col-md-10 col-sm-12">
-            <div class="row home-fact-box">
-                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
-                    <img src="assets/frontend/default/img/messaing_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
-                    <h4 class="mb-3">Messaging with instructor</h4>                          
-                    <p class="">For necessary discoussion on course lessons, students can contact with instructors directly through internal messaging system</p>
-                </div>
+    <div class="row mb-5 mt-2">
+        <div class="col">
+                <h3 class="text-left">Why Choose Skillsbd.com courses...</h3>
+        </div>
+    </div>      
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-10 col-sm-12">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-12 advantage">
+                            <img src="assets/frontend/default/img/messaing_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
+                            <h4 class="mb-3">Messaging with instructor</h4>                          
+                            <p class="">For necessary discoussion on course lessons, students can contact with instructors directly through internal messaging system</p>
+                        </div>
+                    </div>
+                </div>                          
             </div>
-        </div>                          
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="col-md-10 col-sm-12">
-            <div class="row home-fact-box">                
-                <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box ">
-                    <h4 class="mb-3">Quiz for students</h4>                          
-                    <p class="">Students can take quizzes to justify thier learning status. They can take over those quizzes any number of times.</p>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
-                    <img src="assets/frontend/default/img/quiz_and_assignment_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
-                </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-10 col-sm-12">
+                    <div class="row">                
+                        <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box ">
+                            <h4 class="mb-3">Quiz for students</h4>                          
+                            <p class="">Students can take quizzes to justify thier learning status. They can take over those quizzes any number of times.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 advantage">
+                            <img src="assets/frontend/default/img/quiz_and_assignment_skillsbd.png" alt="messaging_skillsbd" class="img-fluid">
+                        </div>
+                    </div>
+                </div>                          
             </div>
-        </div>                          
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="col-md-10 col-sm-12">
-            <div class="row home-fact-box">
-                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
-                    <img src="assets/frontend/default/img/course-rating-and -review.png" alt="course_video_player_skillsbd" class="img-fluid">
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
-                    <h4 class="mb-3">Course progress followup, Review course</h4>                          
-                    <p class="mb-2">Cpmpletion progess can be tracked individually for each course of ervery students.</p>
-                    <p class="">Also students can give rating, post review to every course they purchased.</p>
-                </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-10 col-sm-12">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-12 advantage">
+                            <img src="assets/frontend/default/img/course-rating-and -review.png" alt="course_video_player_skillsbd" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
+                            <h4 class="mb-3">Course progress followup, Review course</h4>                          
+                            <p class="mb-2">Cpmpletion progess can be tracked individually for each course of every students.</p>
+                            <p class="">Also students can give rating, post review to every course they purchased.</p>
+                        </div>
+                    </div>
+                </div>                          
             </div>
-        </div>                          
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="col-md-10 col-sm-12">
-            <div class="row home-fact-box">                
-                <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
-                    <h4 class="mb-3">Expert & Dedicated Instructor's</h4>                          
-                    <p class="">In skillsbd.com, All instructor are specialist in their fields. Instructor's has huge experience and friendly to communicate with students.</p>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 advantage">
-                    <img src="assets/frontend/default/img/instructors-community.png" alt="instructor_skillsbd" class="img-fluid">
-                </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-10 col-sm-12">
+                    <div class="row">                
+                        <div class="col-md-6 col-lg-6 col-sm-12 my-auto text-box">
+                            <h4 class="mb-3">Expert & Dedicated Educators</h4>                          
+                            <p class="">In skillsbd.com, Educator's are specialist in their fields. Educator's has huge experience and friendly to communicate with students.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 advantage">
+                            <img src="assets/frontend/default/img/instructors-community.png" alt="instructor_skillsbd" class="img-fluid">
+                        </div>
+                    </div>
+                </div>                          
             </div>
-        </div>                          
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
+    
 </div>
 </section>
 <!-- testimonial -->
-
-<section class="mb-5 py-5 course-carousel-area">
+<section class="mb-5 py-5 course-carousel-area testimonials">
     <div class="container-lg">
-        <div class="col mb-5 hm-title">
-            <h3 class="text-center">What our student's say?</h3> 
-        </div>               
+        <div class="row mb-5 mt-2">
+            <div class="col">
+                    <h3 class="text-left">What our learners have to say...</h3>         
+            </div>
+        </div>         
         <div class="row">
             <div class="col">
                 <div class="student-say">
@@ -388,19 +422,21 @@
                                 </p>
                                 
                                 <div class="row pt-3">
-                                <?php
-                                      if (file_exists('uploads/user_image/'.$rating['user_id'].'.jpg')): ?>
-                                      <img src="<?php echo base_url().'uploads/user_image/'.$rating['user_id'].'.jpg';?>" width="50" height="50" alt="" class="rounded-circle pull-left ml-2">
-                                      <?php else: ?>
-                                      <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$rating['user_id'].'.jpg';?>" alt="" width="50" height="50" class="rounded-circle pull-left ml-2">
-                                <?php endif; ?>
-                                <strong class="card-title pull-left p-3 text-gray-dark">
-                                    <?php
-                                        $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
-                                        echo $user_details['first_name'].' '.$user_details['last_name'];
+                                 <div id="testimonialImage">
+                                        <?php
+
+                                            $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
+                                            $social_links  = json_decode($user_details['social_links'], true);
+                                            $linkedin = $social_links['linkedin'];
+                                            $uname = $user_details['first_name'];                                       
+                                            echo '<p>'.$uname[0].'</p>';
+                                        ?>
+                                    </div>
+                                <strong class="float-left pl-3 pt-2 text-gray-dark">
+                                    <?php                                        
+                                        echo $user_details['first_name'].' '.$user_details['last_name'].' '.'<a class="ml-2" href="'.$linkedin.'" target="_blank" data-toggle="tooltip" data-placement="bottom" title="profile"><i class="fab fa-linkedin"></i></a>'; 
                                     ?>
                                 </strong>
-
                             </div>
                             </div>
                             </div>                    
@@ -412,16 +448,16 @@
         </div>
     </div>
 </section>
-<section style="background-color: #36373c; color: #ffffff">
-    <div class="container-lg p-5">
+<section class="section-inspire py-5" style="">
+    <div class="container-lg">
             <div class="row mb-5 mt-2">
                 <div class="col">
-                        <h3 class="text-center">Looking For Inspiration?</h3>         
-                        <p class="text-center">Here's what's new and what's popular on skillsbd.com</p>          
+                        <h3 class="text-left">Looking For Inspiration?</h3>         
+                        <p class="text-left">Here's what's new and what's popular on skillsbd.com</p>          
                 </div>
             </div>
             <div class="row mb-5">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6 mb-4">
                     <div class="hovereffect">
                         <img class="img-responsive rounded" src="assets/frontend/default/img/career-guide.jpg" alt="career guide for fresher in bangladesh">
                             <div class="overlay">
@@ -432,7 +468,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6 mb-4">
                     <div class="hovereffect">
                         <img class="img-responsive" src="assets/frontend/default/img/online-course.jpg" alt="online course in bangaldesh">
                             <div class="overlay">
@@ -443,7 +479,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6 mb-4">
                     <div class="hovereffect">
                         <img class="img-responsive" src="assets/frontend/default/img/classroom-course.jpg" alt="classroom learning in bangladesh">
                             <div class="overlay">
@@ -454,7 +490,7 @@
                             </div>
                     </div>
                 </div>                
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6 mb-4">
                     <div class="hovereffect">
                         <img class="img-responsive rounded" src="assets/frontend/default/img/free-course.jpg" alt="free learning in bangladesh">
                             <div class="overlay">

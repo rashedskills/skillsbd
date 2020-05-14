@@ -1005,7 +1005,7 @@ homepage styles
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 170px 0 130px;
+    padding: 100px 0 100px;
     color: #fff;
 }
 .home-banner-wrap{
@@ -1054,14 +1054,14 @@ homepage styles
     background: -ms-linear-gradient(-45deg,#36373c 0,#6e1a52 100%);
     background: -o-linear-gradient(-45deg,#36373c 0,#6e1a52 100%);
     background: linear-gradient(-45deg,#36373c,#6e1a52); */
-    background-color: #fbb034;
-    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+    background-color: #ffdd00;
+    /*background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);*/
     color: #36373c;
     padding: 15px 0;
     margin-bottom: 50px
 }
 .home-fact-box .text-box{
-    padding: 10px 0 10px 63px;
+    padding: 0px;
 }
 .home-fact-box i{
     font-size: 47px;
@@ -4253,3 +4253,93 @@ color: #2a303b;
     color: #505763;
 }
 
+.section-inspire{
+    background-color: #ffffff; 
+    color: #36373c
+}
+@media only screen and (max-width: 576px) {
+  .hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    padding: 35px 10px !important;
+}
+}
+
+#testimonialImage {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #e9ecf3;
+  font-size: 3.5rem;
+  color: #343a40;
+  text-align: center;
+  line-height: 5rem;
+  margin-left: 1rem;
+}
+#testimonialImage p{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: 47px;
+
+}
+
+#courseDetailsTestimonial {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #f4c150;
+  font-size: 3.5rem;
+  color: #fff;
+  text-align: center;
+  line-height: 5rem;
+}
+
+#courseDetailsTestimonial p{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: 47px;
+}
+
+#logedInUserPik{
+    font-family: Arial, Helvetica, sans-serif;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: #f4c150;
+  font-size: 3.5rem;
+  color: #fff;
+  text-align: center;
+  line-height: 5rem;
+}
+
+#logedInUserPik p{
+   text-transform: uppercase;
+   font-size: 1.3rem;
+   line-height: 47px;
+}
+
+.linkedin-color a{
+    color: #0271ae;
+}
+
+.text-gray-dark a{
+    color: #0271ae !important; font-size: 1.1rem;
+ }
+
+ .userProImg{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 45px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    background: #FFD97D;
+    color: #fff;
+    text-align: center;
+    line-height: 29px;
+    z-index: 1;
+ }

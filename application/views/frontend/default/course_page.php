@@ -409,22 +409,28 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
           <div class="row">
             <div class="col-lg-4">
               <div class="reviewer-details clearfix">
-                <div class="reviewer-img float-left"><!-- 
-                  <img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt=""> -->
-                  <?php
+                <div class="reviewer-img float-left">
+                  <div id="courseDetailsTestimonial">
+                    <?php 
+                      $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
+                      $uname = $user_details['first_name'];                                       
+                      echo '<p>'.$uname[0].'</p>';
+                    ?>
+                  </div>                  
+                  <!--<img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt=""> -->
+                  <!-- <?php
                       if (file_exists('uploads/user_image/'.$rating['user_id'].'.jpg')): ?>
                       <img src="<?php echo base_url().'uploads/user_image/'.$rating['user_id'].'.jpg';?>" alt="" class="img-fluid">
                       <?php else: ?>
                       <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$rating['user_id'].'.jpg';?>" alt="" class="img-fluid">
-                  <?php endif; ?>
+                  <?php endif; ?> -->
                 </div>
-                <div class="review-time">
+                <div class="review-time float-right">
                   <div class="time">
                     <?php echo date('D, d-M-Y', $rating['date_added']); ?>
                   </div>
                   <div class="reviewer-name">
-                    <?php
-                    $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
+                    <?php                    
                     echo $user_details['first_name'].' '.$user_details['last_name'];
                     ?>
                   </div>

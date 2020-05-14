@@ -17,7 +17,7 @@
 
           <form class="inline-form" action="<?php echo site_url('home/search'); ?>" method="get" style="width: 50%;">
             <div class="input-group search-box mobile-search">
-              <input type="text" name = 'query' class="form-control" placeholder="<?php echo get_phrase('search_for_courses'); ?>">
+              <input type="text" name = 'query' class="form-control" placeholder="<?php echo get_phrase('enter_course,_category_or_keyword'); ?>">
               <div class="input-group-append">
                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
               </div>
