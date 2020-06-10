@@ -735,6 +735,7 @@ class Crud_model extends CI_Model {
 
   public function add_section($course_id) {
     $data['title'] = html_escape($this->input->post('title'));
+    $data['details'] = html_escape($this->input->post('details'));
     $data['course_id'] = $course_id;
     $this->db->insert('section', $data);
     $section_id = $this->db->insert_id();
@@ -757,7 +758,8 @@ class Crud_model extends CI_Model {
   }
 
   public function edit_section($section_id) {
-    $data['title'] = $this->input->post('title');
+    $data['title']    = $this->input->post('title');
+    $data['details']  = $this->input->post('details');
     $this->db->where('id', $section_id);
     $this->db->update('section', $data);
   }
@@ -815,6 +817,7 @@ class Crud_model extends CI_Model {
 
   public function add_lesson() {
     $data['course_id'] = html_escape($this->input->post('course_id'));
+    $data['title'] = html_escape($this->input->post('title'));
     $data['title'] = html_escape($this->input->post('title'));
     $data['section_id'] = html_escape($this->input->post('section_id'));
 

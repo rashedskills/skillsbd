@@ -4343,3 +4343,14 @@ color: #2a303b;
     line-height: 29px;
     z-index: 1;
  }
+
+/*section details*/
+ .course-curriculum-accordion .lecture-list .section-details {
+    padding: 10px 26px 12px 20px;
+    position: relative;
+    border-bottom: 1px solid #e8e9eb;
+    border-left: 1px solid #e8e9eb;
+    border-right: 1px solid #e8e9eb;
+    color: #686f7a;
+    background-color: #f9f9f9;
+}

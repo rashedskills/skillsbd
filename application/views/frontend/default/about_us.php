@@ -131,7 +131,8 @@
         
         <div class="d-flex justify-content-center">            
                 <div class="col-md-10 col-sm-12 text-center mb-3">
-                    <p>Skillsbd is an online learning markeplace with veriety of classes in design, business, tech, and more. Anyone can join the millions of members in our community to learn cutting-edge skills, network with peers and discover new opportunities.</p>
+                    <p>There are many online learning platform on the internet. And there’s us. We are not the biggest. We are not the cheapest. But we are the fastest growing. We have the highest course completion rate in the industry. The reason is, we don’t give up. When a student commits to a course, we commit to the student.
+                    </p>
                 </div> 
         </div>           
     </div>

@@ -128,6 +128,11 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
               </div>
 
               <div id="collapse<?php echo $section['id']; ?>" class="lecture-list collapse <?php if($counter == 0) echo 'show'; ?>">
+                <?php if(!empty($section['details'])) { ?>
+                <div class="section-details">
+                  <?php  echo $section['details']; ?>
+                </div>
+              <?php } ?>
                 <ul>
                   <?php $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
                   foreach ($lessons as $lesson):?>

@@ -116,7 +116,7 @@ $sections = $this->crud_model->get_section('course', $param3)->result_array();
 
   <div class="form-group">
     <label><?php echo get_phrase('summary'); ?></label>
-    <textarea name="summary" class="form-control"><?php echo $lesson_details['summary']; ?></textarea>
+    <textarea name="summary" class="form-control" id="topics"><?php echo $lesson_details['summary']; ?></textarea>
   </div>
 
   <div class="text-center">
@@ -131,6 +131,10 @@ $(document).ready(function() {
   initSelect2(['#section_id','#lesson_type', '#lesson_provider', '#lesson_provider_for_mobile_application']);
   initTimepicker();
   show_lesson_type_form($('#lesson_type').val());
+});
+
+$(document).ready(function () {
+    initSummerNote(['#topics']);
 });
 
 function ajax_get_section(course_id) {
