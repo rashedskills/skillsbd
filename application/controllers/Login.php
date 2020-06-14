@@ -7,7 +7,7 @@ class Login extends CI_Controller {
     {
         parent::__construct();
         // Your own constructor code
-        //$this->load->database();
+        $this->load->database();
         $this->load->library('session');
         /*cache control*/
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -96,12 +96,6 @@ class Login extends CI_Controller {
         $validity = $this->user_model->check_duplication('on_create', $data['email']);
         if ($validity) {
             $user_id = $this->user_model->register_user($data);
-            /*$this->session->set_userdata('user_login', '1');
-            $this->session->set_userdata('user_id', $user_id);
-            $this->session->set_userdata('role_id', 2);
-            $this->session->set_userdata('role', get_user_role('user_role', 2));
-            $this->session->set_userdata('name', $data['first_name'].' '.$data['last_name']);*/
-
             if (get_settings('student_email_verification') == 'enable') {
                 $this->email_model->send_email_verification_mail($data['email'], $verification_code);
                 $this->session->set_flashdata('flash_message', get_phrase('your_registration_has_been_successfully_done').'. '.get_phrase('please_check_your_mail_inbox_to_verify_your_email_address').'.');
