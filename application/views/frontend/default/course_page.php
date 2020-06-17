@@ -187,7 +187,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         </div>
         <div class="col-lg-7 col-sm-12">
           <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-demo.png" alt="skillsbd-certificate" class="img-fluid">
-          <a data-toggle="modal" data-target="#myCertiicate">Click to Zoom</button>
+          <a data-toggle="modal" data-target="#myCertiicate">Click to Zoom</a>
         </div>
       </div>
     </div>
