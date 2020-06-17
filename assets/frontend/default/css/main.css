@@ -1936,7 +1936,11 @@ course sidebar
 }
 
 
-
+@media (max-width:480px)  {
+    .course-sidebar {
+        margin-top: -50px;
+    }
+}
 
 
 
