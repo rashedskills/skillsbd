@@ -196,7 +196,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-sample.png" alt="skillsbd-certificate" class="img-responsive">
+                <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-sample.png" alt="skillsbd-certificate" class="img-fluid">
             </div>
         </div>
       </div>
