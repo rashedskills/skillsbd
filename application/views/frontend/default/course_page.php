@@ -180,7 +180,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
     <div class="certificate-box mb-5">      
       <div class="row">
         <div class="col-lg-5 col-sm-12">
-          <h4 class="description-title">Certificate</h4>
+          <h4 class="description-title">Certificate of Completion</h4>
           <p>Sucessfully complete your final course project and Skillsbd will certify you as a</p>
           <strong><?php echo $course_details['title']; ?></strong>
           <p class="mt-4">Your certificate shareable on LinkedIn and other Job sites</p>
@@ -440,7 +440,8 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
             <div class="col-lg-4">
               <div class="reviewer-details clearfix">
                 <div class="reviewer-img float-left">
-                  <div id="courseDetailsTestimonial">
+                  <?php $color = "#" . substr(md5(microtime()),rand(0,26),6);; ?>
+                  <div id="courseDetailsTestimonial" style="background: <?php echo $color; ?>">
                     <?php 
                       $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
                       $uname = $user_details['first_name'];                                       

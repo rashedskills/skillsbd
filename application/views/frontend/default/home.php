@@ -422,7 +422,8 @@
                                 </p>
                                 
                                 <div class="row pt-3">
-                                 <div id="testimonialImage">
+                                    <?php $color = "#" . substr(md5(microtime()),rand(0,26),6);; ?>
+                                 <div id="testimonialImage" style="background: <?php echo $color; ?>">
                                         <?php
 
                                             $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
@@ -568,4 +569,17 @@ function handleEnrolledButton() {
         }
     });
 }
+
+function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+ //console.log(bgColor);
+  
+    document.getElementById('testimonialImage');
+    }
+
+random_bg_color();
+
 </script>

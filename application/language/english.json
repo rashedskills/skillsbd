@@ -378,5 +378,16 @@
     "certificate": "Certificate",
     "user_update_successfully": "User update successfully",
     "your_certificate_order_successfully_done.": "Your certificate order successfully done.",
-    "my_certificate": "My certificate"
+    "my_certificate": "My certificate",
+    "manage_profile": "Manage profile",
+    "basic_info": "Basic info",
+    "a_short_title_about_yourself": "A short title about yourself",
+    "biography": "Biography",
+    "the_image_size_should_be_any_square_image": "The image size should be any square image",
+    "choose_file": "Choose file",
+    "update_profile": "Update profile",
+    "current_password": "Current password",
+    "new_password": "New password",
+    "confirm_new_password": "Confirm new password",
+    "update_password": "Update password"
 }
