@@ -457,7 +457,7 @@
                         <p class="text-left">Here's what's new and what's popular on skillsbd.com</p>          
                 </div>
             </div>
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-6 col-lg-3 col-md-3 col-sm-6 mb-4">
                     <div class="hovereffect">
                         <img class="img-responsive rounded" src="assets/frontend/default/img/career-guide.jpg" alt="career guide for fresher in bangladesh">
