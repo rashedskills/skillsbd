@@ -8,6 +8,9 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
     <div class="row align-items-end">
       <div class="col-lg-8">
         <div class="course-header-wrap">
+          <?php if($course_details['course_type'] == 'Live'): ?>
+          <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/live-class.gif" width="40" alt="live-class-in-bangladesh">
+          <?php endif; ?>
           <h1 class="title"><?php echo $course_details['title']; ?></h1>
           <p class="subtitle"><?php echo $course_details['short_description']; ?></p>
           <div class="rating-row">
@@ -92,7 +95,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         <!-- start  curriculum box -->
         <?php
         $courseType = $course_details['course_type'];
-        if($courseType == 'Online') { ?>
+        if($courseType == 'Online' || 'Live') { ?>
         <div class="course-curriculum-box">
           <div class="course-curriculum-title clearfix" >
             <div class="title float-left"><?php echo get_phrase('curriculum_for_this_course'); ?></div>
@@ -174,8 +177,30 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         </div>
       </div>
     </div>
-
-
+    <div class="certificate-box mb-5">      
+      <div class="row">
+        <div class="col-lg-5 col-sm-12">
+          <h4 class="description-title">Certificate</h4>
+          <p>Sucessfully complete your final course project and Skillsbd will certify you as a</p>
+          <strong><?php echo $course_details['title']; ?></strong>
+          <p class="mt-4">Your certificate shareable on LinkedIn and other Job sites</p>
+        </div>
+        <div class="col-lg-7 col-sm-12">
+          <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-demo.png" alt="skillsbd-certificate" class="img-fluid">
+          <a data-toggle="modal" data-target="#myCertiicate">Click to Zoom</button>
+        </div>
+      </div>
+    </div>
+    <!---certificate model--->
+    <div id="myCertiicate" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCertificate" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-sample.png" alt="skillsbd-certificate" class="img-responsive">
+            </div>
+        </div>
+      </div>
+    </div>
     <div class="compare-box view-more-parent">
       <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
       <div class="compare-title"><?php echo get_phrase('other_related_courses'); ?></div>
@@ -466,8 +491,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
 </div>
 </div>
 </div>
-<div class="col-lg-4">
-   
+<div class="col-lg-4">   
   <div class="course-sidebar natural">
     <?php if ($course_details['video_url'] != ""): ?>
       <div class="preview-video-box">
@@ -542,36 +566,27 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         <div class="title mb-2"><b><?php echo get_phrase('course_summery'); ?>:</b></div>
        
         <?php $crouseType = $course_details['course_type'];
-                if($crouseType == 'Classroom' || $crouseType == 'Workshop') { ?> 
+                if($crouseType == 'Live' || $crouseType == 'Classroom' || $crouseType == 'Workshop') { ?> 
                  <ul>         
                       <?php $originalStartDate = $course_details['start_date'];
-                            $startDate = date("j F", strtotime($originalStartDate));
-                            $oneDate  = date("j F, Y", strtotime($originalStartDate));
+                            $startDate = date("j M", strtotime($originalStartDate));
+                            $oneDate  = date("j M, Y", strtotime($originalStartDate));
                             $registerDate = date("j F, Y", strtotime($originalStartDate));
                             $originalEndDate = $course_details['end_date'];
-                            $endDate = date("j F, Y", strtotime($originalEndDate)); 
+                            $endDate = date("j M, Y", strtotime($originalEndDate)); 
                             $originalLastDate = $course_details['reg_last_date'];
                             $lastDate = date("j F, Y", strtotime($originalLastDate)); 
                       ?>
                       <?php if($originalStartDate == $originalEndDate): ?>
                       <li>
-                          <i class="far fa-calendar"></i><?php echo get_phrase('date').': '.$oneDate; ?>
+                          <i class="far fa-calendar"></i><?php echo get_phrase('start_date').': '.$oneDate; ?>
                       </li>
                       <?php else: ?>
                         <li>
-                          <i class="far fa-calendar"></i><?php echo get_phrase('date').': '.$startDate.' - '.$endDate; ?>
+                          <i class="far fa-calendar"></i><?php echo get_phrase('Start_to_end').': '.$startDate.' to '.$endDate; ?>
                       </li>
                       <?php endif; ?>
-                      <li>
-                          <i class="far fa-clock"></i><?php echo get_phrase('duration').': '.$course_details['duration']; ?>
-                      </li>
-                      <li>
-                          <i class="fa fa-list"></i><?php echo get_phrase('total_classes_/_sessions').': '.$course_details['total_classes']; ?>
-                      </li>
-                      <li>
-                          <i class="far fa-clock"></i><?php echo get_phrase('total_hours').': '.$course_details['total_hours'].' hours'; ?>
-                      </li>
-                      <li>  <i class="far fa-clock"></i> Class schedule:
+                      <li>  <i class="far fa-clock"></i><?php echo get_phrase('days')?>:
                      
                       <?php $sche = json_decode($course_details['course_schedule']);          
                       foreach ($sche as $schedules): ?>
@@ -582,9 +597,18 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
                       
                       </li>
                       <li>
-                        <i class="fas fa-map-marker-alt"></i><?php echo get_phrase('venue').': '.$course_details['venue']; ?>
+                          <i class="far fa-clock"></i><?php echo get_phrase('timings').': '.$course_details['duration']; ?>
                       </li>
                       <li>
+                          <i class="far fa-clock"></i><?php echo get_phrase('total_hours').': '.$course_details['total_hours'].' hours'; ?>
+                      </li>
+                      <li>
+                          <i class="fa fa-list"></i><?php echo get_phrase('total_classes').': '.$course_details['total_classes']; ?>
+                      </li>                                            
+                      <li>
+                        <i class="fas fa-map-marker-alt"></i><?php echo get_phrase('venue').': '.$course_details['venue']; ?>
+                      </li>
+                      <li class="text-danger">
                           <i class="far fa-calendar"></i><?php echo get_phrase('registration_last_date').': '.$lastDate; ?>
                       </li>
                     </ul>
@@ -609,6 +633,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
     </div>
   </div>
 </div>
+<!--end right sidebar--->
 </div>
 </div>
 </section>

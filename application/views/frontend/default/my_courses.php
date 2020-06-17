@@ -121,8 +121,8 @@ foreach ($my_courses as $my_course) {
                                           </p> -->
                                           <?php
                                           $totalProgress = ceil(course_progress($my_course['course_id']));
-                                          if($totalProgress != 100): ?>                                          
-                                            <a href="<?php echo (site_url('home/certificate_order'))?>/<?php echo $my_course['course_id'] ?>"><span class="badge badge-info pull-left mt-4 p-1">Get Certificate</span></a>
+                                          if($totalProgress == 100): ?>                                          
+                                            <a href="<?php echo (site_url('home/certificate_order'))?>/<?php echo $my_course['course_id'] ?>"><span class="badge badge-success pull-left mt-4 p-1"><?php echo get_phrase('my_certificate') ?></span></a>
                                           <?php endif; ?>
                                           <p class="your-rating-text">
                                             <a href="javascript::" id = "edit_rating_btn_<?php echo $course_details['id']; ?>" onclick="toggleRatingView('<?php echo $course_details['id']; ?>')" style="color: #2a303b; font-weight: bold"><?php echo get_phrase('edit_rating'); ?></a>

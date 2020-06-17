@@ -111,11 +111,38 @@
                                                     <select class="form-control select2" data-toggle="select2" name="course_type" id="course_type" onchange="courseTypes(this);" required>
                                                         <option value=""><?php echo get_phrase('select_a_type'); ?></option>
                                                         <option value="Online"><?php echo get_phrase('online'); ?></option>
+                                                        <option value="Live"><?php echo get_phrase('live_class'); ?></option>
                                                         <option value="Classroom"><?php echo get_phrase('classroom'); ?></option>
                                                         <option value="Workshop"><?php echo get_phrase('workshop'); ?></option>
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div id="live_course" style="display: none;">
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="meeting_id"><?php echo get_phrase('meeting_id'); ?></label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="liveMeetingId" name ="metting_id" placeholder="<?php echo get_phrase('meeting_id'); ?>" value="<?php echo $course_details['meeting_id']; ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="metting_password"><?php echo get_phrase('meeting_password'); ?></label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="liveMeetingPassword" name ="metting_password" placeholder="<?php echo get_phrase('meeting_password'); ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="meeting_invite_url"><?php echo get_phrase('meeting_invite_url'); ?></label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="liveMeetingInviteUrl" name ="meeting_invite_url" placeholder="<?php echo get_phrase('meeting_invite_url'); ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="note_to_students"><?php echo get_phrase('note_to_students'); ?></label>
+                                                        <div class="col-md-10">                                 
+                                                            <textarea class="form-control" name ="note_to_students" id="liveMeetingStudentNotes" placeholder="<?php echo get_phrase('ex:_take_your_pen_and_paper'); ?>"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             <div id="classType" style="display: none">
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="start_date"><?php echo get_phrase('start_date'); ?></label>
@@ -493,9 +520,15 @@ function calculateDiscountPercentage(discounted_price) {
 
 <script>
     function courseTypes(){
-        if(document.getElementById('course_type').value == 'Classroom' || document.getElementById('course_type').value == 'Workshop'){
+        if(document.getElementById('course_type').value == 'Live'){
+            document.getElementById('live_course').style.display = 'block';
             document.getElementById('classType').style.display = 'block';
-        }else{
+        }else if(document.getElementById('course_type').value == 'Classroom' || document.getElementById('course_type').value == 'Workshop'){            
+            document.getElementById('live_course').style.display = 'none';
+            document.getElementById('classType').style.display = 'block';
+        }
+        else{
+            document.getElementById('live_course').style.display = 'none';
             document.getElementById('classType').style.display = 'none';
         }
        

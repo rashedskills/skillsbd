@@ -69,4 +69,26 @@ $course_details_url = site_url("home/course/".slugify($course_details['title']).
     </div>
   </div>
 </div>
+<!-- Live Class Model -->
+<div class="modal fade" id="liveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="exampleModalLongTitle"><i class="fas fa-video"></i> Live Class</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title" id="">Note to Learner:</h5>
+        <p><?php echo $course_details['note_to_students']; ?></p>
+        <strong><?php //date_default_timezone_set("Asia/Dhaka");
+                      //echo date('l, j F Y \@ h:i A');?></strong>
+              <div class="d-flex justify-content-center mt-5 mb-5">
+            <a href="<?php echo $course_details['meeting_invite_url']; ?>" target="_blank" class="btn btn-lg btn-block btn-danger"><i class="fas fa-video"></i> Join Live Class</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

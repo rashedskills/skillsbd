@@ -397,6 +397,10 @@ class Crud_model extends CI_Model {
     $category_details = $this->get_category_details_by_id($this->input->post('sub_category_id'))->row_array();
     $data['category_id'] = $category_details['parent'];
     $data['course_type'] = $this->input->post('course_type');
+    $data['metting_id'] = $this->input->post('metting_id');
+    $data['metting_password'] = $this->input->post('metting_password');
+    $data['meeting_invite_url'] = $this->input->post('meeting_invite_url');
+    $data['note_to_students'] = $this->input->post('note_to_students');
     $data['start_date'] = $this->input->post('start_date');
     $data['end_date'] = $this->input->post('end_date');
     $data['reg_last_date'] = $this->input->post('reg_last_date');
@@ -496,6 +500,10 @@ class Crud_model extends CI_Model {
     $category_details = $this->get_category_details_by_id($this->input->post('sub_category_id'))->row_array();
     $data['category_id'] = $category_details['parent'];
     $data['course_type'] = $this->input->post('course_type');
+    $data['metting_id'] = $this->input->post('metting_id');
+    $data['metting_password'] = $this->input->post('metting_password');
+    $data['meeting_invite_url'] = $this->input->post('meeting_invite_url');
+    $data['note_to_students'] = $this->input->post('note_to_students');
     $data['start_date'] = $this->input->post('start_date');
     $data['end_date'] = $this->input->post('end_date');
     $data['reg_last_date'] = $this->input->post('reg_last_date');

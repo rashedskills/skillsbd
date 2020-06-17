@@ -124,6 +124,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                 <div class="col-md-10">
                                                     <select class="form-control select2" data-toggle="select2" name="course_type" id="course_type" onchange="courseTypes(this);" required>
                                                         <option value="Online" <?php if($course_details['course_type'] == "Online") echo 'selected'; ?>><?php echo get_phrase('online'); ?></option>
+                                                        <option value="Live" <?php if($course_details['course_type'] == "Live") echo 'selected'; ?>><?php echo get_phrase('live'); ?></option>
                                                         <option value="Classroom" <?php if($course_details['course_type'] == "Classroom") echo 'selected'; ?>><?php echo get_phrase('classroom'); ?></option>
                                                         <option value="Workshop" <?php if($course_details['course_type'] == "Workshop") echo 'selected'; ?>><?php echo get_phrase('workshop'); ?></option>
                                                     </select>
@@ -133,8 +134,37 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                             .hideClassroomInfo{
                                                 display: none;
                                             }
+                                            .hideLiveInfo{
+                                                display: none;
+                                            }
                                             </style>
-                                            <div class="<?php echo $course_details['course_type'] == "Online" ? 'hideClassroomInfo' : ''; ?>" id="classType">
+                                            <div class="<?php echo $course_details['course_type'] != "Live" ? 'hideLiveInfo' : ''; ?>" id="live_course">
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="metting_id"><?php echo get_phrase('metting_id'); ?></label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="liveMeetingId" name ="metting_id" placeholder="<?php echo get_phrase('metting_id'); ?>" value="<?php echo $course_details['metting_id']; ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="metting_password"><?php echo get_phrase('meeting_password'); ?></label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="liveMeetingPassword" name ="metting_password" placeholder="<?php echo get_phrase('meeting_password'); ?>" value="<?php echo $course_details['metting_password']; ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="meeting_invite_url"><?php echo get_phrase('meeting_invite_url'); ?></label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="liveMeetingInviteUrl" name ="meeting_invite_url" placeholder="<?php echo get_phrase('meeting_invite_url'); ?>" value="<?php echo $course_details['meeting_invite_url']; ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mb-3">
+                                                        <label class="col-md-2 col-form-label" for="note_to_students"><?php echo get_phrase('note_to_students'); ?></label>
+                                                        <div class="col-md-10">                                 
+                                                            <textarea class="form-control" name ="note_to_students" id="liveMeetingStudentNotes" placeholder="<?php echo get_phrase('ex:_take_your_pen_and_paper'); ?>"><?php echo $course_details['note_to_students']; ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            <div class="<?php echo $course_details['course_type'] == "Online" ? 'hideClassroomInfo' : ''; ?>" id="classType">                                                
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="start_date"><?php echo get_phrase('start_date'); ?> </label>
                                                     <div class="col-md-10">
@@ -618,7 +648,11 @@ $('.on-hover-action').mouseleave(function() {
     function courseTypes(){
         if(document.getElementById('course_type').value == 'Online'){
             document.getElementById('classType').style.display = 'none';
-        }else{
+        }else if(document.getElementById('course_type').value == 'Live'){
+            document.getElementById('live_course').style.display = 'block';
+            document.getElementById('classType').style.display = 'block';
+        }
+        else{
             document.getElementById('classType').style.display = 'block';
         }
        

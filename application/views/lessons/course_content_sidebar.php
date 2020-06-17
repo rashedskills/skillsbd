@@ -1,7 +1,24 @@
+<?php
+$course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
+?>
 <div class="col-lg-3  order-md-2 course_col" id = "lesson_list_area">
-  <div class="text-center" style="margin: 12px 10px;">
-    <h5><?php echo get_phrase('course_content'); ?></h5>
-  </div>
+  <div class="row">
+   
+    <div style="margin: 12px 25px;">
+      <h5 class="float-right"><?php echo get_phrase('course_content'); ?></h5>
+    </div>    
+    <?php
+      date_default_timezone_set("Asia/Dhaka");
+      $originalEndDate = $course_details['end_date'];
+      $endDate = strtotime($originalEndDate. ' +1 day'); 
+      date_default_timezone_set("Asia/Dhaka");
+      $todayDate = strtotime("now");
+    if($endDate >= $todayDate && $course_details['course_type'] == 'Live'): ?>
+    <div class="float-right" style="margin: 12px 0px;">
+      <strong ><a class="text-danger" href="" data-toggle="modal" data-target="#liveModal"><i class="fas fa-video"></i> <?php echo get_phrase('live_class_here'); ?></a></strong>
+    </div>
+   <?php endif; ?>
+  </div>  
   <div class="accordion" id="accordionExample">
     <?php
     foreach ($sections as $key => $section):
