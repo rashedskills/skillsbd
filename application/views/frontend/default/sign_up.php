@@ -60,7 +60,7 @@
                           <div class="title"><?php echo get_phrase('registration_form'); ?></div>
                           <div class="subtitle"><?php echo get_phrase('sign_up_and_start_learning'); ?>.</div>
                       </div>
-                      <form action="<?php echo site_url('login/register'); ?>" method="post">
+                      <form action="<?php echo site_url('home/login/register'); ?>" method="post">
                           <div class="content-box">
                               <div class="basic-group">
                                   <div class="form-group">
