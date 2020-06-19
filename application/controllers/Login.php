@@ -99,6 +99,7 @@ class Login extends CI_Controller {
             if (get_settings('student_email_verification') == 'enable') {
                 $this->email_model->send_email_verification_mail($data['email'], $verification_code);
                 $this->session->set_flashdata('flash_message', get_phrase('your_registration_has_been_successfully_done').'. '.get_phrase('please_check_your_mail_inbox_to_verify_your_email_address').'.');
+                redirect(site_url('home/login'), 'refresh');
             }else {
                 $this->session->set_flashdata('flash_message', get_phrase('your_registration_has_been_successfully_done'));
             }
