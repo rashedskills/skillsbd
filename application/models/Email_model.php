@@ -30,7 +30,7 @@ class Email_model extends CI_Model {
 
 	public function send_email_verification_mail($to = "", $verification_code = "") {
 		$redirect_url = site_url('login/verify_email_address/'.$verification_code);
-		$websiteUrl = 'www.skillsbd.com';
+		$websiteUrl = 'http://skillsbd.com';
 		//$mesg = $this->load->view('template/email','',true);
 		$subject 	 =  "Verify Email Address";
 		$email_msg	 =	"<h3 style='margin-top: 30px; font-size: 1.2rem;'>Welcome to Skillsbd!</h3>";
@@ -74,13 +74,14 @@ class Email_model extends CI_Model {
 			'smtp_port' => get_settings('smtp_port'),
 			'smtp_user' => get_settings('smtp_user'),
 			'smtp_pass' => get_settings('smtp_pass'),
-			'newline' => "\r\n",
+			//'newline' => "\r\n",
 			'smtp_crypto' => 'tls',
 			'mailtype'  => 'html',
 			'charset'   => 'utf-8'
 		);
 		$this->email->initialize($config);
 		$this->email->set_mailtype("html");
+		$this->email->set_newline("\r\n");
 
 		$htmlContent = $msg;
 
