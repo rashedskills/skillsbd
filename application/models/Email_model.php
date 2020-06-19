@@ -30,7 +30,7 @@ class Email_model extends CI_Model {
 
 	public function send_email_verification_mail($to = "", $verification_code = "") {
 		$redirect_url = site_url('login/verify_email_address/'.$verification_code);
-		$websiteUrl = 'https://skillsbd.com';
+		$websiteUrl = 'www.skillsbd.com';
 		//$mesg = $this->load->view('template/email','',true);
 		$subject 	 =  "Verify Email Address";
 		$email_msg	 =	"<h3 style='margin-top: 30px; font-size: 1.2rem;'>Welcome to Skillsbd!</h3>";
