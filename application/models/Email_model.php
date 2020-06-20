@@ -74,14 +74,13 @@ class Email_model extends CI_Model {
 			'smtp_port' => get_settings('smtp_port'),
 			'smtp_user' => get_settings('smtp_user'),
 			'smtp_pass' => get_settings('smtp_pass'),
-			//'newline' => "\r\n",
+			'newline' => "\r\n",
 			'smtp_crypto' => 'tls',
 			'mailtype'  => 'html',
 			'charset'   => 'utf-8'
 		);
 		$this->email->initialize($config);
 		$this->email->set_mailtype("html");
-		$this->email->set_newline("\r\n");
 
 		$htmlContent = $msg;
 
@@ -92,7 +91,5 @@ class Email_model extends CI_Model {
 
 		//Send email
 		$this->email->send();
-		//print_r($this->email->print_debugger());
-		//exit();
 	}
 }
