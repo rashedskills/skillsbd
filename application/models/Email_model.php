@@ -93,6 +93,6 @@ class Email_model extends CI_Model {
 		//Send email
 		$this->email->send();
 		//print_r($this->email->print_debugger());
-		exit();
+		//exit();
 	}
 }
