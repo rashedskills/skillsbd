@@ -34,7 +34,7 @@
                     </div> -->
                     <div class="text-box text-center">
                         <h4 class="mb-2"><?php echo get_phrase('get_real_skills'); ?></h4>
-                        <p><?php echo get_phrase('Learn_the_high-impact_skills_that_top_companies_want'); ?></p>
+                        <p><?php echo get_phrase('Learn_the_high-impact_skills'); ?></p>
                     </div>                    
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
                     <div class="text-box text-center">
                         <h4 class="mb-2"><?php echo get_phrase('top_educators'); ?></h4>
-                        <p><?php echo get_phrase('Learn_from_industries_top_expert_by_their_case_study_&_projects'); ?></p>
+                        <p><?php echo get_phrase('Learn_from_industries_top_expert'); ?></p>
                     </div>
                 </div>
             </div>
@@ -51,8 +51,8 @@
             <div class="col-md-3 col-sm-12">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
                     <div class="text-box text-center">
-                        <h4 class="mb-2"><?php echo get_phrase('get_certificate'); ?></h4>
-                        <P>Eran a certificate from leading companies in IT, Business, Marketing & more</P>                        
+                        <h4 class="mb-2"><?php echo get_phrase('earn_certificate'); ?></h4>
+                        <P><?php echo get_phrase('earn_a_shareable_certificate'); ?></P>                        
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
                     <div class="text-box text-center">
                         <h4 class="mb-2"><?php echo get_phrase('Placement_support'); ?></h4>
-                        <p><?php echo get_phrase('helping_interview_&_Job_placement_assistance_with_top_orgamizations'); ?></p>
+                        <p><?php echo get_phrase('interview_&_Job_placement_assistance'); ?></p>
                     </div>
                 </div>
             </div>

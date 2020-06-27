@@ -524,3 +524,8 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+#google reCaptcha v2
+$config['recaptcha_sitekey'] = '6LfaNqoZAAAAAIl6E9em5mVZsow7Evyd6ZdlYa5z'; //Recaptcha Site key
+$config['recaptcha_secretkey'] = '6LfaNqoZAAAAAA3EbM9BQDUkU5IEXssZL8c6xXUU'; //Recaptcha Secret Key

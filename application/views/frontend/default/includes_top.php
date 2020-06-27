@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<?php echo base_url().'assets/global/toastr/toastr.css' ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css" />
 <script src="<?php echo base_url('assets/backend/js/jquery-3.3.1.min.js'); ?>"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <style>
 .hovereffect {
   width: 100%;

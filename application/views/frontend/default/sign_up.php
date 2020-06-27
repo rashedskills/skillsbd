@@ -59,7 +59,7 @@
                       <div class="content-title-box">
                           <div class="title"><?php echo get_phrase('registration_form'); ?></div>
                           <div class="subtitle"><?php echo get_phrase('sign_up_and_start_learning'); ?>.</div>
-                      </div>
+                      </div>  
                       <form action="<?php echo site_url('login/register'); ?>" method="post">
                           <div class="content-box">
                               <div class="basic-group">
@@ -82,6 +82,9 @@
                                   <div class="form-group">
                                       <label for="registration-password"><span class="input-field-icon"><i class="fas fa-lock"></i></span> <?php echo get_phrase('password'); ?>:</label>
                                       <input type="password" class="form-control" name = "password" id="registration-password" placeholder="<?php echo get_phrase('password'); ?>" value="" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="<?php echo $this->config->item('recaptcha_sitekey') ?>"></div> 
                                   </div>
                               </div>
                           </div>

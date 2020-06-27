@@ -93,8 +93,16 @@ class Login extends CI_Controller {
         array_push($stripe_info, $stripe_keys);
         $data['stripe_keys'] = json_encode($stripe_info);
 
-        $validity = $this->user_model->check_duplication('on_create', $data['email']);
-        if ($validity) {
+        /* Load form validation library */ 
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('g-recaptcha-response', 'recaptcha validation', 'required|callback_validate_captcha');
+        $this->form_validation->set_message('validate_captcha', 'Please check the captcha form');
+        if ($this->form_validation->run() == FALSE){
+            $this->session->set_flashdata('error_message', get_phrase('Please_check_the_captcha_form'));
+            redirect(site_url('home/sign_up'));
+        }else{
+            $validity = $this->user_model->check_duplication('on_create', $data['email']);
+            if ($validity) {
             $user_id = $this->user_model->register_user($data);
             if (get_settings('student_email_verification') == 'enable') {
                 $this->email_model->send_email_verification_mail($data['email'], $verification_code);
@@ -102,11 +110,24 @@ class Login extends CI_Controller {
             }else {
                 $this->session->set_flashdata('flash_message', get_phrase('your_registration_has_been_successfully_done'));
             }
-
-        }else {
-            $this->session->set_flashdata('error_message', get_phrase('email_duplication'));
+            }else {
+                $this->session->set_flashdata('error_message', get_phrase('email_duplication'));
+            }
+            redirect(site_url('home/login'), 'refresh');
         }
-        redirect(site_url('home/login'), 'refresh');
+        
+        
+    }
+
+    function validate_captcha() {
+        $captcha = $this->input->post('g-recaptcha-response');
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$this->config->item('recaptcha_sitekey')."&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+
+        if ($response . 'success' == false) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 
     public function logout($from = "") {

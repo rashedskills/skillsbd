@@ -85,6 +85,9 @@
                                       <label for="registration-password"><span class="input-field-icon"><i class="fas fa-lock"></i></span> <?php echo get_phrase('password'); ?>:</label>
                                       <input type="password" class="form-control" name = "password" id="registration-password" placeholder="<?php echo get_phrase('password'); ?>" value="" required>
                                   </div>
+                                  <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="<?php echo $this->config->item('recaptcha_sitekey') ?>"></div> 
+                                  </div>
                               </div>
                           </div>
                           <div class="content-update-box">
