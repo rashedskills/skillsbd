@@ -40,3 +40,4 @@ ERROR - 2020-07-04 22:48:10 --> Severity: error --> Exception: syntax error, une
 ERROR - 2020-07-04 22:49:38 --> Severity: error --> Exception: syntax error, unexpected '$purchase_msg' (T_VARIABLE) F:\xamppnew\htdocs\skills\application\models\Email_model.php 61
 ERROR - 2020-07-04 22:50:48 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
 ERROR - 2020-07-04 22:50:49 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 23:35:11 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 53
