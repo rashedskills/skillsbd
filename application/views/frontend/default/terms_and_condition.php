@@ -285,7 +285,7 @@
             <p>Instructors don't have a direct contractual relationship with students, so the only information you'll receive about students is what is provided to you through the Services. You agree that you will not use the data you receive for any purpose other than providing your services to those students on the Skillsbd platform, and that you won't solicit additional personal data or store students' personal data outside the Skillsbd platform. You will indemnify Skillsbd against any claims arising from your use of students' personal data.</p>
             <strong>3.3 Anti-Piracy Efforts</strong>
             <p>We take piracy as a serious offense and are committed to work against those who pirate copyright and intellectual properties. But for a motivated pirate, any content that appears on a computer screen is vulnerable to theft. This is unavoidable even for today, and a problem across the industry. Companies like Youtube, Netflix, Amazon, etc. all have the same issue, and as an industry, we continue to work on new solutions to limit piracy.</p>
-            <p>As an instructor if you find any course materials that have been pirated from skillsbd.com please email us at <a href="mailto:privacy@skillsbd.com" class="text-primary">privacy@skillsbd.com</a> with detail.</p>
+            <p>As an instructor if you find any course materials that have been pirated from skillsbd.com please email us at <!-- <a href="mailto:privacy@skillsbd.com" class="text-primary">privacy@skillsbd.com</a> --><a href="mailto:info@skillsbd.com" class="text-primary">info@skillsbd.com</a> with detail.</p>
         </div>
     </div>
 

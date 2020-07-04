@@ -70,25 +70,25 @@
                 <div class="text-center mt-5"><small>For Business related queries</small></div>
                 <div class="text-center mt-1"><strong>01752 992444</strong></div>
                 <hr>
-                <strong class="text-center">enterprise@skillsbd.com</strong>
+                <strong class="text-center">info@skillsbd.com</strong>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card mx-sm-1 p-3">
                 <div class="card shadow text-warning p-4 my-card" ><span class="fas fa-user-tie" aria-hidden="true"></span></div>
                 <div class="text-center mt-5"><small>For Instructor related queries</small></div>
-                <div class="text-center mt-1"><strong>01752 992444</strong></div>
+                <div class="text-center mt-1"><strong>01839 133665</strong></div>
                 <hr>
-                <strong class="text-center">teach@skillsbd.com</strong>
+                <strong class="text-center">support@skillsbd.com</strong>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card mx-sm-1 p-3">
             <div class="card shadow text-warning p-4 my-card" ><span class="fas fa-comments" aria-hidden="true"></span></div>
                 <div class="text-center mt-5"><small>Others queries</small></div>
-                <div class="text-center mt-1"><strong>01752 992444</strong></div>
+                <div class="text-center mt-1"><strong>01839 133665</strong></div>
                 <hr>
-                <strong class="text-center">info@skillsbd.com</strong>
+                <strong class="text-center">support@skillsbd.com</strong>
             </div>
         </div>
      </div>  

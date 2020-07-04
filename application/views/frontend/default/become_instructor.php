@@ -25,6 +25,9 @@
     background-color: #ffb606;
     color: #36373c;
 }
+.info-link{
+    text-decoration: underline;
+}
 </style>
 <section class="intructor-banner-area mb-5">
     <div class="container">
@@ -61,8 +64,8 @@
             </div>
             <div class="col-md-4 col-sm-12 text-center">
                 <i class="fas fa-link mb-4" style="font-size: 3rem; color: #8991a5"></i>
-                <h5 class="mb-2">Join our community</h5>
-                <p>Take advantage of our active community of instructors to help you through your course creation process.</p>
+                <h5 class="mb-2">Build your community</h5>
+                <p>Take advantage of our platform and build your online community through your course creation process.</p>
             </div>
         </div>
     </div>
@@ -83,7 +86,7 @@
             </div>
             <div class="col-md-3 text-center">
                 <i class="fas fa-chalkboard-teacher mb-4" style="font-size: 3rem;"></i>
-                <h5>Create your first course</h5>
+                <h5>Create your first class</h5>
             </div>
             <div class="col-md-3 text-center">
                 <i class="fas fa-users mb-4" style="font-size: 3rem;"></i>
@@ -111,13 +114,13 @@
             </div>
             <div class="col-md-6">
             <h6><strong>What's included in a Skillsbd class?</strong></h6>
-                <p>Skillsbd classes include a combination of video lessons and a class project. The class project is a short assignment that helps students put their new skills into action.</p>
+                <p>Skillsbd classes include a combination of Video lessons, Quiz, and a Class project. The class project is a short assignment that helps students put their new skills into action.</p>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-md-6">
             <h6><strong>What should I teach?</strong></h6>
-                <p>Skillsbd classes are for creators, and fall into a variety of topics, including Business, Excel, Design, Language, Marketing, Photography, Web Design, Entrepreneurship, and more.</p>
+                <p>Skillsbd classes are for creators, and fall into a variety of topics, including Business, Excel, Design, Language, Marketing, Photography, Web Development, Entrepreneurship, Leadership and more.</p>
             </div>
             <div class="col-md-6">
                 <h6><strong>Do I need to promote my classes?</strong></h6>
@@ -127,21 +130,21 @@
         <div class="row mb-3">
             <div class="col-md-6">
             <h6><strong>How can I earn money?</strong></h6>
-                <p>You'll earn money montly through bKash or Bank Account in your classes plus a referral bonus for every student you refer to Skillsbd Premium Membership.</p>
+                <p>People want to learn and the Internet opened the door for everyone to continue their educations from anywhere in the world. You'll earn money montly through Bank Account in your classes.</p>
             </div>
             <div class="col-md-6">
                 <h6><strong>Do you offer any resources for instructor?</strong></h6>
-                <p>Yes! We offer resources like the Teacher Handbook and our 30 Day Teach Challenge to help you build a great class. We’re also available for any questions at teach@skillsbd.com.</p>
+                <p>Yes! We offer resources like the Teacher Handbook and our 30 Day Teach Challenge to help you build a great class. We’re also available for any questions at support@skillsbd.com.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
             <h6><strong>Can I create more than one course?</strong></h6>
-                <p>Yes! Instructor can create any amount of classes as per as skillsbd privacy and policy.</p>
+                <p>Yes! as an Instructor can create any amount of classes as per as skillsbd.com <a href="<?php echo site_url('home/privacy_policy') ?>" class="info-link">privacy and policy</a>.</p>
             </div>
             <div class="col-md-6">
                 <h6><strong>How do I get started?</strong></h6>
-                <p>You can start form anywhere and anytime. Before started you must register our on skillsbd as an instructor and read the <a href="<?php echo site_url('home/instructor_terms') ?>" target="_blank"><strong>Instructor terms of use</strong></a>. Get start <a href="<?php echo site_url('home/sign_up'); ?>" class="text-primary">sign up</a> now</p>
+                <p>You can start form anywhere and anytime. Before started you must register our on skillsbd as an instructor and read the <a href="<?php echo site_url('home/instructor_terms') ?>" target="_blank"><strong>Instructor terms of use</strong></a>. Get start <a href="<?php echo site_url('home/sign_up'); ?>" class="text-primary"><strong>sign up</strong></a> now</p>
             </div>
         </div>
     </div>

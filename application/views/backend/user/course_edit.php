@@ -512,6 +512,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                         <label class="col-md-2 col-form-label" for="website_keywords"><?php echo get_phrase('meta_keywords'); ?></label>
                                         <div class="col-md-10">
                                             <input type="text" class="form-control bootstrap-tag-input" id = "meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%;" value="<?php echo $course_details['meta_keywords']; ?>"/>
+                                            <P>Type keyword and press enter</P>
                                         </div>
                                     </div>
                                 </div> <!-- end col -->

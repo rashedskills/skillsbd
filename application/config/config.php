@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
+//$config['base_url'] = 'http://localhost:80/skills/';
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
@@ -529,3 +529,8 @@ $config['proxy_ips'] = '';
 #google reCaptcha v2
 $config['recaptcha_sitekey'] = '6LfaNqoZAAAAAIl6E9em5mVZsow7Evyd6ZdlYa5z'; //Recaptcha Site key
 $config['recaptcha_secretkey'] = '6LfaNqoZAAAAAA3EbM9BQDUkU5IEXssZL8c6xXUU'; //Recaptcha Secret Key
+
+
+// define("SSLCZ_STORE_ID", "testbox"); Your Test/Live Store Id
+// define("SSLCZ_STORE_PASSWD", "qwerty"); Your Test/Live Store Password
+// define("SSLCZ_IS_SANDBOX", true); 'true' for Sandbox/ 'false' for Securepay

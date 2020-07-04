@@ -99,13 +99,23 @@
                 <div class="cart-sidebar">
                     <div class="total"><?php echo get_phrase('total'); ?>:</div>
                     <span id = "total_price_of_checking_out" hidden><?php echo $total_price; ?></span>
+                    <?php $_SESSION['tprice'] = $total_price; ?>
                     <div class="total-price"><?php echo currency($total_price);  ?></div>
                     <div class="total-original-price">
                         <span class="original-price"><?php echo currency($actual_price);  ?></span>
                         <!-- <span class="discount-rate">95% off</span> -->
                     </div>
-                    <button type="button" class="btn btn-warning btn-block" onclick="orderTemporary()"><?php echo get_phrase('checkout'); ?></button>
-                    <!-- <button type="button" class="btn btn-primary btn-block checkout-btn" onclick="handleCheckOut()"><?php echo get_phrase('checkout'); ?></button> -->
+                    
+                    <!-- Custom order --> 
+                    <!-- <button type="button" class="btn btn-warning btn-block" onclick="orderTemporary()"><?php echo get_phrase('checkout'); ?></button>-->
+
+                    <!-- ssl checkout -->
+                    <a  href="<?php echo site_url('home/ssl_checkout'); ?>" 
+                        type="button" 
+                        class="btn btn-warning btn-block" 
+                        onclick="handleCheckOut()"
+                        ><?php echo get_phrase('checkout'); ?>                        
+                    </a>
                 </div>
             </div>
         </div>
@@ -175,6 +185,21 @@ function orderTemporary() {
     });
 }
 
+function placeOrder() {
+    $.ajax({
+        url: '<?php echo site_url('home/isLoggedIn');?>',
+        success: function(response)
+        {
+            if (!response) {
+                window.location.replace("<?php echo site_url('login'); ?>");
+            }else {
+                $('#orderPlace').modal('show');
+                $('.total_price_of_checking_out').val($('#total_price_of_checking_out').text());
+            }
+        }
+    });
+}
+
 function handleCheckOut() {
     $.ajax({
         url: '<?php echo site_url('home/isLoggedIn');?>',
@@ -183,8 +208,9 @@ function handleCheckOut() {
             if (!response) {
                 window.location.replace("<?php echo site_url('login'); ?>");
             }else {
-                $('#paymentModal').modal('show');
-                $('.total_price_of_checking_out').val($('#total_price_of_checking_out').text());
+                window.location.replace("<?php echo site_url('home/ssl_checkout'); ?>");
+                //$('#paymentModal').modal('show');
+                //$('.total_price_of_checking_out').val($('#total_price_of_checking_out').text());
             }
         }
     });

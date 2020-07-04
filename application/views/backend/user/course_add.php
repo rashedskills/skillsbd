@@ -405,9 +405,10 @@
                                     <div class="row justify-content-center">
                                         <div class="col-xl-8">
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-2 col-form-label" for="website_keywords"><?php echo get_phrase('meta_keywords'); ?></label>
+                                                <label class="col-md-2 col-form-label" for="website_keywords"><?php echo get_phrase('meta_keywords1'); ?></label>
                                                 <div class="col-md-10">
                                                     <input type="text" class="form-control bootstrap-tag-input" id = "meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%;"/>
+                                                    <p>Type keyword and press enter: <span class="badge badge-warning">Web Development X</span></p>
                                                 </div>
                                             </div>
                                         </div> <!-- end col -->

@@ -31,10 +31,15 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                     <div style="background: #eceff4;padding: 1.5rem;">
                         <table class="mb-3">
                             <tr>                                
-                                <td style="font-size: 22px;" class="text-right strong"><?php echo strtoupper(get_phrase('invoice')); ?></td>
+                                <td style="font-size: 22px;" class="strong"><?php echo strtoupper(get_phrase('invoice')); ?></td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <img src="<?php echo base_url().'uploads/system/logo-skillsbd.svg'; ?>" width="100" class="mt-2">
+                                </td>
+                            </tr> 
                         </table>
-                        <table>
+                        <table>                                                           
                             <tr>
                                 <td style="font-size: 1.2rem;" class="strong"><?php echo get_settings('system_name'); ?></td>
                                 <td class="text-right"></td>
@@ -45,11 +50,9 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                             </tr>
                             <tr>
                                 <td class="gry-color small"><?php echo get_settings('address'); ?></td>
-                                <td class="text-right small"><span class="gry-color small"><?php echo get_phrase('payment_method'); ?>:</span> <span class="strong"><?php echo ucfirst($payment_info['payment_type']); ?></span></td>
                             </tr>
                             <tr>
-                                <td class="gry-color small"><?php echo get_phrase('phone'); ?>: <?php echo get_settings('phone'); ?></td>
-                                <td class="text-right small"><span class="gry-color small"><?php echo get_phrase('purchase_date'); ?>:</span> <span class=" strong"><?php echo date('D, d-M-Y', $payment_info['date_added']); ?></span></td>
+                                <td class="gry-color small"><?php echo get_phrase('phone'); ?>: <?php echo get_settings('phone'); ?></td>                                
                             </tr>
                         </table>
 
@@ -58,9 +61,23 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                     <div style="border-bottom:1px solid #eceff4;margin: 0 1.5rem;"></div>
                     <div style="padding: 1.5rem;">
                         <table>
-                            <tr><td class="strong small gry-color"><?php echo get_phrase('bill_to'); ?>:</td></tr>
+                            <tr><td class="strong small gry-color"><strong><?php echo get_phrase('bill_to'); ?></strong></td></tr>
                             <tr><td class="strong"><?php echo $buyer_details['first_name'].' '.$buyer_details['last_name']; ?></td></tr>
-                            <tr><td class="gry-color small"><?php echo get_phrase('email'); ?>: <?php echo $buyer_details['email']; ?></td></tr>
+                             <tr><td class="gry-color small"><?php echo get_phrase('phone'); ?>: <?php echo $buyer_details['phone']; ?></td>
+                            </tr>
+                            <tr><td class="gry-color small"><?php echo get_phrase('email'); ?>: <?php echo $buyer_details['email']; ?></td>
+                            </tr>                           
+                            <tr>
+                                <td class="gry-color small"><?php echo get_phrase('order_number'); ?>: <span class="strong"><?php echo substr($payment_info['tran_id'], -3); ?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="gry-color small"><?php echo get_phrase('payment_by'); ?>: <span class="strong"><?php echo ucfirst($payment_info['payment_type']); ?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="gry-color small"><?php echo get_phrase('purchase_date'); ?>: <span class=" strong"><?php echo date('D, d-M-Y', $payment_info['date_added']); ?></span></td>
+                            </tr>
                         </table>
                     </div>
                     <div style="">
@@ -105,7 +122,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <img src="<?php echo base_url().'uploads/system/logo-skillsbd.svg'; ?>" width="100" style="display:inline-block;">
+                                            <p>Thank you for your purchase.</p>
                                         </td>
                                     </tr>
                                 </tbody>

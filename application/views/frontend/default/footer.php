@@ -12,9 +12,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/about_us'); ?>"><?php echo get_phrase('about'); ?></a>
                             </li>
-                            <li class="nav-item">
+                            <!---<li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/providers'); ?>"><?php echo get_phrase('advertise_a_course'); ?></a>
-                            </li>
+                            </li>--->
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/privacy_policy'); ?>"><?php echo get_phrase('privacy_policy'); ?></a>
                             </li>
@@ -51,6 +51,32 @@
                 $stripe_status = '';
             }
          ?>
+         <!---Place order--->
+        <div class="modal fade" id="orderPlace" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content payment-in-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><?php echo get_phrase('confirm_order'); ?>!</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form>
+                                    <!---<input type="hidden" class = "fname" name="first_name" value="">--->
+                                    <input type="hidden" class = "total_price_of_checking_out" name="total_price_of_checking_out" value="">    
+                                    <!----<input type="submit" name="placeorder" type="submit" class="btn btn-primary btn-lg" value="<?php echo get_phrase('confirm_order') ?>">  --->
+                                    <button type="submit" id="sslczPayBtn" class="btn btn-primary btn-lg btn-block" order="<?php echo "SSLC".uniqid(); ?>" endpoint="<?php echo site_url('home/easyendpoint'); ?>">Place Order</button>                               
+                                </form>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Modal -->
+        <!---Payment Model--->
         <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content payment-in-modal">

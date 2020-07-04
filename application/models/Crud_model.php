@@ -1123,7 +1123,7 @@ class Crud_model extends CI_Model {
   public function enrol_student($user_id){
     $purchased_courses = $this->session->userdata('cart_items');
     foreach ($purchased_courses as $purchased_course) {
-      $data['user_id'] = $user_id;
+      $data['user_id'] = $this->session->userdata('user_id');
       $data['course_id'] = $purchased_course;
       $data['date_added'] = strtotime(date('D, d-M-Y'));
       $this->db->insert('enrol', $data);
@@ -1179,13 +1179,27 @@ class Crud_model extends CI_Model {
 
   }
 
-  public function course_purchase($user_id, $method, $amount_paid) {
+  public function course_purchase($amount_paid) {
     $purchased_courses = $this->session->userdata('cart_items');
+    $this->session->userdata('tarndata');
     foreach ($purchased_courses as $purchased_course) {
-      $data['user_id'] = $user_id;
-      $data['payment_type'] = $method;
-      $data['course_id'] = $purchased_course;
-      $course_details = $this->get_course_by_id($purchased_course)->row_array();
+      $data['user_id']          = $this->session->userdata('user_id');
+      $data['payment_type']     = $_POST['card_type'];
+      $data['tran_id']         = $_POST['tran_id'];
+      $data['bank_tran_id']    = $_POST['bank_tran_id'];      
+      $data['currency']         = $_POST['currency'];
+      $data['card_issuer']      = $_POST['card_issuer'];
+      $data['card_brand']       = $_POST['card_brand'];
+      $data['card_sub_brand']   = $_POST['card_sub_brand'];
+      $data['card_issuer_country_code'] = $_POST['card_issuer_country_code'];
+      $data['store_amount']     = $_POST['store_amount'];
+      $data['risk_title']       = $_POST['risk_title'];
+      $data['val_id']           = $_POST['val_id'];
+      $data['verify_sign']      = $_POST['verify_sign'];
+      $data['verify_sign_sha2'] = $_POST['verify_sign_sha2'];
+      $data['status']           = $_POST['status'];
+      $data['course_id']        = $purchased_course;
+      $course_details           = $this->get_course_by_id($purchased_course)->row_array();
       if ($course_details['discount_flag'] == 1) {
         $data['amount'] = $course_details['discounted_price'];
       }else {

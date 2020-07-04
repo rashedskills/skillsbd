@@ -110,6 +110,9 @@
                                       <input type="email" class="form-control" name = "email" id="forgot-email" placeholder="<?php echo get_phrase('email'); ?>" value="" required>
                                       <small class="form-text text-muted"><?php echo get_phrase('provide_your_email_address_to_get_password'); ?>.</small>
                                   </div>
+                                  <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="<?php echo $this->config->item('recaptcha_sitekey') ?>"></div> 
+                                  </div>
                               </div>
                           </div>
                           <div class="content-update-box">

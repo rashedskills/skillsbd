@@ -58,8 +58,8 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('xmlrpc', 'pagination');
 
+$autoload['libraries'] = array('xmlrpc', 'pagination', 'session', 'sslcommerz');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -89,7 +89,8 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','file','form','security','string','inflector','directory','download','user','multi_language', 'common', 'pagination');
+$autoload['helper'] = array('url','file','form','security','string','inflector','directory','download','user','multi_language', 'common', 'pagination', 'sslc');
+
 
 /*
 | -------------------------------------------------------------------

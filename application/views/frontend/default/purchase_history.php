@@ -31,7 +31,7 @@ $purchase_history = $this->db->get('payment',$per_page, $this->uri->segment(3));
                             <div class="col-sm-6"><h4 class="purchase-history-list-title"> <?php echo get_phrase('purchase_history'); ?> </h4></div>
                             <div class="col-sm-6 hidden-xxs hidden-xs">
                                 <div class="row">
-                                    <div class="col-sm-3"> <?php echo get_phrase('date'); ?> </div>
+                                    <div class="col-sm-3"> <?php echo get_phrase('purchase_date'); ?> </div>
                                     <div class="col-sm-3"> <?php echo get_phrase('total_price'); ?> </div>
                                     <div class="col-sm-4"> <?php echo get_phrase('payment_type'); ?> </div>
                                     <div class="col-sm-2"> <?php echo get_phrase('actions'); ?> </div>
@@ -57,6 +57,9 @@ $purchase_history = $this->db->get('payment',$per_page, $this->uri->segment(3));
                                             <?php
                                             echo $course_details['title'];
                                             ?>
+                                        </a><br>
+                                        <a class="text-monospace" style="text-decoration: underline;" href="<?php echo site_url('home/my_courses') ?>">
+                                            <?php echo get_phrase('view_course') ?>
                                         </a>
                                     </div>
                                     <div class="col-sm-6 purchase-history-detail">

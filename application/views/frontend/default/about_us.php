@@ -16,7 +16,7 @@
     -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   position: relative;
-    border-radius: 0;
+    border-radius: 2px;
     color: #36373c;
 }
 .home-banner-wrap .btn:hover{
@@ -81,46 +81,45 @@
         
         <div class="d-flex justify-content-center">            
                 <div class="col-md-10 col-sm-12 text-center mb-3">
-                    <p><strong>Skillsbd.com</strong>, is an online learning markeplace with veriety of classes in design, business, tech, and more. Anyone can join the millions of members in our community to learn cutting-edge skills, network with peers and discover new opportunities.</p>
+                    <p><strong>Skillsbd.com</strong>, is an online learning platform with a variety of classes in design, business, tech, marketing and more. Anyone can join the thousand of members of our platform to learn collaboration skills, network with colleagues/mates and discover new opportunities.</p>
                 </div> 
-        </div>
-        
-            <div class="d-flex justify-content-center">  
-                <div class="row m-5">
-                        <div class="col-md-6">
-                            <div class="card text-center">
-                                <div class="card-body p-5">
-                                <h3 class="card-title">Vision</h3>
-                                <p class="card-text">Building Careers of Tomorrow</p>
-                                </div>
-                            </div>
-                            <div class="mb-4"></div>
-                            <div class="card">
-                                <img src="../assets/backend/images/about_us.jpg" class="card-img-top" alt="skillsbd_aboutus">
+        </div>        
+        <div class="d-flex justify-content-center">  
+            <div class="row m-5">
+                    <div class="col-md-6">
+                        <div class="card text-center">
+                            <div class="card-body p-5">
+                            <h3 class="card-title">Vision</h3>
+                            <p class="card-text">Building Careers of Tomorrow</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card text-white text-center p-3" style="background-color: #36373c; color: #ffffff">
-                                <blockquote class="mb-0 p-4">
-                                <h3 class="card-title">Mission</h3>
-                                <p>To provide opportunities to advance your professional journey through rigorous online programs that offer personalised support, developed in collaboration with best in class faculty and industry professionals.</p>
-                                <!-- <footer class="blockquote-footer text-white">
-                                    <small>
-                                     <cite title="Source Title">skillsbd.com</cite>
-                                    </small>
-                                </footer> -->
-                                </blockquote>
-                            </div>
-                            <div class="mb-4"></div>
-                            <div class="card text-center">
-                                <div class="card-body p-5">
-                                <h3 class="card-title">Our Purpose</h3>
-                                <p class="card-text">Our purpose is to make the new economy an open meritocracy, where the skills and expertise needed to succeed are available for anyone willing to learn them.</p>
-                                </div>
+                        <div class="mb-4"></div>
+                        <div class="card">
+                            <img src="../assets/backend/images/about_us.jpg" class="card-img-top" alt="skillsbd_aboutus">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-white text-center p-3" style="background-color: #36373c; color: #ffffff">
+                            <blockquote class="mb-0 p-4">
+                            <h3 class="card-title">Mission</h3>
+                            <p>To provide scopes to upgrade and polish your professional journey through trending online programs which offer personalized support, developed in close collaboration with the best in class faculty and industry experts.</p>
+                            <!-- <footer class="blockquote-footer text-white">
+                                <small>
+                                 <cite title="Source Title">skillsbd.com</cite>
+                                </small>
+                            </footer> -->
+                            </blockquote>
+                        </div>
+                        <div class="mb-4"></div>
+                        <div class="card text-center">
+                            <div class="card-body p-5">
+                            <h3 class="card-title">Our Purpose</h3>
+                            <p class="card-text">Our purpose is to make the new economy an ideology, where the skills and expertise will be available what needed to succeed.</p>
                             </div>
                         </div>
-                </div>
+                    </div>
             </div>
+        </div>
             <!-- end mission vision div -->
             <div class="row">
             <div class="col" style="padding: 20px;">
@@ -147,7 +146,7 @@
                 <p class="text-center mb-4">Find the best career for you</p>
                 <div class="d-flex justify-content-center">
                     <div class="home-banner-wrap mt-1">
-                    <a class="btn" href="<?php echo site_url('/'); ?>">Explore Career Path</a>
+                    <a class="btn" href="<?php echo site_url('home/courses'); ?>">Explore Career Path</a>
                     </div>
                 </div>     
             </div>

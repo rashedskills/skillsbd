@@ -117,18 +117,7 @@ class Login extends CI_Controller {
         }
         
         
-    }
-
-    function validate_captcha() {
-        $captcha = $this->input->post('g-recaptcha-response');
-        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$this->config->item('recaptcha_sitekey')."&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-
-        if ($response . 'success' == false) {
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
+    }    
 
     public function logout($from = "") {
         //destroy sessions of specific userdata. We've done this for not removing the cart session
@@ -155,25 +144,46 @@ class Login extends CI_Controller {
 
         // Checking credential for admin
         $query = $this->db->get_where('users' , array('email' => $email));
-        if ($query->num_rows() > 0)
-        {
-            $this->db->where('email' , $email);
-            $this->db->update('users' , array('password' => sha1($new_password)));
-            // send new password to user email
-            $this->email_model->password_reset_email($new_password, $email);
-            $this->session->set_flashdata('flash_message', get_phrase('please_check_your_email_for_new_password'));
-            if ($from == 'backend') {
-                redirect(site_url('login'), 'refresh');
+        /* Load form validation library */ 
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('g-recaptcha-response', 'recaptcha validation', 'required|callback_validate_captcha');
+        $this->form_validation->set_message('validate_captcha', 'Please check the captcha form');
+        if ($this->form_validation->run() == FALSE){
+            $this->session->set_flashdata('error_message', get_phrase('Please_check_the_captcha_form'));
+            redirect(site_url('home/login'));
+        }else{
+            if ($query->num_rows() > 0)
+            {
+                $this->db->where('email' , $email);
+                $this->db->update('users' , array('password' => sha1($new_password)));
+                // send new password to user email
+                $this->email_model->password_reset_email($new_password, $email);
+                $this->session->set_flashdata('flash_message', get_phrase('please_check_your_email_for_new_password'));
+                if ($from == 'backend') {
+                    redirect(site_url('login'), 'refresh');
+                }else {
+                    redirect(site_url('home'), 'refresh');
+                }
             }else {
-                redirect(site_url('home'), 'refresh');
+                $this->session->set_flashdata('error_message', get_phrase('password_reset_failed'));
+                if ($from == 'backend') {
+                    redirect(site_url('login'), 'refresh');
+                }else {
+                    redirect(site_url('home'), 'refresh');
+                }
             }
-        }else {
-            $this->session->set_flashdata('error_message', get_phrase('password_reset_failed'));
-            if ($from == 'backend') {
-                redirect(site_url('login'), 'refresh');
-            }else {
-                redirect(site_url('home'), 'refresh');
-            }
+        }
+        
+    }
+
+    function validate_captcha() {
+        $captcha = $this->input->post('g-recaptcha-response');
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$this->config->item('recaptcha_sitekey')."&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+
+        if ($response . 'success' == false) {
+            return FALSE;
+        } else {
+            return TRUE;
         }
     }
 

@@ -169,7 +169,7 @@
         <div class="col">
             <h2>5. Security</h2>
             <p>We use appropriate security based on the type and sensitivity of data being stored. As with any internet-enabled system, there is always a risk of unauthorized access, so it’s important to protect your password and to contact us if you suspect any unauthorized access to your account.</p>
-            <p>Skillsbd takes appropriate security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal data that we collect and store. These measures vary based on the type and sensitivity of the data. Unfortunately, however, no system can be 100% secured, so we cannot guarantee that communications between you and Skillsbd, the Services, or any information provided to us in connection with the data we collect through the Services will be free from unauthorized access by third parties. Your password is an important part of our security system, and it is your responsibility to protect it. You should not share your password with any third party, and if you believe your password or account has been compromised, you should change it immediately and contact <a class="text-primary" href="mailto:account@Skillsbd.com">account@Skillsbd.com</a> with any concerns.</p>
+            <p>Skillsbd takes appropriate security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal data that we collect and store. These measures vary based on the type and sensitivity of the data. Unfortunately, however, no system can be 100% secured, so we cannot guarantee that communications between you and Skillsbd, the Services, or any information provided to us in connection with the data we collect through the Services will be free from unauthorized access by third parties. Your password is an important part of our security system, and it is your responsibility to protect it. You should not share your password with any third party, and if you believe your password or account has been compromised, you should change it immediately and contact <!-- <a class="text-primary" href="mailto:account@Skillsbd.com">account@Skillsbd.com</a> --> <a class="text-primary" href="mailto:support@Skillsbd.com">support@Skillsbd.com</a> with any concerns.</p>
         </div>
     </div>
 
@@ -184,25 +184,25 @@
                 <li>The browser or device you use may allow you to control cookies and other types of local data storage. Your wireless device may also allow you to control whether location or other data is collected and shared. You can manage Adobe’s LSOs through their <a class="text-primary" href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html">Website Storage Settings panel</a>.</li>
                 <li>To opt out of allowing Google Analytics to use your data for analytics or enrichment, see the <a href="https://tools.google.com/dlpage/gaoptout" class="text-primary">Google Analytics Opt-out Browser Add-on</a>.</li>
             </ul>
-            <p>If you have any questions about your data, our use of it, or your rights, contact us at <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a>.</p>
+            <p>If you have any questions about your data, our use of it, or your rights, contact us at <!-- <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a> --><a href="mailto:support@Skillsbd.com" class="text-primary">support@Skillsbd.com</a>.</p>
             <strong>6.2 Accessing, Updating, and Deleting Your Personal Data</strong>
             <p>You can access and update your personal data that Skillsbd collects and maintains as follows:</p>
             <ul>
                 <li>To update data you provide directly, log into your account and update your account at any time.</li>
                 <li>To terminate your account:
                     <ul>
-                        <li>If you are a student, contact Support at <a href="mailto:account@skillsbd.com" class="text-primary">account@skillsbd.com</a></li>
-                        <li>If you are an instructor, contact Support at <a href="mailto:account@skillsbd.com" class="text-primary">account@skillsbd.com</a></li>
-                        <li>If you have any issues terminating your account, email us at contact Support at <a href="mailto:account@skillsbd.com" class="text-primary">account@skillsbd.com</a></li>
+                        <li>If you are a student, contact Support at <!-- <a href="mailto:account@skillsbd.com" class="text-primary">account@skillsbd.com</a> --><a href="mailto:support@skillsbd.com" class="text-primary">support@skillsbd.com</a></li>
+                        <li>If you are an instructor, contact Support at <!-- <a href="mailto:account@skillsbd.com" class="text-primary">account@skillsbd.com</a> --><a href="mailto:support@skillsbd.com" class="text-primary">support@skillsbd.com</a></li>
+                        <li>If you have any issues terminating your account, email us at contact Support at <!-- <a href="mailto:account@skillsbd.com" class="text-primary">account@skillsbd.com</a> --><a href="mailto:support@skillsbd.com" class="text-primary">support@skillsbd.com</a></li>
                         <li>Please note: even after your account is terminated, some or all of your data may still be visible to others, including without limitation any data that has been (a) copied, stored, or disseminated by other users (including in course comment); (b) shared or disseminated by you or others (including in your shared content); or (c) posted to a third-party platform. Even after your account is terminated, we retain your data for as long as we have a legitimate purpose to do so (and in accordance with applicable law), including to assist with legal obligations, resolve disputes, and enforce our agreements. We may retain and disclose such data pursuant to this Privacy Policy after your account has been terminated.</li>
                         
                     </ul>
                 </li>
-                <li>To request access, correct, or delete your personal data, email <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a>. Please allow up to 30 days for a response. For your protection, we may require that the request be sent through the email address associated with your account, and we may need to verify your identity before implementing your request. Please note that we retain certain data where we have a lawful basis to do so, including for mandatory record-keeping and to complete transactions.</li>
+                <li>To request access, correct, or delete your personal data, email <!-- <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a> --><a href="mailto:support@skillsbd.com" class="text-primary">support@skillsbd.com</a>. Please allow up to 30 days for a response. For your protection, we may require that the request be sent through the email address associated with your account, and we may need to verify your identity before implementing your request. Please note that we retain certain data where we have a lawful basis to do so, including for mandatory record-keeping and to complete transactions.</li>
             </ul>
             <strong>6.3 Our Policy Concerning Children</strong>
             <p>We recognize the privacy interests of children and encourage parents and guardians to take an active role in their children’s online activities and interests. Children under 13 should not use the Services. If we learn that we’ve collected personal data from a child under those ages, we will take reasonable steps to delete it.</p>
-            <p>Parents who believe that Skillsbd may have collected personal data from a child under those ages can submit a request that it be removed to <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a></p>
+            <p>Parents who believe that Skillsbd may have collected personal data from a child under those ages can submit a request that it be removed to <!-- <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a> --><a href="mailto:support@skillsbd.com" class="text-primary">support@skillsbd.com</a></p>
         </div>
     </div>
 
@@ -216,7 +216,7 @@
             <strong>7.2 Interpretation</strong>
             <p>Any version of this Privacy Policy in a language other than English is provided for convenience. If there is any conflict with a non-English version, you agree that the English language version will control.</p>
             <strong>7.3 Questions</strong>
-            <p>If you have any questions, concerns, or disputes regarding our Privacy Policy, please feel free to contact our privacy team (including our designated personal information protection manager) at <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a>. You can also send postal mail to us at <address>Skillsbd, Level 5, House # 59, Road # 04, Banani, Dhaka - 1213</address>.</p>
+            <p>If you have any questions, concerns, or disputes regarding our Privacy Policy, please feel free to contact our privacy team (including our designated personal information protection manager) at <!-- <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a> --><a href="mailto:support@skillsbd.com" class="text-primary">support@skillsbd.com</a>. You can also send postal mail to us at <address>Skillsbd, Level 5, House # 59, Road # 04, Banani, Dhaka - 1213</address>.</p>
         </div>
     </div>
 
@@ -265,7 +265,7 @@
             </ul>
             <strong>Updates & Contact Info</strong>
             <p>From time to time, we may update this Cookie Policy. If we do, we’ll notify you via a notification posted on the platform. We’ll also post the updated policy on our site with a new effective date. If we make any material changes, we’ll take reasonable steps to notify you in advance of the planned change.</p>
-            pIf you have any questions about our use of cookies, please email us at <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a>.
+            pIf you have any questions about our use of cookies, please email us at <!-- <a href="mailto:privacy@Skillsbd.com" class="text-primary">privacy@Skillsbd.com</a> --><a href="mailto:info@skillsbd.com" class="text-primary">info@skillsbd.com</a>.
         </div>
     </div>
 </div>

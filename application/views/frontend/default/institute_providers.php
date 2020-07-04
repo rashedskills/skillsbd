@@ -25,6 +25,9 @@
     background-color: #ffb606;
     color: #36373c;
 }
+.info-text{
+    text-decoration: underline;
+}
 </style>
 <section class="intructor-banner-area mb-5">
     <div class="container">
@@ -57,7 +60,7 @@
             <div class="col-md-3 col-sm-12 text-center">
                 <i class="fas fa-handshake mb-4" style="font-size: 3rem; color: #8991a5"></i>
                 <h5 class="mb-2">Build trust</h5>
-                <p>Sponsor content on skillsbd.com. Build trust and consideration among candidates.</p>
+                <p>Sponsor content on skillsbd.com Build trust and consideration among candidates.</p>
             </div>
             <div class="col-md-3 col-sm-12 text-center">
                 <i class="fas fa-envelope mb-4" style="font-size: 3rem; color: #8991a5"></i>
@@ -115,7 +118,7 @@
             </div>
             <div class="col-md-6">
             <h6><strong>What's included in a Skillsbd class?</strong></h6>
-                <p>Skillsbd classes include a combination of video lessons and a class project. The class project is a short assignment that helps students put their new skills into action.</p>
+                <p>Skillsbd classes include a combination of video lessons, quizes and a class project. The class project is a short assignment that helps students put their new skills into action.</p>
             </div>
         </div>
         <div class="row mb-3">
@@ -141,7 +144,7 @@
         <div class="row">
             <div class="col-md-6">
             <h6><strong>Can I create more than one course?</strong></h6>
-                <p>Yes! Instructor can create any amount of classes as per as skillsbd privacy and policy.</p>
+                <p>Yes! as an Instructor or Institute you can create any amount of classes as per as skillsbd <a href="<?php echo site_url('home/privacy_policy') ?>" class="info-text">privacy and policy</a>.</p>
             </div>
             <div class="col-md-6">
                 <h6><strong>How do I get started?</strong></h6>

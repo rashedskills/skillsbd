@@ -50,5 +50,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
+
+# HOSTED SSLC
+$route['requestapih'] = 'home/request_api_hosted';
+$route['hosted'] = 'home/hosted_view';
+# EASY CHECKOUT SSLC
+$route['easycheckout'] = 'home/easycheckout_view';
+$route['easyendpoint'] = 'home/easycheckout_endpoint';
+# COMMON ROUTE SSLC
+$route['success'] = 'home/success_payment';
+$route['fail'] = 'home/fail_payment';
+$route['cancel'] = 'home/cancel_payment';
+$route['ipn'] = 'home/ipn_listener';
+
 $route['404_override'] = 'home/page_not_found';
 $route['translate_uri_dashes'] = FALSE;

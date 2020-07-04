@@ -18,6 +18,7 @@ class Home extends CI_Controller {
         if (!$this->session->userdata('cart_items')) {
             $this->session->set_userdata('cart_items', array());
         }
+        
     }
 
     public function index() {
@@ -362,6 +363,174 @@ class Home extends CI_Controller {
         $page_data['page_name']  = "certificate_link";
         $page_data['page_title'] = get_phrase('certificate');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
+    }
+
+    public function ssl_checkout() {
+        if ($this->session->userdata('user_login') != 1)
+        redirect('home', 'refresh');
+
+        $total_price_of_checking_out  = $_SESSION['tprice'];
+        $page_data['user_details']    = $this->user_model->get_user($this->session->userdata('user_id'))->row_array();
+        $page_data['amount_to_pay']   = $total_price_of_checking_out;
+        $this->load->view('frontend/'.get_frontend_settings('theme').'/ssl_checkout', $page_data);
+    }
+
+    public function easycheckout_endpoint()
+    {
+        // echo "hello from controller";
+        $tran_id = $_REQUEST['order'];
+        $jsondata = json_decode($_REQUEST['cart_json'], true);
+
+        $post_data = array();
+        $post_data['total_amount'] = $_SESSION['tprice'];
+        $post_data['currency'] = "BDT";
+        $post_data['tran_id'] = $tran_id;
+        $post_data['success_url'] = base_url()."success";
+        $post_data['fail_url'] = base_url()."fail";
+        $post_data['cancel_url'] = base_url()."cancel";
+        $post_data['ipn_url'] = base_url()."ipn";
+        # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
+
+        # EMI INFO
+        $post_data['emi_option'] = "0";
+        // $post_data['emi_max_inst_option'] = "9";
+        // $post_data['emi_selected_inst'] = "9";
+
+        # CUSTOMER INFORMATION
+        $post_data['cus_name'] = $_SESSION['fname'].' '.$_SESSION['lname'];
+        $post_data['cus_email'] = $_SESSION['uemail'];
+        $post_data['cus_add1'] = "Dhaka";
+        $post_data['cus_add2'] = "Dhaka";
+        $post_data['cus_city'] = "Dhaka";
+        $post_data['cus_state'] = "Dhaka";
+        $post_data['cus_postcode'] = "1000";
+        $post_data['cus_country'] = "Bangladesh";
+        $post_data['cus_phone'] = $_SESSION['uphone'];
+        $post_data['cus_fax'] = "";
+
+        # SHIPMENT INFORMATION
+        //$post_data['ship_name'] = 'cus_name';
+        //$post_data['ship_add1'] = 'address';
+        //$post_data['ship_city'] = 'state';
+        //$post_data['ship_state'] = 'state';
+        //$post_data['ship_postcode'] = 'zip';
+        //$post_data['ship_country'] = 'country';
+
+        // # OPTIONAL PARAMETERS
+        // $post_data['value_a'] = "ref001";
+        // $post_data['value_b'] = "ref002";
+        // $post_data['value_c'] = "ref003";
+        // $post_data['value_d'] = "ref004";
+
+        $post_data['product_profile'] = "course";
+        $post_data['shipping_method'] = "NO";
+        $post_data['num_of_item'] = "3";
+        $post_data['product_name'] = "Computer,Speaker";
+        $post_data['product_category'] = "Ecommerce";
+
+        $session = array(
+            'tran_id' => $post_data['tran_id'],
+            'amount' => $post_data['total_amount'],
+            'currency' => $post_data['currency']
+        );
+        $this->session->set_userdata('tarndata', $session);
+
+        // echo "<pre>";
+        // print_r($post_data);
+        if($this->sslcommerz->EasyCheckout($post_data, SSLCZ_STORE_ID, SSLCZ_STORE_PASSWD))
+        {
+            echo "Pending";
+            /***************************************
+            # Change your database status to Pending.
+            ****************************************/
+        }
+    }
+
+    public function success_payment()
+    {
+
+        $database_order_status = 'success'; // Check this from your database here Pending is dummy data,
+        $sesdata = $this->session->userdata('tarndata');
+        
+        if(($sesdata['tran_id'] == $_POST['tran_id']) && ($sesdata['amount'] == $_POST['currency_amount']) && ($sesdata['currency'] == 'BDT'))
+        {
+            
+            if($this->sslcommerz->ValidateResponse($_POST['currency_amount'], $sesdata['currency'], $_POST))
+            {   
+                //echo "<pre>";
+                //print_r($_POST);exit;           
+                $this->crud_model->enrol_student($this->session->userdata('user_id'));
+                $this->crud_model->course_purchase($this->session->userdata('user_id'), $method, $amount_paid);
+                $this->session->set_userdata('cart_items', array());
+                // course purchse email sent to student email
+                $this->email_model->send_purchase_notification_mail($_SESSION['uemail']);
+                $this->session->set_flashdata('flash_message', get_phrase('course_successfully_purchase'));
+                redirect('home/purchase_history', 'refresh');            
+            }
+        }
+    }
+    public function fail_payment()
+    {
+        $this->session->set_flashdata('error_message', get_phrase('course_purchase_failed!'));
+        redirect('home/ssl_checkout', 'refresh');  
+    }
+    public function cancel_payment()
+    {
+        $this->session->set_flashdata('error_message', get_phrase('course_purchase_cancel!'));
+        redirect('home/ssl_checkout', 'refresh'); 
+    }
+    public function ipn_listener()
+    {
+        $database_order_status = 'success'; // Check this from your database here Pending is dummy data,
+        $store_passwd = SSLCZ_STORE_PASSWD;
+        if($ipn = $this->sslcommerz->ipn_request($store_passwd, $_POST))
+        {
+            if(($ipn['gateway_return']['status'] == 'VALIDATED' || $ipn['gateway_return']['status'] == 'VALID') && $ipn['ipn_result']['hash_validation_status'] == 'SUCCESS')
+            {
+                if($database_order_status == 'Pending')
+                {
+                    echo $ipn['gateway_return']['status']."<br>";
+                    echo $ipn['ipn_result']['hash_validation_status']."<br>";
+                    /*****************************************************************************
+                    # Check your database order status, if status = 'Pending' then chang status to 'Processing'.
+                    ******************************************************************************/
+                }
+            }
+            elseif($ipn['gateway_return']['status'] == 'FAILED' && $ipn['ipn_result']['hash_validation_status'] == 'SUCCESS')
+            {
+                if($database_order_status == 'Pending')
+                {
+                    echo $ipn['gateway_return']['status']."<br>";
+                    echo $ipn['ipn_result']['hash_validation_status']."<br>";
+                    /*****************************************************************************
+                    # Check your database order status, if status = 'Pending' then chang status to 'FAILED'.
+                    ******************************************************************************/
+                }
+            }
+            elseif ($ipn['gateway_return']['status'] == 'CANCELLED' && $ipn['ipn_result']['hash_validation_status'] == 'SUCCESS') 
+            {
+                if($database_order_status == 'Pending')
+                {
+                    echo $ipn['gateway_return']['status']."<br>";
+                    echo $ipn['ipn_result']['hash_validation_status']."<br>";
+                    /*****************************************************************************
+                    # Check your database order status, if status = 'Pending' then chang status to 'CANCELLED'.
+                    ******************************************************************************/
+                }
+            }
+            else
+            {
+                if($database_order_status == 'Pending')
+                {
+                    echo "Order status not ".$ipn['gateway_return']['status'];
+                    /*****************************************************************************
+                    # Check your database order status, if status = 'Pending' then chang status to 'FAILED'.
+                    ******************************************************************************/
+                }
+            }
+            echo "<pre>";
+            print_r($ipn);
+        }
     }
 
     public function paypal_checkout() {
