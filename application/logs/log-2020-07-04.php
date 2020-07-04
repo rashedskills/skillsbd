@@ -24,3 +24,19 @@ ERROR - 2020-07-04 11:38:54 --> Severity: Warning --> Use of undefined constant 
 ERROR - 2020-07-04 11:38:54 --> Severity: Warning --> Use of undefined constant ৳ - assumed '৳' (this will throw an Error in a future version of PHP) F:\xamppnew\htdocs\skills\application\views\backend\user\course_edit.php 468
 ERROR - 2020-07-04 11:39:41 --> Severity: Warning --> Use of undefined constant ৳ - assumed '৳' (this will throw an Error in a future version of PHP) F:\xamppnew\htdocs\skills\application\views\backend\user\course_edit.php 451
 ERROR - 2020-07-04 11:39:41 --> Severity: Warning --> Use of undefined constant ৳ - assumed '৳' (this will throw an Error in a future version of PHP) F:\xamppnew\htdocs\skills\application\views\backend\user\course_edit.php 468
+ERROR - 2020-07-04 22:28:53 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:30:43 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:30:44 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:30:46 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:30:50 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:32:10 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:33:10 --> Severity: error --> Exception: syntax error, unexpected '$purchase_msg' (T_VARIABLE) F:\xamppnew\htdocs\skills\application\models\Email_model.php 62
+ERROR - 2020-07-04 22:34:51 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 53
+ERROR - 2020-07-04 22:41:37 --> Severity: error --> Exception: syntax error, unexpected '$purchase_msg' (T_VARIABLE) F:\xamppnew\htdocs\skills\application\models\Email_model.php 61
+ERROR - 2020-07-04 22:47:18 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:47:39 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:47:40 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:48:10 --> Severity: error --> Exception: syntax error, unexpected '$purchase_msg' (T_VARIABLE) F:\xamppnew\htdocs\skills\application\models\Email_model.php 63
+ERROR - 2020-07-04 22:49:38 --> Severity: error --> Exception: syntax error, unexpected '$purchase_msg' (T_VARIABLE) F:\xamppnew\htdocs\skills\application\models\Email_model.php 61
+ERROR - 2020-07-04 22:50:48 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
+ERROR - 2020-07-04 22:50:49 --> Severity: error --> Exception: syntax error, unexpected '"</h3>"' (T_CONSTANT_ENCAPSED_STRING) F:\xamppnew\htdocs\skills\application\models\Email_model.php 54
