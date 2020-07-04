@@ -196,6 +196,10 @@ class Crud_model extends CI_Model {
     return $this->db->get_where('payment', array('id' => $payment_id))->row_array();
   }
 
+  public function get_payment_details_by_user_id($payment_id = "") {
+    return $this->db->get_where('payment', array('id' => $payment_id, 'user_id' => $this->session->userdata('user_id')))->row_array();
+  }
+
   public function update_instructor_payment_status($payment_id = "") {
     $updater = array(
       'instructor_payment_status' => 1
@@ -1185,8 +1189,8 @@ class Crud_model extends CI_Model {
     foreach ($purchased_courses as $purchased_course) {
       $data['user_id']          = $this->session->userdata('user_id');
       $data['payment_type']     = $_POST['card_type'];
-      $data['tran_id']         = $_POST['tran_id'];
-      $data['bank_tran_id']    = $_POST['bank_tran_id'];      
+      $data['tran_id']          = $_POST['tran_id'];
+      $data['bank_tran_id']     = $_POST['bank_tran_id'];      
       $data['currency']         = $_POST['currency'];
       $data['card_issuer']      = $_POST['card_issuer'];
       $data['card_brand']       = $_POST['card_brand'];
