@@ -50,7 +50,8 @@ class Email_model extends CI_Model {
 		//$purchase_details = $this->crud_model->get_purchase_id($purchase_id)->row_array();
 		$email_send_from = get_settings('system_email');	
 		$purchase_subject 	 =  "Purchase Confirmation";
-		$purchase_msg	 =	"<h3 style='margin-top: 30px; font-size: 1.2rem;'>Thank you for your purchase.</h3>";
+		$purchase_msg 	=	"<h3 style='margin-top: 20px; font-size: 1rem;'>Hi, ".$user_details['first_name']." ".$user_details['last_name']"</h3>";
+		$purchase_msg	 =	"<p style='margin-top: 30px; font-size: 1.2rem;'>Thank you for your purchase.</p>";
 		$purchase_msg	.=	"<strong style='padding-bottom: 10px;'>Purchase Details:</strong>";
 		$purchase_msg	.=	"<p style='padding-bottom: 18px;'>Order Number: 434</p>";
 		$purchase_msg 	.= 	"<hr>";

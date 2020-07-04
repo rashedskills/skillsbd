@@ -462,8 +462,8 @@ class Home extends CI_Controller {
                 $this->crud_model->enrol_student($this->session->userdata('user_id'));
                 $this->crud_model->course_purchase($this->session->userdata('user_id'), $method, $amount_paid);
                 $this->session->set_userdata('cart_items', array());
-                // course purchse email sent to student email
                 $this->email_model->send_purchase_notification_mail($_SESSION['uemail']);
+                //$this->session->userdata('tarndata');
                 $this->session->set_flashdata('flash_message', get_phrase('course_successfully_purchase'));
                 redirect('home/purchase_history', 'refresh');            
             }
