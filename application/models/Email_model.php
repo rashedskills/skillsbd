@@ -44,15 +44,16 @@ class Email_model extends CI_Model {
 	}
 
 	public function send_purchase_notification_mail(){
-		$websiteUrl 	= 'http://skillsbd.com';
-		$userid 		= $this->session->userdata('user_id');
-		$user_details 	= $this->user_model->get_all_user($userid)->row_array();
-		$email_send_from = "info@myskill.rashedjoni.website";	
-		$purchase_subject 	 =  "Course Purchase Confirmation";
-		$purchase_msg 	=	"<h3 style='margin-top: 20px; font-size: 1rem;'>Hi, ".$user_details['first_name']." ".$user_details['last_name']."</h3>";
-		$purchase_msg	.=	"<p style='margin-top: 20px;'>Thanks for buying with us. Below is a summary of your recent purchase.</p>";
+		$websiteUrl = 'http://skillsbd.com';
+		$userid 	= $this->session->userdata('user_id');
+		$user_details = $this->user_model->get_all_user($userid)->row_array();
+		//$purchase_details = $this->crud_model->get_purchase_id($purchase_id)->row_array();
+		$email_send_from = get_settings('system_email');	
+		$purchase_subject 	 =  "Purchase Confirmation";
+		$purchase_msg	 =	"<h3 style='margin-top: 30px; font-size: 1.2rem;'>Thank you for your purchase.</h3>";
 		$purchase_msg	.=	"<strong style='padding-bottom: 10px;'>Purchase Details:</strong>";
-		$purchase_msg	.=	"<strong style='padding-bottom: 7px;'>Course Name:</strong>";		
+		$purchase_msg	.=	"<p style='padding-bottom: 18px;'>Order Number: 434</p>";
+		$purchase_msg 	.= 	"<hr>";
 		$purchase_msg 	.= 	"<p style=''>Sent by <a href=".$websiteUrl.">skillsbd</a> 5th floor, 59 House, 04 Road, C Block, Banani, Dhaka-1213, Bangladesh.</p>";
 		$this->send_smtp_mail($purchase_msg, $purchase_subject, $user_details['email'], $email_send_from);
 	}
