@@ -43,18 +43,18 @@ class Email_model extends CI_Model {
 		$this->send_smtp_mail($email_msg, $subject, $to);
 	}
 
-	public function send_purchase_notification_mail(){
+	public function send_purchase_notification_mail($cart_items = ""){
 		$websiteUrl = 'http://skillsbd.com';
 		$userid 	= $this->session->userdata('user_id');
 		$user_details = $this->user_model->get_all_user($userid)->row_array();
-		$purchased_courses 	= $this->session->userdata('cart_items');
+		//$purchased_courses 	= $this->session->userdata('cart_items');
 		$email_send_from = get_settings('system_email');	
 		$purchase_subject 	 =  "Purchase Confirmation";
 		$purchase_msg 	=	"<h3 style='margin-top: 20px; font-size: 1rem;'>Hi, ".$user_details["first_name"]." ".$user_details["last_name"]."</h3>";
 		$purchase_msg	.=	"<p style='margin-top: 20px;'>Thanks for buying with us. Below is a summary of your recent purchase.</p>";
 		$purchase_msg	.=	"<strong style='padding-bottom: 10px;'>Purchased Course:</strong>";
-		foreach ($purchased_courses as $purchased_course) {
-		$course_details  = $this->crud_model->get_course_by_id($purchased_course)->row_array();
+		foreach ($this->session->userdata('cart_items') as $cart_items) {
+		$course_details  = $this->crud_model->get_course_by_id($cart_items)->row_array();
 		$purchase_msg	.= "<strong>".$course_details['title']."</strong>";
 		$purchase_msg 	.= 	"<hr>";
 		}

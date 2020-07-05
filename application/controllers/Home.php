@@ -458,13 +458,13 @@ class Home extends CI_Controller {
             if($this->sslcommerz->ValidateResponse($_POST['currency_amount'], $sesdata['currency'], $_POST))
             {   
                 //echo "<pre>";
-                //print_r($_POST);exit;           
+                //print_r($_POST);exit;    
+                $this->email_model->send_purchase_notification_mail($_SESSION['uemail']);       
                 $this->crud_model->enrol_student($this->session->userdata('user_id'));
                 $this->crud_model->course_purchase($this->session->userdata('user_id'), $method, $amount_paid);
-                $this->session->set_userdata('cart_items', array());
-                $this->email_model->send_purchase_notification_mail($_SESSION['uemail']);
+                $this->session->set_userdata('cart_items', array());                
                 //$this->session->userdata('tarndata');
-                $this->session->set_flashdata('flash_message', get_phrase('course_successfully_purchase'));
+                $this->session->set_flashdata('flash_message', get_phrase('purchase_successfully_completed'));
                 redirect('home/purchase_history', 'refresh');            
             }
         }
