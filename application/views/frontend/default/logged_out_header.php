@@ -33,7 +33,7 @@
           <?php }  else { ?>
             <div class="instructor-box menu-icon-box disable-on-mobile">
               <div class="icon">
-                <a href="<?php echo site_url('home/become_instructor') ?>" style="border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0;">Become an Instructor</a>
+                <a href="<?php echo site_url('become-an-instructor') ?>" style="border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0;">Become an Instructor</a>
               </div>
             </div>
           <?php } ?>
@@ -45,7 +45,7 @@
 
             <a href="<?php echo site_url('home/login'); ?>" class="btn btn-sign-in"><?php echo get_phrase('log_in'); ?></a>
 
-            <a href="<?php echo site_url('home/sign_up'); ?>" class="btn btn-sign-up"><?php echo get_phrase('sign_up'); ?></a>
+            <a href="<?php echo site_url('sign-up'); ?>" class="btn btn-sign-up"><?php echo get_phrase('sign_up'); ?></a>
 
           </div> <!--  sign-in-box end -->
           

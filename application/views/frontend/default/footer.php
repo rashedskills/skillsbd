@@ -10,16 +10,16 @@
                     <div class="col-md-6">
                         <ul class="nav justify-content-md-end footer-menu">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo site_url('home/about_us'); ?>"><?php echo get_phrase('about'); ?></a>
+                                <a class="nav-link" href="<?php echo site_url('about-us'); ?>"><?php echo get_phrase('about'); ?></a>
                             </li>
                             <!---<li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/providers'); ?>"><?php echo get_phrase('advertise_a_course'); ?></a>
                             </li>--->
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo site_url('home/privacy_policy'); ?>"><?php echo get_phrase('privacy_policy'); ?></a>
+                                <a class="nav-link" href="<?php echo site_url('privacy-policy'); ?>"><?php echo get_phrase('privacy_policy'); ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo site_url('home/terms_and_condition'); ?>"><?php echo get_phrase('terms_&_condition'); ?></a>
+                                <a class="nav-link" href="<?php echo site_url('terms-conditions'); ?>"><?php echo get_phrase('terms_&_condition'); ?></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/login'); ?>">
@@ -28,6 +28,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/contact'); ?>"><?php echo get_phrase('contact'); ?></a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="https://www.facebook.com/skillsbdcom/" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit Page"><i class="fab fa-facebook social-icon"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.linkedin.com/company/skillsbd/" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit Profile"><i class="fab fa-linkedin social-icon"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.youtube.com/channel/UC-N38Gd63t1ZpGoNmXKJTkw" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit Channel"><i class="fab fa-youtube social-icon"></i></a>
                             </li>
                         </ul>
                     </div>

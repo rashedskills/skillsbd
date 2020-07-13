@@ -109,8 +109,8 @@
 	            $post_data['store_passwd'] = $this->store_pass;
 
 	            $handle = curl_init();
-		        // curl_setopt($handle, CURLOPT_URL, $this->sslc_submit_url);
-		        curl_setopt($handle, CURLOPT_URL, "https://sandbox.sslcommerz.com/gwprocess/v4/api.php");
+		        curl_setopt($handle, CURLOPT_URL, $this->sslc_submit_url);
+		        //curl_setopt($handle, CURLOPT_URL, "https://sandbox.sslcommerz.com/gwprocess/v4/api.php");
 		        curl_setopt($handle, CURLOPT_POST, 1);
 		        curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
 		        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);

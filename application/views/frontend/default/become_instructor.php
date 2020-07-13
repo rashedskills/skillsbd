@@ -1,6 +1,6 @@
 ﻿<style>
 .intructor-banner-area {
-    background-image: url('../assets/backend/images/become-a-instructor-header-skillsbd.jpg');
+    background-image: url('./assets/backend/images/become-a-instructor-header-skillsbd.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -140,11 +140,11 @@
         <div class="row">
             <div class="col-md-6">
             <h6><strong>Can I create more than one course?</strong></h6>
-                <p>Yes! as an Instructor can create any amount of classes as per as skillsbd.com <a href="<?php echo site_url('home/privacy_policy') ?>" class="info-link">privacy and policy</a>.</p>
+                <p>Yes! as an Instructor can create any amount of classes as per as skillsbd.com <a href="<?php echo site_url('privacy-policy') ?>" class="info-link">privacy and policy</a>.</p>
             </div>
             <div class="col-md-6">
                 <h6><strong>How do I get started?</strong></h6>
-                <p>You can start form anywhere and anytime. Before started you must register our on skillsbd as an instructor and read the <a href="<?php echo site_url('home/instructor_terms') ?>" target="_blank"><strong>Instructor terms of use</strong></a>. Get start <a href="<?php echo site_url('home/sign_up'); ?>" class="text-primary"><strong>sign up</strong></a> now</p>
+                <p>You can start form anywhere and anytime. Before started you must register our on skillsbd as an instructor and read the <a href="<?php echo site_url('instructor-terms') ?>" target="_blank"><strong>Instructor terms of use</strong></a>. Get start <a href="<?php echo site_url('sign-up'); ?>" class="text-primary"><strong>sign up</strong></a> now</p>
             </div>
         </div>
     </div>

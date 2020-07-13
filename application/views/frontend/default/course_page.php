@@ -5,12 +5,9 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
 ?>
 <section class="course-header-area">
   <div class="container">
-    <div class="row align-items-end">
-      <div class="col-lg-8">
-        <div class="course-header-wrap">
-          <?php if($course_details['course_type'] == 'Live'): ?>
-          <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/live-class.gif" width="40" alt="live-class-in-bangladesh">
-          <?php endif; ?>
+    <div class="row">
+      <div class="col-lg-8 mb-2">
+        <div class="course-header-wrap">          
           <h1 class="title"><?php echo $course_details['title']; ?></h1>
           <p class="subtitle"><?php echo $course_details['short_description']; ?></p>
           <div class="rating-row">
@@ -65,24 +62,106 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
-
+    <div class="col-lg-4 mt-2">
+      <?php if ($course_details['video_url'] != ""): ?>
+        <div class="preview-video-box">
+          <a data-toggle="modal" data-target="#CoursePreviewModal">
+             <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg')): ?>
+              <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course_details['id']); ?>" alt="" class="img-fluid">
+              <?php else: ?> 
+              <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg' ?>" alt="" class="img-fluid">
+             <?php endif; ?>
+            <span class="preview-text"><?php echo get_phrase('watch_intro_video'); ?></span>
+            <span class="play-btn"></span>
+          </a>
+        </div>
+      <?php endif; ?>
+       
     </div>
   </div>
 </div>
 </section>
 
-
-<section class="course-content-area">
+<section class="course-summery">
   <div class="container">
-    <div class="row">
-      
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+      <?php $crouseType = $course_details['course_type'];
+                if($crouseType == 'Live' || $crouseType == 'Classroom' || $crouseType == 'Workshop') { ?> 
+                 <ul class="list-inline">         
+                      <?php $originalStartDate = $course_details['start_date'];
+                            $startDate = date("j M", strtotime($originalStartDate));
+                            $oneDate  = date("j M, Y", strtotime($originalStartDate));
+                            $registerDate = date("j F, Y", strtotime($originalStartDate));
+                            $originalEndDate = $course_details['end_date'];
+                            $endDate = date("j M, Y", strtotime($originalEndDate)); 
+                            $originalLastDate = $course_details['reg_last_date'];
+                            $lastDate = date("j F, Y", strtotime($originalLastDate)); 
+                      ?>
+                      <li class="list-inline-item live-summery">
+                        <p><?php echo $course_details['course_type'] ?></p>
+                        <small>Format</small>
+                      </li>
+                      <li class="list-inline-item live-summery">
+                        <p><?php echo $course_details['total_classes'].' '.'Classes' ?></p>
+                        <small>
+                          <?php echo $course_details['total_hours'].' '.'hrs total' ?>
+                        </small>
+                      </li>
+                      <li class="list-inline-item live-summery">
+                        <p><?php echo $course_details['duration'] ?></p>
+                        <small>
+                          <?php $sche = json_decode($course_details['course_schedule']);          
+                            foreach ($sche as $schedules): ?>
+                              <?php if ($schedules != ""): ?>
+                              <?php echo $schedules.',' ?>
+                              <?php endif; ?>
+                            <?php endforeach; ?>
+                        </small>
+                      </li>
+                      <li class="list-inline-item live-summery">
+                        <p><?php echo $oneDate ?></p>
+                        <small>Start Date</small>
+                      </li> 
+                      <li class="list-inline-item live-summery" style="display: none;">
+                        <p><?php echo "100+" ?></p>
+                        <small>Hiring Patners</small>
+                      </li>       
+                    </ul>
+          <?php } else { ?>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <p><?php echo $course_details['course_type'] ?></p>
+              <small>Format</small>
+            </li>
+            <li class="list-inline-item">
+                <p><?php echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']); ?></p>
+                <small>Hrs Video Lessons</small>
+            </li>
+            <li class="list-inline-item">
+              <p><?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows() ?></p>
+              <small>Lessons</small>
+            </li>
+            <li class="list-inline-item">
+              <p>Full Time</p>
+              <small>Access</small>
+            </li> 
+            <li class="list-inline-item">
+              <p>Flexible Study</p>
+              <small>Anywhere, Anytime</small>
+            </li> 
+            <li class="list-inline-item">
+              <p>Additional Videos</p>
+              <small>PDF, quiz, exams and instant results.</small>
+            </li>   
+          </ul>
+        <?php } ?>
     </div>
-    <div class="row">
-      <div class="col-lg-8">
-            
-        <div class="what-you-get-box">
-          <div class="what-you-get-title"><?php echo get_phrase('what_will_i_learn'); ?>?</div>
+  </div>
+</section>
+<section class="what-you-get-bg">
+  <div class="container py-5 mb-5">
+    <div class="what-you-get-box">
+          <div class="what-you-get-title">What I will learn?</div>
           <ul class="what-you-get__items">
             <?php foreach (json_decode($course_details['outcomes']) as $outcome): ?>
               <?php if ($outcome != ""): ?>
@@ -91,21 +170,26 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
             <?php endforeach; ?>
           </ul>
         </div>
-        <br>
+  </div>
+</section>
+<section class="course-content-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
         <!-- start  curriculum box -->
         <?php
         $courseType = $course_details['course_type'];
         if($courseType == 'Online' || 'Live') { ?>
-        <div class="course-curriculum-box">
+        <div class="course-curriculum-box mb-5">
           <div class="course-curriculum-title clearfix" >
-            <div class="title float-left"><?php echo get_phrase('curriculum_for_this_course'); ?></div>
+            <div class="title float-left"><?php echo get_phrase('Course_curriculum'); ?></div>
             <div class="float-right">
               <span class="total-lectures">
                 <?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows().' '.get_phrase('lessons'); ?>
               </span>
               <span class="total-time">
                 <?php
-                echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']);
+                echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']).' '.get_phrase('hours');
                 ?>
               </span>
             </div>
@@ -116,7 +200,8 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
             $counter = 0;
             foreach ($sections as $section): ?>
             <div class="lecture-group-wrapper">
-              <div class="lecture-group-title clearfix" data-toggle="collapse" data-target="#collapse<?php echo $section['id']; ?>" aria-expanded="<?php if($counter == 0) echo 'true'; else echo 'false' ; ?>">
+              <!-- <div class="lecture-group-title clearfix" data-toggle="collapse" data-target="#collapse<?php echo $section['id']; ?>" aria-expanded="<?php if($counter == 0) echo 'true'; else echo 'false' ; ?>"> -->
+                <div class="lecture-group-title clearfix" data-toggle="collapse" data-target="#collapse<?php echo $section['id']; ?>" aria-expanded="false">
                 <div class="title float-left">
                   <?php  echo $section['title']; ?>
                 </div>
@@ -130,7 +215,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
                 </div>
               </div>
 
-              <div id="collapse<?php echo $section['id']; ?>" class="lecture-list collapse <?php if($counter == 0) echo 'show'; ?>">
+              <div id="collapse<?php echo $section['id']; ?>" class="lecture-list collapse">
                 <?php if(!empty($section['details'])) { ?>
                 <div class="section-details">
                   <?php  echo $section['details']; ?>
@@ -156,7 +241,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
       <?php } ?>
         <!-- end curriculam div -->
 
-    <div class="requirements-box">
+    <div class="requirements-box mb-5">
       <div class="requirements-title"><?php echo get_phrase('requirements'); ?></div>
       <div class="requirements-content">
         <ul class="requirements__list">
@@ -168,7 +253,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         </ul>
       </div>
     </div>
-    <div class="description-box view-more-parent">
+    <div class="description-box view-more-parent mb-5">
       <div class="view-more" onclick="viewMore(this,'hide')">+ <?php echo get_phrase('view_more'); ?></div>
       <div class="description-title"><?php echo get_phrase('description'); ?></div>
       <div class="description-content-wrap">
@@ -177,17 +262,17 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         </div>
       </div>
     </div>
-    <div class="certificate-box mb-5">      
+    <div class="about-instructor-box certificate-box mb-5">
       <div class="row">
-        <div class="col-lg-5 col-sm-12">
-          <h4 class="description-title">Certificate of Completion</h4>
+        <div class="col-lg-7 col-sm-12"> 
+          <div class="about-instructor-title"><?php echo get_phrase('certificate'); ?></div>        
           <p>Sucessfully complete your final course project and Skillsbd will certify you as a</p>
           <strong><?php echo $course_details['title']; ?></strong>
           <p class="mt-4">Your certificate shareable on LinkedIn and other Job sites</p>
         </div>
-        <div class="col-lg-7 col-sm-12">
-          <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-demo.png" alt="skillsbd-certificate" class="img-fluid">
-          <a data-toggle="modal" data-target="#myCertiicate">Click to Zoom</a>
+        <div class="col-lg-5 col-sm-12">
+          <img src="https://skillsbd.s3.ap-south-1.amazonaws.com/system/skillsbd-certificate-demo.png" alt="skillsbd-certificate" class="img-fluid"><br>
+          <a data-toggle="modal" data-target="#myCertiicate"><u>Click to Zoom</u></a>
         </div>
       </div>
     </div>
@@ -201,7 +286,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         </div>
       </div>
     </div>
-    <div class="compare-box view-more-parent">
+    <div class="compare-box view-more-parent mb-5">
       <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
       <div class="compare-title"><?php echo get_phrase('other_related_courses'); ?></div>
       <div class="compare-courses-wrap">
@@ -212,8 +297,13 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
           <div class="course-comparism-item-container this-course">
             <div class="course-comparism-item clearfix">
               <div class="item-image float-left">
-                <a href="<?php echo site_url('home/course/'.slugify($other_realted_course['title']).'/'.$other_realted_course['id']); ?>"><img src="<?php $this->crud_model->get_course_thumbnail_url($other_realted_course['id']); ?>" alt="" class="img-fluid"></a>
-                <div class="item-duration"><b><?php echo $this->crud_model->get_total_duration_of_lesson_by_course_id($other_realted_course['id']); ?></b></div>
+                <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$other_realted_course['id'].'.jpg')): ?>
+                  <img src="<?php echo $this->crud_model->get_course_thumbnail_url($other_realted_course['id']); ?>" 
+                  alt="<?php echo $other_realted_course['title'] ?>" width="100" class="img-fluid">
+                  <?php else: ?> 
+                  <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$other_realted_course['id'].'.jpg' ?>"
+                  alt="<?php echo $other_realted_course['title'] ?>" width="100" class="img-fluid">
+                 <?php endif; ?>                              
               </div>
               <div class="item-title float-left">
                 <div class="title"><a href="<?php echo site_url('home/course/'.slugify($other_realted_course['title']).'/'.$other_realted_course['id']); ?>"><?php echo $other_realted_course['title']; ?></a></div>
@@ -271,7 +361,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
       <?php echo get_phrase('resource_person'); ?>
     </div>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-2">
         <div class="about-instructor-image">
           <img src="<?php echo site_url(); ?><?php echo $institute_instructor_details['instructor_photo']; ?>" alt="" class="img-fluid">
           <ul>
@@ -297,7 +387,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
           </ul>
         </div>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-10">
         <div class="about-instructor-details view-more-parent">
           <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
           <div class="instructor-name">
@@ -326,7 +416,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
       }  ?>
     </div>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-2">
         <div class="about-instructor-image">
           <img src="<?php echo $this->user_model->get_user_image_url($instructor_details['id']); ?>" alt="" class="img-fluid">
           <ul>
@@ -349,7 +439,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
           </ul>
         </div>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-10">
         <div class="about-instructor-details view-more-parent">
           <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
           <div class="instructor-name">
@@ -373,140 +463,175 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
 
   <div class="student-feedback-box">
     <div class="student-feedback-title">
-      <?php echo get_phrase('student_feedback'); ?>
+      <?php echo get_phrase('student_reviews'); ?>
     </div>
     <div class="row">
-      <div class="col-lg-3">
-        <div class="average-rating">
-          <div class="num">
-            <?php
-            $total_rating =  $this->crud_model->get_ratings('course', $course_details['id'], true)->row()->rating;
-            $number_of_ratings = $this->crud_model->get_ratings('course', $course_details['id'])->num_rows();
-            if ($number_of_ratings > 0) {
-              $average_ceil_rating = ceil($total_rating / $number_of_ratings);
-            }else {
-              $average_ceil_rating = 0;
-            }
-            echo $average_ceil_rating;
-            ?>
-          </div>
-          <div class="rating">
-            <?php for($i = 1; $i < 6; $i++):?>
-              <?php if ($i <= $average_ceil_rating): ?>
-                <i class="fas fa-star filled" style="color: #f5c85b;"></i>
-              <?php else: ?>
-                <i class="fas fa-star" style="color: #abb0bb;"></i>
-              <?php endif; ?>
-           <?php endfor; ?>
-        </div>
-        <div class="title"><?php echo get_phrase('average_rating'); ?></div>
-      </div>
-    </div>
-    <div class="col-lg-9">
-      <div class="individual-rating">
-        <ul>
-          <?php for($i = 1; $i <= 5; $i++): ?>
-            <li>
-              <div class="progress">
-                <div class="progress-bar" style="width: <?php echo $this->crud_model->get_percentage_of_specific_rating($i, 'course', $course_id); ?>%"></div>
-              </div>
-              <div>
-                <span class="rating">
-                  <?php for($j = 1; $j <= (5-$i); $j++): ?>
-                    <i class="fas fa-star"></i>
-                  <?php endfor; ?>
-                  <?php for($j = 1; $j <= $i; $j++): ?>
-                    <i class="fas fa-star filled"></i>
-                  <?php endfor; ?>
-
-                </span>
-                <span><?php echo $this->crud_model->get_percentage_of_specific_rating($i, 'course', $course_id); ?>%</span>
-              </div>
-            </li>
-          <?php endfor; ?>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="reviews">
-    <div class="reviews-title"><?php echo get_phrase('reviews'); ?></div>
-    <ul>
-      <?php
-      $ratings = $this->crud_model->get_ratings('course', $course_id)->result_array();
-      foreach($ratings as $rating):
-        ?>
-        <li>
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="reviewer-details clearfix">
-                <div class="reviewer-img float-left">
-                  <?php $color = "#" . substr(md5(microtime()),rand(0,26),6);; ?>
-                  <div id="courseDetailsTestimonial" style="background: <?php echo $color; ?>">
-                    <?php 
-                      $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
-                      $uname = $user_details['first_name'];                                       
-                      echo '<p>'.$uname[0].'</p>';
-                    ?>
-                  </div>                  
-                  <!--<img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt=""> -->
-                  <!-- <?php
-                      if (file_exists('uploads/user_image/'.$rating['user_id'].'.jpg')): ?>
-                      <img src="<?php echo base_url().'uploads/user_image/'.$rating['user_id'].'.jpg';?>" alt="" class="img-fluid">
-                      <?php else: ?>
-                      <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/user_image/'.$rating['user_id'].'.jpg';?>" alt="" class="img-fluid">
-                  <?php endif; ?> -->
-                </div>
-                <div class="review-time float-right">
-                  <div class="time">
-                    <?php echo date('D, d-M-Y', $rating['date_added']); ?>
-                  </div>
-                  <div class="reviewer-name">
-                    <?php                    
-                    echo $user_details['first_name'].' '.$user_details['last_name'];
-                    ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="review-details">
-                <div class="rating">
+      <div class="col-lg-2">
+          <div class="col-lg-12 mb-4">
+              <div class="average-rating">
+                <div class="num">
                   <?php
-                  for($i = 1; $i < 6; $i++):?>
-                  <?php if ($i <= $rating['rating']): ?>
-                    <i class="fas fa-star filled" style="color: #f5c85b;"></i>
-                  <?php else: ?>
-                    <i class="fas fa-star" style="color: #abb0bb;"></i>
-                  <?php endif; ?>
-                <?php endfor; ?>
+                  $total_rating =  $this->crud_model->get_ratings('course', $course_details['id'], true)->row()->rating;
+                  $number_of_ratings = $this->crud_model->get_ratings('course', $course_details['id'])->num_rows();
+                  if ($number_of_ratings > 0) {
+                    $average_ceil_rating = ceil($total_rating / $number_of_ratings);
+                  }else {
+                    $average_ceil_rating = 0;
+                  }
+                  echo $average_ceil_rating;
+                  ?>
+                </div>
+                <div class="rating">
+                  <?php for($i = 1; $i < 6; $i++):?>
+                    <?php if ($i <= $average_ceil_rating): ?>
+                      <i class="fas fa-star filled" style="color: #f5c85b;"></i>
+                    <?php else: ?>
+                      <i class="fas fa-star" style="color: #abb0bb;"></i>
+                    <?php endif; ?>
+                 <?php endfor; ?>
               </div>
-              <div class="review-text">
-                <?php echo $rating['review']; ?>
-              </div>
+              <div class="title"><?php echo get_phrase('average_rating'); ?></div>
             </div>
-          </div>
-        </div>
-      </li>
-    <?php endforeach; ?>
-  </ul>
-</div>
-</div>
-</div>
-<div class="col-lg-4">   
-  <div class="course-sidebar natural">
-    <?php if ($course_details['video_url'] != ""): ?>
-      <div class="preview-video-box">
-        <a data-toggle="modal" data-target="#CoursePreviewModal">
-           <?php if(file_exists('uploads/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg')): ?>
-            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($course_details['id']); ?>" alt="" class="img-fluid">
-            <?php else: ?> 
-            <img src="<?php echo 'https://skillsbd.s3.ap-south-1.amazonaws.com/thumbnails/course_thumbnails/'.'course_thumbnail'.'_'.get_frontend_settings('theme').'_'.$course_id.'.jpg' ?>" alt="" class="img-fluid">
-           <?php endif; ?>
-          <span class="preview-text"><?php echo get_phrase('preview_this_course'); ?></span>
-          <span class="play-btn"></span>
-        </a>
+          </div>          
       </div>
-    <?php endif; ?>
+      <div class="col-lg-10">
+          <div class="col">
+                <div class="student-reviews">
+                    <?php
+                      $ratings = $this->crud_model->get_ratings('course', $course_id)->result_array();
+                      //print_r($ratings);exit();
+                      foreach($ratings as $rating):
+                    ?>
+                    <div class="course-box-wrap">                        
+                            <div class="card">
+                            <div class="card-body">
+                                <div class="rating mb-2">
+                                  <?php
+                                  for($i = 1; $i < 6; $i++):?>
+                                  <?php if ($i <= $rating['rating']): ?>
+                                    <i class="fas fa-star filled" style="color: #f5c85b;"></i>
+                                      <?php else: ?>
+                                        <i class="fas fa-star" style="color: #abb0bb;"></i>
+                                      <?php endif; ?>
+                                    <?php endfor; ?>
+                                </div>                                                                    
+                                <p class="card-text text-secondary">
+                                    <?php echo $rating['review']; ?>
+                                </p>
+                                
+                                <div class="row pt-3">
+                                    <?php $color = "#" . substr(md5(microtime()),rand(0,26),6);; ?>
+                                 <div id="testimonialImage" style="background: <?php echo $color; ?>">
+                                        <?php
+
+                                            $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
+                                            $social_links  = json_decode($user_details['social_links'], true);
+                                            $linkedin = $social_links['linkedin'];
+                                            $uname = $user_details['first_name'];                                       
+                                            echo '<p>'.$uname[0].'</p>';
+                                        ?>
+                                    </div>
+                                <strong class="float-left pl-3 pt-2 text-gray-dark">
+                                    <?php                                        
+                                        echo $user_details['first_name'].' '.$user_details['last_name'].' '.'<a class="ml-2" href="'.$linkedin.'" target="_blank" data-toggle="tooltip" data-placement="bottom" title="profile"><i class="fab fa-linkedin"></i></a>'; 
+                                    ?>
+                                </strong>
+                            </div>
+                            </div>
+                            </div>                    
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <!-- end student say ceraosul -->
+            </div>          
+      </div>    
+  </div>  
+</div>
+</div>
+</div>
+<!-- end course descriont content area -->
+</div>
+</section>
+<section class="course-content-area py-5" style="background-color: #fff">
+    <div class="container">
+        <div class="row">
+            <?php $courses = $this->crud_model->get_courses(); ?>
+            <div class="col-md-3 col-sm-12">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <!-- <div class="text-box">
+                        <h4><?php
+                        $status_wise_courses = $this->crud_model->get_status_wise_courses();
+                        $number_of_courses = $status_wise_courses['active']->num_rows();
+                        echo $number_of_courses.' '.get_phrase('courses'); ?></h4>
+                        <p><?php echo get_phrase('explore_a_variety_of_fresh_topics'); ?></p>
+                    </div> -->
+                    <div class="text-box text-center details-feature">
+                      <i class="fas fa-play-circle mb-4"></i>
+                      <h4 class="mb-2">Get Real Skills</h4>
+                      <p><?php echo get_phrase('Learn_the_high-impact_skills'); ?></p>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <div class="text-box text-center details-feature">
+                      <i class="fas fa-users mb-4"></i>
+                      <h4 class="mb-2">Top Educators</h4>
+                      <p><?php echo get_phrase('Learn_from_industries_top_expert'); ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <div class="text-box text-center details-feature">
+                      <i class="fas fa-certificate mb-4"></i>
+                      <h4 class="mb-2">Earn Certificate</h4>
+                      <P><?php echo get_phrase('earn_a_shareable_certificate'); ?></P>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12">
+                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                    <div class="text-box text-center details-feature">
+                      <i class="fas fa-handshake mb-4"></i>
+                      <h4 class="mb-2">Placement Support</h4>
+                      <p><?php echo get_phrase('interview_&_Job_placement'); ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="category-course-list-area" style="background-color: #36373c; color: #fff">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-7 pt-5 include-price">
+             <h2>What's Included in the Price</h2>
+             <div class="mb-4"></div>
+             <strong>Features/Benefits</strong>
+             <div class="mb-3"></div>
+             <ul class="list-unstyled">
+               <li class="mb-3"><i class="fas fa-check"></i>  &nbsp;&nbsp;Certification from Skillsbd</li>
+               <li class="mb-3"><i class="fas fa-check"></i> 
+                 <?php $crouseType = $course_details['course_type'];
+                  if($crouseType == 'Live' || $crouseType == 'Classroom' || $crouseType == 'Workshop') { 
+                    echo '&nbsp;&nbsp;'.$course_details['total_hours'].'+'.' '.'Hours of Learning';
+                   } 
+                   else { 
+                    echo '&nbsp;&nbsp;'.$this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']).' '.'Hours of Learning'; 
+                   } 
+                ?>
+               </li>
+               <li class="mb-3"><i class="fas fa-check"></i>    &nbsp;&nbsp;Practical Hands-on Workshops</li>
+               <li class="mb-3"><i class="fas fa-check"></i>    &nbsp;&nbsp;Industry Mentorship</li>
+               <li class="mb-3"><i class="fas fa-check"></i>    &nbsp;&nbsp;Projects and Assignments</li>
+               <li><i class="fas fa-check"></i>   &nbsp;&nbsp;Course Related Interview Questions &amp; Answers</li>
+             </ul>
+          </div>
+          <div class="col-lg-5 mb-3">
+              <div class="course-sidebar">    
     <div class="course-sidebar-text-box">
       <div class="price">
         <?php if ($course_details['is_free_course'] == 1): ?>
@@ -562,83 +687,13 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
         <?php endif; ?>
       <?php endif; ?>
 
-
-      <div class="includes">
-        <div class="title mb-2"><b><?php echo get_phrase('course_summery'); ?>:</b></div>
-       
-        <?php $crouseType = $course_details['course_type'];
-                if($crouseType == 'Live' || $crouseType == 'Classroom' || $crouseType == 'Workshop') { ?> 
-                 <ul>         
-                      <?php $originalStartDate = $course_details['start_date'];
-                            $startDate = date("j M", strtotime($originalStartDate));
-                            $oneDate  = date("j M, Y", strtotime($originalStartDate));
-                            $registerDate = date("j F, Y", strtotime($originalStartDate));
-                            $originalEndDate = $course_details['end_date'];
-                            $endDate = date("j M, Y", strtotime($originalEndDate)); 
-                            $originalLastDate = $course_details['reg_last_date'];
-                            $lastDate = date("j F, Y", strtotime($originalLastDate)); 
-                      ?>
-                      <?php if($originalStartDate == $originalEndDate): ?>
-                      <li>
-                          <i class="far fa-calendar"></i><?php echo get_phrase('start_date').': '.$oneDate; ?>
-                      </li>
-                      <?php else: ?>
-                        <li>
-                          <i class="far fa-calendar"></i><?php echo get_phrase('Start_to_end').': '.$startDate.' to '.$endDate; ?>
-                      </li>
-                      <?php endif; ?>
-                      <li>  <i class="far fa-clock"></i><?php echo get_phrase('days')?>:
-                     
-                      <?php $sche = json_decode($course_details['course_schedule']);          
-                      foreach ($sche as $schedules): ?>
-                          <?php if ($schedules != ""): ?>
-                           <?php echo $schedules.',' ?>
-                          <?php endif; ?>
-                        <?php endforeach; ?>
-                      
-                      </li>
-                      <li>
-                          <i class="far fa-clock"></i><?php echo get_phrase('timings').': '.$course_details['duration']; ?>
-                      </li>
-                      <li>
-                          <i class="far fa-clock"></i><?php echo get_phrase('total_hours').': '.$course_details['total_hours'].' hours'; ?>
-                      </li>
-                      <li>
-                          <i class="fa fa-list"></i><?php echo get_phrase('total_classes').': '.$course_details['total_classes']; ?>
-                      </li>                                            
-                      <li>
-                        <i class="fas fa-map-marker-alt"></i><?php echo get_phrase('venue').': '.$course_details['venue']; ?>
-                      </li>
-                      <li class="text-danger">
-                          <i class="far fa-calendar"></i><?php echo get_phrase('registration_last_date').': '.$lastDate; ?>
-                      </li>
-                    </ul>
-        <?php } else { ?>
-          <ul>
-          <li><i class="far fa-file-video"></i>
-            <?php
-            echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']).' '.get_phrase('on_demand_videos');
-            ?>
-          </li>
-          <li><i class="far fa-file"></i><?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows().' '.get_phrase('lessons'); ?></li>
-             
-                
-          <li><i class="far fa-compass"></i><?php echo get_phrase('full_lifetime_access'); ?></li>
-          <li><i class="fas fa-mobile-alt"></i><?php echo get_phrase('access_on_mobile_and_tv'); ?></li>
-
-        </ul>
-        <?php } ?>
-      </div>
-      
-
     </div>
   </div>
-</div>
-<!--end right sidebar--->
-</div>
-</div>
+          </div>
+          
+        </div>
+    </div>
 </section>
-
 <!-- Modal -->
 <?php if ($course_details['video_url'] != ""):
   $provider = "";

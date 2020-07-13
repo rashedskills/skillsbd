@@ -95,7 +95,7 @@
                         </div>
                         <div class="mb-4"></div>
                         <div class="card">
-                            <img src="../assets/backend/images/about_us.jpg" class="card-img-top" alt="skillsbd_aboutus">
+                            <img src="./assets/backend/images/about_us.jpg" class="card-img-top" alt="skillsbd_aboutus">
                         </div>
                     </div>
                     <div class="col-md-6">

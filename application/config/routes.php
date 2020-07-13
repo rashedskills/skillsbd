@@ -50,7 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
-
+$route['become-an-instructor'] = 'home/become_instructor';
+$route['about-us'] = 'home/about_us';
+$route['privacy-policy'] = 'home/privacy_policy';
+$route['terms-conditions'] = 'home/terms_and_condition';
+$route['instructor-terms'] = 'home/instructor_terms';
+$route['sign-up'] = 'home/sign_up';
 # HOSTED SSLC
 $route['requestapih'] = 'home/request_api_hosted';
 $route['hosted'] = 'home/hosted_view';

@@ -19,55 +19,7 @@
         </div>
     </div>
 </section>
-<section class="home-fact-area">
-    <div class="container-lg">
-        <div class="row">
-            <?php $courses = $this->crud_model->get_courses(); ?>
-            <div class="col-md-3 col-sm-12">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <!-- <div class="text-box">
-                        <h4><?php
-                        $status_wise_courses = $this->crud_model->get_status_wise_courses();
-                        $number_of_courses = $status_wise_courses['active']->num_rows();
-                        echo $number_of_courses.' '.get_phrase('courses'); ?></h4>
-                        <p><?php echo get_phrase('explore_a_variety_of_fresh_topics'); ?></p>
-                    </div> -->
-                    <div class="text-box text-center">
-                        <h4 class="mb-2"><?php echo get_phrase('get_real_skills'); ?></h4>
-                        <p><?php echo get_phrase('Learn_the_high-impact_skills'); ?></p>
-                    </div>                    
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-12">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <div class="text-box text-center">
-                        <h4 class="mb-2"><?php echo get_phrase('top_educators'); ?></h4>
-                        <p><?php echo get_phrase('Learn_from_industries_top_expert'); ?></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-12">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <div class="text-box text-center">
-                        <h4 class="mb-2"><?php echo get_phrase('earn_certificate'); ?></h4>
-                        <P><?php echo get_phrase('earn_a_shareable_certificate'); ?></P>                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <div class="text-box text-center">
-                        <h4 class="mb-2"><?php echo get_phrase('Placement_support'); ?></h4>
-                        <p><?php echo get_phrase('interview_&_Job_placement_assistance'); ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="course-carousel-area">
+<section class="course-carousel-area mt-5">
     <div class="container-lg">
         <div class="row">
             <div class="col">
@@ -111,7 +63,7 @@
                                     <?php endfor; ?>
                                     <span class="d-inline-block average-rating"><?php echo $average_ceil_rating; ?></span>
                                 </div>
-                                <?php if ($top_course['is_free_course'] == 1): ?>
+                               <!--  <?php if ($top_course['is_free_course'] == 1): ?>
                                     <p class="price text-right"><?php echo get_phrase('free'); ?></p>
                                 <?php else: ?>
                                     <?php if ($top_course['discount_flag'] == 1): ?>
@@ -119,7 +71,7 @@
                                     <?php else: ?>
                                         <p class="price text-right"><?php echo currency($top_course['price']); ?></p>
                                     <?php endif; ?>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
                             </div>
                         </div>
                     </a>
@@ -279,7 +231,7 @@
                                     <?php endfor; ?>
                                     <span class="d-inline-block average-rating"><?php echo $average_ceil_rating; ?></span>
                                 </div>
-                                <?php if ($latest_course['is_free_course'] == 1): ?>
+                                <!-- <?php if ($latest_course['is_free_course'] == 1): ?>
                                     <p class="price text-right"><?php echo get_phrase('free'); ?></p>
                                 <?php else: ?>
                                     <?php if ($latest_course['discount_flag'] == 1): ?>
@@ -287,7 +239,7 @@
                                     <?php else: ?>
                                         <p class="price text-right"><?php echo currency($latest_course['price']); ?></p>
                                     <?php endif; ?>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
                             </div>
                         </div>
                     </a>
@@ -389,7 +341,7 @@
 </div>
 </section>
 <!-- testimonial -->
-<section class="mb-5 py-5 course-carousel-area testimonials">
+<section class="mb-5 course-carousel-area testimonials">
     <div class="container-lg">
         <div class="row mb-5 mt-2">
             <div class="col">

@@ -1275,7 +1275,7 @@ class Crud_model extends CI_Model {
     $hours = floor($total_duration / 3600);
     $minutes = floor(($total_duration % 3600) / 60);
     $seconds = $total_duration % 60;
-    return sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds).' '.get_phrase('hours');
+    return sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
   }
 
   public function get_total_duration_of_lesson_by_section_id($section_id) {
