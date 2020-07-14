@@ -4396,7 +4396,7 @@ section.course-summery{
     font-weight: 400;
     color: #737373;
 }
-dl, ol, ul {
+.course-summery ul {
     margin-top: 1rem !important;
     margin-bottom: 1rem;
 }

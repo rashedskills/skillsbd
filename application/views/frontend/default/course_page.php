@@ -627,7 +627,7 @@ $institute_instructor_details    = $this->db->get_where('my_instructors', array(
                <li class="mb-3"><i class="fas fa-check"></i>    &nbsp;&nbsp;Practical Hands-on Workshops</li>
                <li class="mb-3"><i class="fas fa-check"></i>    &nbsp;&nbsp;Industry Mentorship</li>
                <li class="mb-3"><i class="fas fa-check"></i>    &nbsp;&nbsp;Projects and Assignments</li>
-               <li><i class="fas fa-check"></i>   &nbsp;&nbsp;Course Related Interview Questions &amp; Answers</li>
+               <li><i class="fas fa-check"></i>   &nbsp;&nbsp;Interview Related Questions &amp; Answers</li>
              </ul>
           </div>
           <div class="col-lg-5 mb-3">

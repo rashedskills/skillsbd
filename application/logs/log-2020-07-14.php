@@ -1,0 +1,30 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-07-14 10:30:23 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:30:23 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:30:23 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:30:23 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
+ERROR - 2020-07-14 10:31:00 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:00 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:00 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:00 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
+ERROR - 2020-07-14 10:31:07 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:07 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:07 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:07 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
+ERROR - 2020-07-14 10:31:12 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:12 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:12 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:31:12 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
+ERROR - 2020-07-14 10:34:06 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:34:06 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:34:06 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:34:06 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
+ERROR - 2020-07-14 10:34:30 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:34:30 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:34:30 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:34:31 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
+ERROR - 2020-07-14 10:36:25 --> Severity: Warning --> failed loading cafile stream: `F:\xamppnew\apache\bin\curl-ca-bundle.crt' F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:36:25 --> Severity: Warning --> file_get_contents(): Failed to enable crypto F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:36:25 --> Severity: Warning --> file_get_contents(https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&amp;id=24tQRwIRP_w&amp;key=AIzaSyDQne4qu6RuiFU6oECdpXz0YJWQwGCygqQ): failed to open stream: operation failed F:\xamppnew\htdocs\skills\application\models\Video_model.php 86
+ERROR - 2020-07-14 10:36:25 --> Severity: error --> Exception: DateInterval::__construct(): Unknown or bad format () F:\xamppnew\htdocs\skills\application\models\Video_model.php 89
