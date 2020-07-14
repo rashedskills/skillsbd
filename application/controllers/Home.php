@@ -28,7 +28,7 @@ class Home extends CI_Controller {
 
     public function home() {
         $page_data['page_name'] = "home";
-        $page_data['page_title'] = get_phrase('home');
+        $page_data['page_title'] = get_phrase('Online Courses & Education Programs for Professional');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
 
