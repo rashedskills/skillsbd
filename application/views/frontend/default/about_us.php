@@ -81,7 +81,7 @@
         
         <div class="d-flex justify-content-center">            
                 <div class="col-md-10 col-sm-12 text-center mb-3">
-                    <p><strong>Skillsbd.com</strong>, is an online learning platform with a variety of classes in design, business, tech, marketing and more. Anyone can join the thousand of members of our platform to learn collaboration skills, network with colleagues/mates and discover new opportunities.</p>
+                    <p><strong>Skillsbd.com</strong>, is an online educational platform providing meticulous and comprehensive professional programs to sharpen your future. With multiple courses on business, technology, marketing, designing, and many more, we assist you to build yourself up on your own terms. Anyone can enroll in the courses of their choice and discover the possibilities and opportunities with collaboration and strategies from world-class instructors.</p>
                 </div> 
         </div>        
         <div class="d-flex justify-content-center">  
@@ -90,7 +90,7 @@
                         <div class="card text-center">
                             <div class="card-body p-5">
                             <h3 class="card-title">Vision</h3>
-                            <p class="card-text">Building Careers of Tomorrow</p>
+                            <p class="card-text">Progress Towards Tomorrow</p>
                             </div>
                         </div>
                         <div class="mb-4"></div>
@@ -102,7 +102,7 @@
                         <div class="card text-white text-center p-3" style="background-color: #36373c; color: #ffffff">
                             <blockquote class="mb-0 p-4">
                             <h3 class="card-title">Mission</h3>
-                            <p>To provide scopes to upgrade and polish your professional journey through trending online programs which offer personalized support, developed in close collaboration with the best in class faculty and industry experts.</p>
+                            <p>Our mission is to deliver opportunities to nourish and polish your skilled career through elaborate online programs that offer personalized assistance from transcendent professionals in their fields.</p>
                             <!-- <footer class="blockquote-footer text-white">
                                 <small>
                                  <cite title="Source Title">skillsbd.com</cite>
@@ -114,7 +114,7 @@
                         <div class="card text-center">
                             <div class="card-body p-5">
                             <h3 class="card-title">Our Purpose</h3>
-                            <p class="card-text">Our purpose is to make the new economy an ideology, where the skills and expertise will be available what needed to succeed.</p>
+                            <p class="card-text">Our purpose to make provide an alternative skill development platform that enhances your skill and proficiency in your chosen field of expertise.</p>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
         
         <div class="d-flex justify-content-center">            
                 <div class="col-md-10 col-sm-12 text-center mb-3">
-                    <p>There are many online learning platform on the internet. And there’s us. We are not the biggest. We are not the cheapest. But we are the fastest growing. We have the highest course completion rate in the industry. The reason is, we don’t give up. When a student commits to a course, we commit to the student.
+                    <p>Skillsbd began its humble journey with a mission to create a better tomorrow for the professionals in early 2018. In a consistently changing industry, it is crucial to sharpening your skill continuously for keeping abreast. Keeping that in mind, the overly committed educators invest themselves in the nourishment of our learners. We believe that commitment is a two-way lane. When a student commits to a course, we commit to the student. As the fastest growing skill development platform online, our objective is to empower our learner's skill set so they can take the next step towards advancement.
                     </p>
                 </div> 
         </div>           
