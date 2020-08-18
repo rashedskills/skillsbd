@@ -117,7 +117,7 @@
 
 		        $content = curl_exec($handle);
 		        $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-// var_dump($code);exit;
+ var_dump($code);exit;
 
 		        if ($code == 200 && !(curl_errno($handle))) 
 		        {
