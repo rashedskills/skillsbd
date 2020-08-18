@@ -30,7 +30,7 @@
                                 <a class="nav-link" href="<?php echo site_url('home/contact'); ?>"><?php echo get_phrase('contact'); ?></a>
                             </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="https://www.facebook.com/skillsbdcom/" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit Page"><i class="fab fa-facebook social-icon"></i></a>
+                                <a class="nav-link" href="https://www.facebook.com/skillsbdEducation" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit Page"><i class="fab fa-facebook social-icon"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="https://www.linkedin.com/company/skillsbd/" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit Profile"><i class="fab fa-linkedin social-icon"></i></a>
