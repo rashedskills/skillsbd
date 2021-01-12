@@ -84,7 +84,7 @@ class Api extends REST_Controller {
     if ($logged_in_user_details['user_id'] > 0) {
       $response = $this->api_model->my_courses_get($logged_in_user_details['user_id']);
     }else{
-
+       echo "no resutl";
     }
     return $this->set_response($response, REST_Controller::HTTP_OK);
   }
