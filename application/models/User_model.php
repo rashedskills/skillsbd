@@ -15,8 +15,6 @@ class User_model extends CI_Model {
         return $this->db->get_where('users', array('role_id' => 1));
     }
 
-    
-
     public function get_user($user_id = 0) {
         if ($user_id > 0) {
             $this->db->where('id', $user_id);
